@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 [System.Serializable]
-public abstract class Consideration {
-	public Transform      transform;
-	public AnimationCurve utilCurve;
+public class Consideration {
+	[HideInInspector] public Transform      transform;
+	                  public AnimationCurve utilCurve;
 
-	public abstract float Utility { get; }
+	public virtual float Utility { get { return 0; } }
 
-	public float InvUtility { get { return 1 - Utility; } }
+	public virtual float InvUtility { get { return 1; } }
 }
