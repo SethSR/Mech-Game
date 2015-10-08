@@ -5,6 +5,11 @@
 			"name": "Scripts",
 			"path": "Assets\\Scripts",
 			"file_include_patterns": [ "*.cs" ],
-		}
+		},
+		{
+			"name": "Editor",
+			"path": "Assets\\Editor",
+			"file_include_patterns": [ "*.cs" ],
+		},
 	]
 }
