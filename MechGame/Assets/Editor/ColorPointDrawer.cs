@@ -4,6 +4,7 @@ using UnityEditor;
 [CustomPropertyDrawer(typeof(ColorPoint))]
 public class ColorPointDrawer : PropertyDrawer {
 	public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+		int oldIndentLevel = EditorGUI.indentLevel;
 		label = EditorGUI.BeginProperty(position, label, property);
 		Rect contentPosition = EditorGUI.PrefixLabel(position, label);
 		if (position.height > 16f) {
@@ -20,9 +21,10 @@ public class ColorPointDrawer : PropertyDrawer {
 		EditorGUIUtility.labelWidth = 14f;
 		EditorGUI.PropertyField(contentPosition, property.FindPropertyRelative("color"), new GUIContent("C"));
 		EditorGUI.EndProperty();
+		EditorGUI.indentLevel = oldIndentLevel;
 	}
 
 	public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
-		return Screen.width < 333 ? (16f + 18f) : 16f;
+		return label != GUIContent.none &&  Screen.width < 333 ? (16f + 18f) : 16f;
 	}
 }
