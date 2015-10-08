@@ -1,0 +1,10 @@
+{
+	"folders":
+	[
+		{
+			"name": "Scripts",
+			"path": "Assets\\Scripts",
+			"file_include_patterns": [ "*.cs" ],
+		}
+	]
+}
