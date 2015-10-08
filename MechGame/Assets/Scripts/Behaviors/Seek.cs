@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
 
 [RequireComponent(typeof(Mobile))]
 public class Seek : SteeringBehavior {
-	public Vector3 target;
+  public Mobile    vehicle;
+	public Transform target;
 
 	// Update is called once per frame
-	void Update () {
-		var desired_velocity = (target - transform.position).normalized * GetComponent<Mobile>().maxSpeed;
-		force = desired_velocity - GetComponent<Mobile>().velocity;
-
-		DebugExtension.DebugArrow(transform.position, force, Color.blue);
+	public override Vector3 Force {
+    get {
+  		var desired_velocity = (target.position - vehicle.transform.position).normalized * vehicle.maxSpeed;
+      var force = desired_velocity - vehicle.velocity;
+      // DebugExtension.DebugArrow(vehicle.transform.position, force, Color.blue);
+  		return force;
+    }
 	}
 }

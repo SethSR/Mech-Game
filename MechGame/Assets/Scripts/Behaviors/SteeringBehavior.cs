@@ -1,5 +1,7 @@
 using UnityEngine;
+using System;
 
-public abstract class SteeringBehavior : MonoBehaviour {
-	[HideInInspector] public Vector3 force;
+[Serializable]
+public abstract class SteeringBehavior {
+  public abstract Vector3 Force { get; }
 }
