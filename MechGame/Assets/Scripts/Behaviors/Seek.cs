@@ -3,7 +3,6 @@ using System;
 
 [RequireComponent(typeof(Mobile))]
 public class Seek : SteeringBehavior {
-  public Mobile    vehicle;
 	public Transform target;
 
 	// Update is called once per frame

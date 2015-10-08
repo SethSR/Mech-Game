@@ -3,7 +3,6 @@ using System.Collections;
 
 [RequireComponent(typeof(SphereCollider))]
 public class Wander : SteeringBehavior {
-	public Mobile vehicle;
 	public float  wanderJitter;
 	public float  wanderRadius;
 	public float  wanderDistance;
