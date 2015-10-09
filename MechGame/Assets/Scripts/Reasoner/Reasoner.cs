@@ -27,11 +27,22 @@ public class Reasoner : BetterBehaviour {
 			var action = Vector3.zero;
 			var best_utility = 0f;
 			foreach (var ad in actionDeciders) {
-				var utility = ad.considerations.Select(c => c.Utility).Aggregate((a,b) => a * b);
-				action       = best_utility < utility ? ad.behavior.Force : action;
-				best_utility = best_utility < utility ? utility : best_utility;
+				if (ad.enable) {
+					var utility = ad.considerations.Select(c => c.Utility).Aggregate((a,b) => a * b);
+					utility = compensatedScore(utility, ad.considerations.Count);
+					Debug.Log(ad.actionName + ", utility: " + utility);
+					action       = best_utility < utility ? ad.behavior.Force : action;
+					best_utility = best_utility < utility ? utility : best_utility;
+				}
 			}
 			return action;
 		}
+	}
+
+	static float compensatedScore(float score, float numConsiderations) {
+		var modificationFactor      = 1 - (1 / numConsiderations);
+		var makeUpValue             = (1 - score) * modificationFactor;
+		var finalConsiderationScore = score + (makeUpValue * score);
+		return finalConsiderationScore;
 	}
 }
