@@ -14,4 +14,10 @@ public class Seek : SteeringBehavior {
   		return force;
     }
 	}
+
+  public Seek() {}
+
+  public Seek(Vector3 t) {
+    target.position = t;
+  }
 }
