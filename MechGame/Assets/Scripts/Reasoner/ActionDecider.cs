@@ -9,4 +9,9 @@ public class ActionDecider {
 	                  public Decision            decision;
 	                  public List<Consideration> considerations;
 	[HideInInspector] public bool                currentAction;
+
+	public void initialize(Mech m, Transform t) {
+		decision.mech = m;
+		considerations.ForEach(con => con.transform = t);
+	}
 }
