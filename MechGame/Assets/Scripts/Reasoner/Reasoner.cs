@@ -4,18 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 
 [RequireComponent(typeof(Mobile))]
+[RequireComponent(typeof(Mech))]
 public class Reasoner : BetterBehaviour {
 	public List<ActionDecider> actionDeciders;
 
 	void Start() {
-		actionDeciders.ForEach(ad =>
-			ad.considerations.ForEach(con =>
-				con.transform = transform));
-		// foreach (var ad in actionDeciders) {
-		// 	foreach (var con in ad.considerations) {
-		// 		con.transform = transform;
-		// 	}
-		// }
+		actionDeciders.ForEach(ad => ad.initialize(GetComponent<Mech>(), transform));
 	}
 
 	public void enactDecision() {
