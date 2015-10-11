@@ -1,18 +1,50 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using Vexe.Runtime.Types;
+using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
-public class Mech : MonoBehaviour {
+public class Mech : BetterBehaviour {
+	[HideInInspector] public List<Mech> enemyMechs = new List<Mech>(10);
+	                  public int        team       = -1;
+
+	public IEnumerable<IResource> KnownResources {
+		get { return interactables.Where(i => i is IResource).Select(i => (IResource)i); }
+	}
+
 	public float CurrentHealth { get; set; }
 	public float TotalHealth { get; set; }
 
 	public int CurrentTeamSize { get; set; }
 	public int TotalTeamSize { get; set; }
 
-	// Use this for initialization
-	void Start () {
+	List<Interactable> interactables = new List<Interactable>(10);
+
+	void OnTriggerEnter(Collider other) {
+		switch (other.tag) {
+			case "Resource":
+				IResource res = other.gameObject.GetComponent<IResource>();
+				interactables.Add(res);
+				break;
+			case "Mech":
+				var mech = other.gameObject.GetComponent<Mech>();
+				if (mech.team != team) {
+					enemyMechs.Add(mech);
+				}
+				break;
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+	void OnTriggerExit(Collider other) {
+		switch (other.tag) {
+			case "Resource":
+				interactables.Remove(other.gameObject.GetComponent<IResource>());
+				break;
+			case "Mech":
+				var mech = other.gameObject.GetComponent<Mech>();
+				if (mech.team != team) {
+					enemyMechs.Remove(other.gameObject.GetComponent<Mech>());
+				}
+				break;
+		}
 	}
 }
