@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using Vexe.Runtime.Types;
+using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
-public class Mobile : MonoBehaviour {
+public class Mobile : BetterBehaviour {
 	public float maxSpeed;
 	public float maxForce;
 
@@ -10,7 +11,7 @@ public class Mobile : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		var steering_force = GetComponent<Reasoner>().Action;
+		var steering_force = Vector3.zero; // not sure if we need this...
 		steering_force = Vector3.ClampMagnitude(steering_force, maxForce);
 		DebugExtension.DebugArrow(transform.position, steering_force, Color.black);
 		var acceleration = steering_force / GetComponent<Rigidbody>().mass;
