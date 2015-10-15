@@ -1,22 +1,30 @@
 ﻿using UnityEngine;
+using Vexe.Runtime.Types;
 
 public enum ConsiderationTypes {
 	Distance,
 	Time,
 	TeamSize,
 	Health,
+	Multiplier,
 }
 
 public class Consideration {
 	[HideInInspector] public Mech               mech;
 	                  public ConsiderationTypes type;
-	                  public Mech               target;
-	                  public float              timeLimit;
-	                  public float              maxDistance;
-	                  public float              multiplier;
-	                  public AnimationCurve     utilCurve;
+	[VisibleWhen(   "isDistance")] public Mech           target;
+	[VisibleWhen(       "isTime")] public float          timeLimit;
+	[VisibleWhen(   "isDistance")] public float          maxDistance;
+	[VisibleWhen( "isMultiplier")] public float          multiplier;
+	[VisibleWhen("!isMultiplier")] public AnimationCurve utilCurve;
 
-	public virtual float Utility {
+	bool isDistance  () { return type == ConsiderationTypes.Distance; }
+	bool isHealth    () { return type == ConsiderationTypes.Health; }
+	bool isTime      () { return type == ConsiderationTypes.Time; }
+	bool isMultiplier() { return type == ConsiderationTypes.Multiplier; }
+	bool isTeamSize  () { return type == ConsiderationTypes.TeamSize; }
+
+	[Readonly] public virtual float Utility {
 		get {
 			float result = 0f;
 
