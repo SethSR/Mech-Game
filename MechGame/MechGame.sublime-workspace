@@ -444,34 +444,34 @@
 	"buffers":
 	[
 		{
-			"file": "Assets/Scripts/Reasoner/Reasoner.cs",
-			"settings":
-			{
-				"buffer_size": 1308,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "Assets/Scripts/Mech.cs",
 			"settings":
 			{
-				"buffer_size": 360,
+				"buffer_size": 1205,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/SteeringBehaviors.cpp",
+			"file": "Assets/Scripts/Reasoner/Action.cs",
 			"settings":
 			{
-				"buffer_size": 54065,
+				"buffer_size": 515,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "Assets/Scripts/Mobile.cs",
+			"file": "Assets/Scripts/Reasoner/Consideration.cs",
 			"settings":
 			{
-				"buffer_size": 825,
+				"buffer_size": 1535,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/Scripts/Reasoner/Reasoner.cs",
+			"settings":
+			{
+				"buffer_size": 2337,
 				"line_ending": "Windows"
 			}
 		}
@@ -499,10 +499,18 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 82.0,
-		"last_filter": "projpre",
+		"height": 194.0,
+		"last_filter": "q",
 		"selected_items":
 		[
+			[
+				"q",
+				"Git: Quick Commit"
+			],
+			[
+				"gad",
+				"Git: Add Current File"
+			],
 			[
 				"projpre",
 				"Project: Edit Project"
@@ -780,7 +788,7 @@
 				"Package Control: Discover Packages"
 			]
 		],
-		"width": 528.0
+		"width": 545.0
 	},
 	"console":
 	{
@@ -809,12 +817,27 @@
 	],
 	"file_history":
 	[
-		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/SteeringBehaviors.h",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CTeamSize.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CHealth.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CDistance.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CMultiplier.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CTime.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/Consideration.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Decisions/Decision.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/ActionDecider.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Decisions/DAttackDefault.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Mobile.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/ObstacleAvoidance.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/SteeringBehavior.cs",
+		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/SteeringBehaviors.cpp",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Decisions/Collect.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Reasoner.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/WallAvoidance.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Decision.cs",
+		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/SteeringBehaviors.h",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Pursuit.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Flee.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Evade.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/ObstacleAvoidance.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Separation.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Alignment.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Cohesion.cs",
@@ -822,22 +845,14 @@
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Hide.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Plugins/Vexe/Runtime/Serialization/Serializers/SerializerBackend.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Path.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/SteeringBehavior.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Arrive.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Seek.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/FollowPath.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/OffsetPursuit.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Wander.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/UtilityAI.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CDistance.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CTime.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CHealth.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CTeamSize.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CEnemyHealth.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CEnemyTeamSize.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CMultiplier.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/Consideration.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/ActionDecider.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CConstant.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Wander.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Mech.cs",
@@ -855,10 +870,8 @@
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/TestStuff/PropertyHolder.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Editor/ListTesterInspector.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/ActionDecider.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Reasoner.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Editor/EditorListOption.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/TestStuff/ListTester.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Mobile.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Editor/EditorList",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/ColorPointTester.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/ColorPoint.cs",
@@ -931,12 +944,7 @@
 		"/C/Projects/IS/MathLessons/Code/GuidedRounding_Shell.joe",
 		"/C/Projects/IS/MathLessons/Code/FractionCrossingGameCode.joe",
 		"/C/Projects/IS/joe/KnowledgeBase.joe",
-		"/C/Projects/IS/MathLessons/Code/FractionCrossingStage.joe",
-		"/C/Projects/IS/joe/QuestionLog.joe",
-		"/C/Projects/IS/MathLessons/Code/AudioManager_Code.joe",
-		"/C/Users/srenshaw/workspace/istation/src/MathLessons/FractionCrossing_v2.java",
-		"/C/Projects/IS/Math_PreK_1st/_Songs.sdf",
-		"/C/Users/srenshaw/Desktop/test.html"
+		"/C/Projects/IS/MathLessons/Code/FractionCrossingStage.joe"
 	],
 	"find":
 	{
@@ -956,6 +964,16 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"case",
+			"decision",
+			"break",
+			"case",
+			"retreat",
+			"ActionDecider",
+			"Reasoner",
+			"dist_to_closest_intersection_point",
+			"action",
+			"behavior",
 			"threat_range",
 			"position",
 			"transform",
@@ -1073,17 +1091,7 @@
 			"numScoredQuestions",
 			"if",
 			"int",
-			"points",
-			"values",
-			"btnOkay",
-			"Text",
-			"checkToEnableFuseButton",
-			"btnFuse",
-			"GetComponent<GUIText>().",
-			" Debug.Log(\"Typed: \" + num); ",
-			"int",
-			"splitStem",
-			"enabled"
+			"points"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1165,24 +1173,26 @@
 			[
 				{
 					"buffer": 0,
-					"file": "Assets/Scripts/Reasoner/Reasoner.cs",
+					"file": "Assets/Scripts/Mech.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1308,
+						"buffer_size": 1205,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								493,
-								493
+								800,
+								800
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C#/C#.tmLanguage"
+							"history_list_is_closing": true,
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1193,19 +1203,48 @@
 				},
 				{
 					"buffer": 1,
-					"file": "Assets/Scripts/Mech.cs",
+					"file": "Assets/Scripts/Reasoner/Action.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 360,
+						"buffer_size": 515,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								360,
-								360
+								239,
+								239
+							]
+						],
+						"settings":
+						{
+							"history_list_is_closing": true,
+							"syntax": "Packages/C#/C#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Assets/Scripts/Reasoner/Consideration.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1535,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								90,
+								90
 							]
 						],
 						"settings":
@@ -1216,50 +1255,9 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 2,
-					"file": "/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/SteeringBehaviors.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 54065,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								30548,
-								30548
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 9115.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		},
 		{
@@ -1268,19 +1266,19 @@
 			[
 				{
 					"buffer": 3,
-					"file": "Assets/Scripts/Mobile.cs",
+					"file": "Assets/Scripts/Reasoner/Reasoner.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 825,
+						"buffer_size": 2337,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								73,
-								73
+								2017,
+								2017
 							]
 						],
 						"settings":
@@ -1289,10 +1287,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 825.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -1321,18 +1319,6 @@
 				0,
 				2,
 				1
-			],
-			[
-				0,
-				1,
-				1,
-				2
-			],
-			[
-				1,
-				1,
-				2,
-				2
 			]
 		],
 		"cols":
@@ -1344,7 +1330,6 @@
 		"rows":
 		[
 			0.0,
-			0.5,
 			1.0
 		]
 	},
@@ -1391,6 +1376,38 @@
 		"selected_items":
 		[
 			[
+				"c",
+				"Scripts\\Reasoner\\Considerations\\CTeamSize.cs"
+			],
+			[
+				"cm",
+				"Scripts\\Reasoner\\Considerations\\CMultiplier.cs"
+			],
+			[
+				"ch",
+				"Scripts\\Reasoner\\Considerations\\CHealth.cs"
+			],
+			[
+				"con",
+				"Scripts\\Reasoner\\Considerations\\Consideration.cs"
+			],
+			[
+				"dec",
+				"Scripts\\Reasoner\\Decisions\\Decision.cs"
+			],
+			[
+				"action",
+				"Scripts\\Reasoner\\ActionDecider.cs"
+			],
+			[
+				"de",
+				"Scripts\\Reasoner\\Decisions\\Decision.cs"
+			],
+			[
+				"obst",
+				"Scripts\\Behaviors\\Steering\\ObstacleAvoidance.cs"
+			],
+			[
 				"wall",
 				"Scripts\\Behaviors\\Steering\\WallAvoidance.cs"
 			],
@@ -1425,10 +1442,6 @@
 			[
 				"offes",
 				"Scripts\\Behaviors\\Steering\\OffsetPursuit.cs"
-			],
-			[
-				"con",
-				"Scripts\\Reasoner\\Considerations\\Consideration.cs"
 			],
 			[
 				"wander",
@@ -1684,9 +1697,17 @@
 	"select_project":
 	{
 		"height": 500.0,
-		"last_filter": "math",
+		"last_filter": "hh",
 		"selected_items":
 		[
+			[
+				"hh",
+				"C:\\Users\\srens\\Desktop\\HandmadeHero\\HH.sublime-project"
+			],
+			[
+				"ro",
+				"C:\\Users\\srens\\Dropbox\\Roleplaying\\roleplaying.sublime-project"
+			],
 			[
 				"math",
 				"C:\\Projects\\IS\\Sublime Projects\\MathLessons.sublime-project"
@@ -1705,10 +1726,6 @@
 			],
 			[
 				"rol",
-				"C:\\Users\\srenshaw\\Dropbox\\Roleplaying\\roleplaying.sublime-project"
-			],
-			[
-				"ro",
 				"C:\\Users\\srenshaw\\Dropbox\\Roleplaying\\roleplaying.sublime-project"
 			],
 			[
@@ -2171,7 +2188,7 @@
 		],
 		"width": 400.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
