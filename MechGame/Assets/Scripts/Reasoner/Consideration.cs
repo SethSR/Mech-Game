@@ -24,7 +24,7 @@ public class Consideration {
 	bool isMultiplier() { return type == ConsiderationTypes.Multiplier; }
 	bool isTeamSize  () { return type == ConsiderationTypes.TeamSize; }
 
-	[Readonly] public virtual float Utility {
+	public float Utility {
 		get {
 			float result = 0f;
 
