@@ -11,8 +11,8 @@ public enum ConsiderationTypes {
 
 public class Consideration {
 	[HideInInspector] public Mech               mech;
+	[HideInInspector] public Mech               target;
 	                  public ConsiderationTypes type;
-	[VisibleWhen(   "isDistance")] public Mech           target;
 	[VisibleWhen(       "isTime")] public float          timeLimit;
 	[VisibleWhen(   "isDistance")] public float          maxDistance;
 	[VisibleWhen( "isMultiplier")] public float          multiplier;
