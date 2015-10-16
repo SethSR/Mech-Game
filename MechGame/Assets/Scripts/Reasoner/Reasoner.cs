@@ -19,10 +19,11 @@ public class Reasoner : BetterBehaviour {
 	}
 
 	void Update() {
+		Debug.Log(name);
 		var best_utility = -1f;
 		foreach (var ad in actionDeciders) {
 			var utility = ad.Utility;
-			Debug.Log(ad.type + ", utility: " + utility);
+			// Debug.Log(ad.type + ", utility: " + utility);
 			utility      *= ad == currentAction ? ad.commitmentBonus : 1;
 			currentAction = best_utility < utility ? ad : currentAction;
 			best_utility  = best_utility < utility ? utility : best_utility;
