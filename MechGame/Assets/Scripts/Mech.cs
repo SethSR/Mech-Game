@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
+[RequireComponent(typeof(Mobile))]
 public class Mech : BetterBehaviour {
 	[HideInInspector] public List<Mech> enemyMechs      = new List<Mech>(10);
 	[HideInInspector] public float      currentHealth   = 100;
@@ -19,7 +20,9 @@ public class Mech : BetterBehaviour {
 	public Weapon backWep;
 
 	public void fireWeaponAt(Mech enemy) {
-		DebugExtension.DrawArrow(transform.position, enemy.transform.position, Color.red);
+		DebugExtension.DebugArrow(transform.position, enemy.transform.position - transform.position, Color.red);
+		CurrentWeapon.fire();
+		// Debug.Log(transform.name + ": Firing weapon");
 	}
 
 	[HideInInspector] public Weapon CurrentWeapon {
@@ -30,6 +33,15 @@ public class Mech : BetterBehaviour {
 		}
 	}
 
+
+	void Start() {
+		var colliders = GetComponents<SphereCollider>();
+		foreach (var collider in colliders) {
+			if (collider.isTrigger) {
+				collider.radius = sensorRange;
+			}
+		}
+	}
 
 	void Update() {
 		if (playerControlled) {
