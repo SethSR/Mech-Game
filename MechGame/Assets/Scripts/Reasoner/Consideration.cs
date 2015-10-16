@@ -24,6 +24,8 @@ public class Consideration {
 	public float multiplier;
 	[VisibleWhen("!isMultiplier","!isLineOfSight", "!isWeaponCooldown")]
 	public AnimationCurve utilCurve;
+	[VisibleWhen('|',"isLineOfSight","isWeaponCooldown")]
+	public bool inverse;
 
 	bool isLineOfSight   () { return type == ConsiderationTypes.LineOfSight; }
 	bool isMultiplier    () { return type == ConsiderationTypes.Multiplier; }
@@ -59,7 +61,13 @@ public class Consideration {
 
 				case ConsiderationTypes.LineOfSight: {
 					var los = Physics.Linecast(mech.transform.position, target.position);
-					result = los ? 1 : 0; // bool -> float
+					//  inverse &&  los -> 0
+					//  inverse && !los -> 1
+					// !inverse &&  los -> 1
+					// !inverse && !los -> 0
+					result = inverse
+						? (los ? 0 : 1)
+						: (los ? 1 : 0);
 				} break;
 
 				case ConsiderationTypes.TeamSize: {
@@ -74,9 +82,16 @@ public class Consideration {
 				} break;
 
 				case ConsiderationTypes.WeaponCooldown: {
-					var cur_time = Time.time - startTime;
-					var cooldown_over = cur_time > mech.CurrentWeapon.cooldown;
-					result = cooldown_over ? 1 : 0;
+					var wep = mech.CurrentWeapon;
+					var cur_time = Time.time - wep.fireTime;
+					var cooldown_over = cur_time > wep.cooldown;
+					//  inverse &&  cooldown_over -> 0
+					//  inverse && !cooldown_over -> 1
+					// !inverse &&  cooldown_over -> 1
+					// !inverse && !cooldown_over -> 0
+					result = inverse
+						? (cooldown_over ? 0 : 1)
+						: (cooldown_over ? 1 : 0);
 				} break;
 
 				default: {
