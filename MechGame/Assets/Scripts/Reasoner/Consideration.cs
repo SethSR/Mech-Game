@@ -22,12 +22,13 @@ public class Consideration {
 	public float timeLimit;
 	[VisibleWhen("isMultiplier")]
 	public float multiplier;
-	[VisibleWhen("!isMultiplier","!isLineOfSight")]
+	[VisibleWhen("!isMultiplier","!isLineOfSight", "!isWeaponCooldown")]
 	public AnimationCurve utilCurve;
 
-	bool isLineOfSight() { return type == ConsiderationTypes.LineOfSight; }
-	bool isMultiplier () { return type == ConsiderationTypes.Multiplier; }
-	bool isTime       () { return type == ConsiderationTypes.Time; }
+	bool isLineOfSight   () { return type == ConsiderationTypes.LineOfSight; }
+	bool isMultiplier    () { return type == ConsiderationTypes.Multiplier; }
+	bool isTime          () { return type == ConsiderationTypes.Time; }
+	bool isWeaponCooldown() { return type == ConsiderationTypes.WeaponCooldown; }
 
 	public float Utility {
 		get {
@@ -74,8 +75,8 @@ public class Consideration {
 
 				case ConsiderationTypes.WeaponCooldown: {
 					var cur_time = Time.time - startTime;
-					var time_ratio = cur_time / mech.CurrentWeapon.cooldown;
-					result = Mathf.Min(utilCurve.Evaluate(time_ratio), 1);
+					var cooldown_over = cur_time > mech.CurrentWeapon.cooldown;
+					result = cooldown_over ? 1 : 0;
 				} break;
 
 				default: {
