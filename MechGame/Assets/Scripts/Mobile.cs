@@ -10,13 +10,14 @@ public class Mobile : BetterBehaviour {
 	[HideInInspector] public Vector3 velocity = Vector3.forward;
 
 	// Update is called once per frame
-	void Update () {
-		var steering_force = Vector3.zero; // not sure if we need this...
+	public void update(Vector3 steering_force) {
 		steering_force = Vector3.ClampMagnitude(steering_force, maxForce);
-		DebugExtension.DebugArrow(transform.position, steering_force, Color.black);
 		var acceleration = steering_force / GetComponent<Rigidbody>().mass;
 		velocity += acceleration * Time.deltaTime;
 		velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
+	}
+
+	void Update() {
 		transform.position += velocity * Time.deltaTime;
 
 		transform.rotation = Quaternion.LookRotation(velocity);
