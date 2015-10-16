@@ -3,26 +3,31 @@ using Vexe.Runtime.Types;
 
 public enum ConsiderationTypes {
 	Distance,
-	Time,
-	TeamSize,
+	EnemyHealth,
+	EnemyTeamSize,
 	Health,
+	LineOfSight,
 	Multiplier,
+	TeamSize,
+	Time,
+	WeaponCooldown,
 }
 
 public class Consideration {
 	[HideInInspector] public Mech               mech;
-	[HideInInspector] public Mech               target;
+	[HideInInspector] public Transform          target;
 	                  public ConsiderationTypes type;
-	[VisibleWhen(       "isTime")] public float          timeLimit;
-	[VisibleWhen(   "isDistance")] public float          maxDistance;
-	[VisibleWhen( "isMultiplier")] public float          multiplier;
-	[VisibleWhen("!isMultiplier")] public AnimationCurve utilCurve;
 
-	bool isDistance  () { return type == ConsiderationTypes.Distance; }
-	bool isHealth    () { return type == ConsiderationTypes.Health; }
-	bool isTime      () { return type == ConsiderationTypes.Time; }
-	bool isMultiplier() { return type == ConsiderationTypes.Multiplier; }
-	bool isTeamSize  () { return type == ConsiderationTypes.TeamSize; }
+	[VisibleWhen("isTime")]
+	public float timeLimit;
+	[VisibleWhen("isMultiplier")]
+	public float multiplier;
+	[VisibleWhen("!isMultiplier","!isLineOfSight")]
+	public AnimationCurve utilCurve;
+
+	bool isLineOfSight() { return type == ConsiderationTypes.LineOfSight; }
+	bool isMultiplier () { return type == ConsiderationTypes.Multiplier; }
+	bool isTime       () { return type == ConsiderationTypes.Time; }
 
 	public float Utility {
 		get {
@@ -30,23 +35,46 @@ public class Consideration {
 
 			switch (type) {
 				case ConsiderationTypes.Distance: {
-					var dir = (target.transform.position - mech.transform.position);
-					result = Mathf.Max(Mathf.Min(utilCurve.Evaluate(dir.magnitude / maxDistance), 1), 0);
+					var dir = (target.position - mech.transform.position);
+					result = Mathf.Max(Mathf.Min(utilCurve.Evaluate(dir.magnitude / mech.sensorRange), 1), 0);
 				} break;
 
-				case ConsiderationTypes.Health: {
-					var hp_ratio = mech.CurrentHealth / mech.TotalHealth;
+				case ConsiderationTypes.EnemyHealth: {
+					var enemy = target.GetComponent<Mech>();
+					var hp_ratio = enemy.currentHealth / enemy.totalHealth;
 					result = utilCurve.Evaluate(hp_ratio);
 				} break;
 
+				case ConsiderationTypes.EnemyTeamSize: {
+					var enemy = target.GetComponent<Mech>();
+					var cur_team_size = enemy.currentTeamSize / (float)enemy.maxTeamSize;
+					result = utilCurve.Evaluate(cur_team_size);
+				} break;
+
+				case ConsiderationTypes.Health: {
+					var hp_ratio = mech.currentHealth / mech.totalHealth;
+					result = utilCurve.Evaluate(hp_ratio);
+				} break;
+
+				case ConsiderationTypes.LineOfSight: {
+					var los = Physics.Linecast(mech.transform.position, target.position);
+					result = los ? 1 : 0; // bool -> float
+				} break;
+
 				case ConsiderationTypes.TeamSize: {
-					var cur_team_size = mech.CurrentTeamSize / (float)mech.TotalTeamSize;
+					var cur_team_size = mech.currentTeamSize / (float)mech.maxTeamSize;
 					result = utilCurve.Evaluate(cur_team_size);
 				} break;
 
 				case ConsiderationTypes.Time: {
-					var cur_time = Time.time / startTime;
+					var cur_time = Time.time - startTime;
 					var time_ratio = cur_time / timeLimit;
+					result = Mathf.Min(utilCurve.Evaluate(time_ratio), 1);
+				} break;
+
+				case ConsiderationTypes.WeaponCooldown: {
+					var cur_time = Time.time - startTime;
+					var time_ratio = cur_time / mech.CurrentWeapon.cooldown;
 					result = Mathf.Min(utilCurve.Evaluate(time_ratio), 1);
 				} break;
 
