@@ -18,17 +18,72 @@ public enum ActionTypes {
 }
 
 public class Action : BetterBehaviour {
-	[HideInInspector] public Transform           target;
+	[HideInInspector] public Transform target;
+	[HideInInspector] public Mech      mech;
+
 	                  public ActionTypes         type;
 	[fMin(1)]         public float               commitmentBonus;
-	                  public Mech                mech;
 	                  public List<Consideration> considerations;
 
 	void Start() {
 		considerations.ForEach(cons => cons.mech = mech);
 	}
 
-	public void enact() {}
+	public void enact() {
+		switch (type) {
+			case ActionTypes.Idle: {
+				// do actions
+			} break;
+
+			case ActionTypes.Attack: {
+				// Find line of sight
+				//TODO(seth): not sure how I'm going to do this currently
+
+				// Attack target
+				mech.fireWeaponAt(target.GetComponent<Mech>());
+			} break;
+
+			case ActionTypes.Hide: {
+				// do actions
+			} break;
+
+			case ActionTypes.Flee: {
+				// do actions
+			} break;
+
+			case ActionTypes.Shield: {
+				// do actions
+			} break;
+
+			case ActionTypes.EMP: {
+				// do actions
+			} break;
+
+			case ActionTypes.Charge: {
+				// do actions
+			} break;
+
+			case ActionTypes.Dodge: {
+				// do actions
+			} break;
+
+			case ActionTypes.Capture: {
+				// do actions
+			} break;
+
+			case ActionTypes.Defend: {
+				// do actions
+			} break;
+
+			case ActionTypes.Destroy: {
+				// do actions
+			} break;
+
+			default: {
+				// do nothing
+			} break;
+		}
+	}
 
 	public float Utility {
 		get {
@@ -41,7 +96,7 @@ public class Action : BetterBehaviour {
 					float best_utility = 0;
 					foreach (Mech enemy in mech.enemyMechs) {
 						var utility = compensatedScore(considerations.Select(cons => {
-							cons.target = enemy;
+							cons.target = enemy.transform;
 							return cons.Utility;
 						}));
 						target       = (utility > best_utility) ? enemy.transform : target;
