@@ -20,9 +20,12 @@ public class Mech : BetterBehaviour {
 	public Weapon backWep;
 
 	public void fireWeaponAt(Mech enemy) {
-		DebugExtension.DebugArrow(transform.position, enemy.transform.position - transform.position, Color.red);
-		CurrentWeapon.fire();
-		// Debug.Log(transform.name + ": Firing weapon");
+		var cur_time = Time.time - CurrentWeapon.fireTime;
+		if (cur_time > CurrentWeapon.cooldown) {
+			DebugExtension.DebugArrow(transform.position, enemy.transform.position - transform.position, Color.red);
+			CurrentWeapon.fire();
+			// Debug.Log(transform.name + ": Firing weapon");
+		}
 	}
 
 	[HideInInspector] public Weapon CurrentWeapon {
