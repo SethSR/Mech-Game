@@ -21,13 +21,13 @@ public class Action : BetterBehaviour {
 	[HideInInspector] public Transform target;
 	[HideInInspector] public Mech      mech;
 
-	                  public ActionTypes         type;
-	[fMin(1)]         public float               commitmentBonus;
-	                  public List<Consideration> considerations;
+	                         public ActionTypes         type;
+	[fMin(1)]
+	[VisibleWhen("!isIdle")] public float               commitmentBonus;
+	[VisibleWhen("!isIdle")] public List<Consideration> considerations;
+	[VisibleWhen( "isIdle")] public float               maxIdleValue    = 0.5f;
 
-	void Start() {
-		considerations.ForEach(cons => cons.mech = mech);
-	}
+	bool isIdle() { return type == ActionTypes.Idle; }
 
 	public void enact() {
 		switch (type) {
@@ -38,6 +38,10 @@ public class Action : BetterBehaviour {
 			case ActionTypes.Attack: {
 				// Find line of sight
 				//TODO(seth): not sure how I'm going to do this currently
+				var mobile = mech.GetComponent<Mobile>();
+				var force = Seek.force(mobile, target.position);
+				Debug.Log("Force: " + force);
+				mobile.update(force);
 
 				// Attack target
 				mech.fireWeaponAt(target.GetComponent<Mech>());
@@ -89,19 +93,23 @@ public class Action : BetterBehaviour {
 		get {
 			switch (type) {
 				case ActionTypes.Idle: {
-					return compensatedScore(considerations.Select(cons => cons.Utility));
+					return maxIdleValue;
 				}
 
 				case ActionTypes.Attack: {
 					float best_utility = 0;
 					foreach (Mech enemy in mech.enemyMechs) {
 						var utility = compensatedScore(considerations.Select(cons => {
+							cons.mech   = mech;
 							cons.target = enemy.transform;
-							return cons.Utility;
+							var con_utility = cons.Utility;
+							// Debug.Log(enemy.name + " | " + cons.type + ": " + con_utility);
+							return con_utility;
 						}));
 						target       = (utility > best_utility) ? enemy.transform : target;
 						best_utility = (utility > best_utility) ? utility : best_utility;
 					}
+					// Debug.Log(mech.name + " | " + type + ": " + best_utility);
 					return best_utility;
 				}
 
