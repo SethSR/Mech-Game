@@ -20,4 +20,10 @@ public class Seek : SteeringBehavior {
   public Seek(Vector3 t) {
     target.position = t;
   }
+
+  static public Vector3 force(Mobile v, Vector3 t) {
+    var desired_velocity = (t - v.transform.position).normalized * v.maxSpeed;
+    var force = desired_velocity - v.velocity;
+    return force;
+  }
 }
