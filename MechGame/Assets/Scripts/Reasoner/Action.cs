@@ -17,7 +17,7 @@ public enum ActionTypes {
 	Shield,
 }
 
-public class Action : BetterScriptableObject {
+public class Action : BetterBehaviour {
 	static Dictionary<ActionTypes,Action> actionMap = new Dictionary<ActionTypes,Action>();
 
 	static public Action createType(ActionTypes at) {
@@ -111,9 +111,7 @@ public class Action : BetterScriptableObject {
 					float best_utility = 0;
 					foreach (Mech enemy in mech.enemyMechs) {
 						var utility = compensatedScore(considerations.Select(cons => {
-							cons.mech   = mech;
-							cons.target = enemy.transform;
-							var con_utility = cons.Utility;
+							var con_utility = cons.utility(mech, enemy.transform);
 							// Debug.Log(enemy.name + " | " + cons.type + ": " + con_utility);
 							return con_utility;
 						}));
