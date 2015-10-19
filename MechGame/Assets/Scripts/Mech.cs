@@ -24,7 +24,6 @@ public class Mech : BetterBehaviour {
 		if (cur_time > CurrentWeapon.cooldown) {
 			DebugExtension.DebugArrow(transform.position, enemy.transform.position - transform.position, Color.red);
 			CurrentWeapon.fire();
-			// Debug.Log(transform.name + ": Firing weapon");
 		}
 	}
 

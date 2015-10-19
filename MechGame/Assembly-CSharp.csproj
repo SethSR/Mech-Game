@@ -69,7 +69,7 @@
      <Compile Include="Assets\Scripts\Mech.cs" />
      <Compile Include="Assets\Scripts\Mobile.cs" />
      <Compile Include="Assets\Scripts\Path.cs" />
-     <Compile Include="Assets\Scripts\Reasoner\Actions\Action.cs" />
+     <Compile Include="Assets\Scripts\Reasoner\Action.cs" />
      <Compile Include="Assets\Scripts\Reasoner\Consideration.cs" />
      <Compile Include="Assets\Scripts\Reasoner\Reasoner.cs" />
      <Compile Include="Assets\Scripts\TestStuff\ColorPoint.cs" />
