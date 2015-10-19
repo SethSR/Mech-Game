@@ -11,7 +11,6 @@ public class Reasoner : BetterBehaviour {
 	Action currentAction;
 
 	void Start() {
-		currentAction = Action.createType(ActionTypes.Idle);
 		var mech = GetComponent<Mech>();
 		actions = actionTypes.Select(at => {
 			Action a = Action.createType(at);
@@ -28,6 +27,11 @@ public class Reasoner : BetterBehaviour {
 			currentAction = best_utility < utility ? ad : currentAction;
 			best_utility  = best_utility < utility ? utility : best_utility;
 		}
-		currentAction.enact();
+		if (currentAction != null) {
+			currentAction.enact();
+		} else {
+			Debug.Log(name + " | currentAction not set!");
+		}
+		// Debug.Log(name + " | Action: " + currentAction.type + ", Utility: " + best_utility);
 	}
 }
