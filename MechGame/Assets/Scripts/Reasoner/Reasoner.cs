@@ -5,30 +5,29 @@ using System.Linq;
 
 [RequireComponent(typeof(Mech))]
 public class Reasoner : BetterBehaviour {
-	List<Action>     actions;
-	List<Mech>       enemies;
-	List<GameObject> others;
+	public List<ActionTypes> actionTypes;
 
-	public List<Action> actionDeciders;
-
-	Action currentAction = null;
+	List<Action> actions = new List<Action>();
+	Action currentAction;
 
 	void Start() {
+		currentAction = Action.createType(ActionTypes.Idle);
 		var mech = GetComponent<Mech>();
-		actionDeciders.ForEach(ad => ad.mech = mech);
+		actions = actionTypes.Select(at => {
+			Action a = Action.createType(at);
+			a.mech = mech;
+			return a;
+		}).ToList();
 	}
 
 	void Update() {
-		Debug.Log(name);
 		var best_utility = -1f;
-		foreach (var ad in actionDeciders) {
+		foreach (var ad in actions) {
 			var utility = ad.Utility;
-			// Debug.Log(ad.type + ", utility: " + utility);
 			utility      *= ad == currentAction ? ad.commitmentBonus : 1;
 			currentAction = best_utility < utility ? ad : currentAction;
 			best_utility  = best_utility < utility ? utility : best_utility;
 		}
-		// Debug.Log(currentAction.type + " chosen");
 		currentAction.enact();
 	}
 }
