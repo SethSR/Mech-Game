@@ -8,7 +8,7 @@ public class Mech : BetterBehaviour {
 	[HideInInspector] public List<Mech> enemyMechs      = new List<Mech>(10);
 	[HideInInspector] public float      currentHealth   = 100;
 	[HideInInspector] public int        currentTeamSize =   0;
-	
+
 	          public bool  playerControlled = false;
 	          public int   team             =  -1;
 	          public float totalHealth      = 100;
@@ -23,7 +23,7 @@ public class Mech : BetterBehaviour {
 		var cur_time = Time.time - CurrentWeapon.fireTime;
 		if (cur_time > CurrentWeapon.cooldown) {
 			DebugExtension.DebugArrow(transform.position, enemy.transform.position - transform.position, Color.red);
-			CurrentWeapon.fire();
+			enemy.currentHealth -= CurrentWeapon.fire();
 		}
 	}
 
