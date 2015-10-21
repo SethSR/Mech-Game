@@ -51,6 +51,11 @@ public class Mech : BetterBehaviour {
 		} else {
 			// do other stuff
 		}
+
+		if (currentHealth < 0) {
+			// has died
+			Destroy(gameObject);
+		}
 	}
 
 	void OnTriggerEnter(Collider other) {
