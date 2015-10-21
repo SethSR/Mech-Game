@@ -9,8 +9,9 @@ public class Weapon : BetterBehaviour {
 	public float maxRange;
 	public float damage;
 
-	public void fire() {
+	public int fire() {
 		fireTime = Time.time;
+		return damage;
 	}
 
 	void Start() {
