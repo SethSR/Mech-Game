@@ -9,7 +9,7 @@ public class Weapon : BetterBehaviour {
 	public float maxRange;
 	public float damage;
 
-	public int fire() {
+	public float fire() {
 		fireTime = Time.time;
 		return damage;
 	}
