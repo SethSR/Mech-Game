@@ -36,8 +36,8 @@ public class Reasoner : BetterBehaviour {
 	}
 
 	void OnDestroy() {
-		actions.ForEach(action => {
-			if (action != null) { Destroy(action.gameObject); }
-		});
+		// actions.ForEach(action => {
+		// 	if (action != null) { Destroy(action.gameObject); }
+		// });
 	}
 }
