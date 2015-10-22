@@ -20,8 +20,7 @@ public class Mech : BetterBehaviour {
 	public Weapon backWep;
 
 	public void fireWeaponAt(Mech enemy) {
-		var cur_time = Time.time - CurrentWeapon.fireTime;
-		if (cur_time > CurrentWeapon.cooldown) {
+		if (CurrentWeapon.fireTime < 0) {
 			DebugExtension.DebugArrow(transform.position, enemy.transform.position - transform.position, Color.red);
 			enemy.currentHealth -= CurrentWeapon.fire();
 		}
@@ -43,9 +42,14 @@ public class Mech : BetterBehaviour {
 				collider.radius = sensorRange;
 			}
 		}
+		mainWep = Instantiate<Weapon>(mainWep); mainWep.owner = this;
+		sideWep = Instantiate<Weapon>(sideWep); sideWep.owner = this;
+		backWep = Instantiate<Weapon>(backWep); backWep.owner = this;
 	}
 
 	void Update() {
+		enemyMechs.RemoveAll(enemy => enemy == null);
+
 		if (playerControlled) {
 			// do stuff
 		} else {
@@ -56,6 +60,12 @@ public class Mech : BetterBehaviour {
 			// has died
 			Destroy(gameObject);
 		}
+	}
+
+	void OnDestroy() {
+		if (mainWep != null) { Destroy(mainWep.gameObject); }
+		if (sideWep != null) { Destroy(sideWep.gameObject); }
+		if (backWep != null) { Destroy(backWep.gameObject); }
 	}
 
 	void OnTriggerEnter(Collider other) {
