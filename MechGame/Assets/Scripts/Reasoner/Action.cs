@@ -14,10 +14,11 @@ public enum ActionTypes {
 	Flee,
 	Hide,
 	Idle,
+	Move,
 	Shield,
 }
 
-public class Action : BetterBehaviour {
+public class Action : BetterScriptableObject {
 	static Dictionary<ActionTypes,Action> actionMap = new Dictionary<ActionTypes,Action>();
 
 	static public Action createType(ActionTypes at) {
@@ -95,6 +96,10 @@ public class Action : BetterBehaviour {
 				// do actions
 			} break;
 
+			case ActionTypes.Move: {
+				// do actions
+			} break;
+
 			default: {
 				// do nothing
 			} break;
@@ -164,6 +169,11 @@ public class Action : BetterBehaviour {
 				}
 
 				case ActionTypes.Destroy: {
+					var best_utility = 0;
+					return best_utility;
+				}
+
+				case ActionTypes.Move: {
 					var best_utility = 0;
 					return best_utility;
 				}
