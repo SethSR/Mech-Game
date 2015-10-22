@@ -43,7 +43,8 @@ public class Action : BetterBehaviour {
 	public void enact() {
 		switch (type) {
 			case ActionTypes.Idle: {
-				// do actions
+				var mobile = mech.GetComponent<Mobile>();
+				mobile.update(-mobile.velocity);
 			} break;
 
 			case ActionTypes.Attack: {
