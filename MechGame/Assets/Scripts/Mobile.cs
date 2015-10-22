@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 public class Mobile : BetterBehaviour {
-	public float maxSpeed;
-	public float maxForce;
+	public float maxSpeed = 5;
+	public float maxForce = 2;
 
 	[HideInInspector] public Vector3 velocity = Vector3.forward;
 
@@ -14,13 +14,12 @@ public class Mobile : BetterBehaviour {
 		steering_force = Vector3.ClampMagnitude(steering_force, maxForce);
 		var acceleration = steering_force / GetComponent<Rigidbody>().mass;
 		velocity += acceleration * Time.deltaTime;
-		velocity = Vector3.ClampMagnitude(velocity, maxSpeed);
+		velocity  = Vector3.ClampMagnitude(velocity, maxSpeed);
 	}
 
 	void Update() {
 		transform.position += velocity * Time.deltaTime;
-
-		transform.rotation = Quaternion.LookRotation(velocity);
+		transform.rotation  = Quaternion.LookRotation(velocity != Vector3.zero ? velocity : transform.forward);
 		DebugExtension.DebugArrow(transform.position, velocity);
 	}
 }
