@@ -5,15 +5,15 @@ using System.Linq;
 
 [RequireComponent(typeof(Mobile))]
 public class Mech : BetterBehaviour {
-	[HideInInspector] public List<Mech> enemyMechs      = new List<Mech>(10);
-	[HideInInspector] public float      currentHealth   = 100;
-	[HideInInspector] public int        currentTeamSize =   0;
+	[HideInInspector] public List<Mech> enemyMechs;
+	[HideInInspector] public float      currentHealth;
+	[HideInInspector] public int        currentTeamSize;
 
 	          public bool  playerControlled = false;
 	          public int   team             =  -1;
-	          public float totalHealth      = 100;
+	[fMin(1)] public float totalHealth      = 100;
 	[fMin(1)] public float sensorRange      = 100; // in meters
-	          public int   maxTeamSize      =   5;
+	          public int   maxTeamSize      =   5; //TODO(seth): move this to the mechs carrier/commander
 
 	public Weapon mainWep;
 	public Weapon sideWep;
@@ -36,6 +36,7 @@ public class Mech : BetterBehaviour {
 
 
 	void Start() {
+		currentHealth = totalHealth;
 		var colliders = GetComponents<SphereCollider>();
 		foreach (var collider in colliders) {
 			if (collider.isTrigger) {
@@ -75,9 +76,9 @@ public class Mech : BetterBehaviour {
 				// interactables.Add(res);
 				break;
 			case "Mech":
-				var mech = other.gameObject.GetComponent<Mech>();
-				if (mech.team != team) {
-					enemyMechs.Add(mech);
+				var enemy = other.gameObject.GetComponent<Mech>();
+				if (enemy.team != team) {
+					enemyMechs.Add(enemy);
 				}
 				break;
 		}
@@ -89,9 +90,9 @@ public class Mech : BetterBehaviour {
 				// interactables.Remove(other.gameObject.GetComponent<IResource>());
 				break;
 			case "Mech":
-				var mech = other.gameObject.GetComponent<Mech>();
-				if (mech.team != team) {
-					enemyMechs.Remove(other.gameObject.GetComponent<Mech>());
+				var enemy = other.gameObject.GetComponent<Mech>();
+				if (enemy.team != team) {
+					enemyMechs.Remove(enemy);
 				}
 				break;
 		}
