@@ -7,7 +7,7 @@ using System.Linq;
 public class Reasoner : BetterBehaviour {
 	public List<ActionTypes> actionTypes;
 
-	List<Action> actions = new List<Action>();
+	List<Action> actions;
 	Action currentAction;
 
 	void Start() {
@@ -33,5 +33,11 @@ public class Reasoner : BetterBehaviour {
 			Debug.Log(name + " | currentAction not set!");
 		}
 		// Debug.Log(name + " | Action: " + currentAction.type + ", Utility: " + best_utility);
+	}
+
+	void OnDestroy() {
+		actions.ForEach(action => {
+			if (action != null) { Destroy(action.gameObject); }
+		});
 	}
 }
