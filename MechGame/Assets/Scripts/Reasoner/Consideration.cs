@@ -82,8 +82,7 @@ public class Consideration {
 
 			case ConsiderationTypes.WeaponCooldown: {
 				var wep = mech.CurrentWeapon;
-				var cur_time = Time.time - wep.fireTime;
-				var cooldown_over = cur_time > wep.cooldown;
+				var cooldown_over = wep.fireTime < 0;
 				//  inverse &&  cooldown_over -> 0
 				//  inverse && !cooldown_over -> 1
 				// !inverse &&  cooldown_over -> 1
