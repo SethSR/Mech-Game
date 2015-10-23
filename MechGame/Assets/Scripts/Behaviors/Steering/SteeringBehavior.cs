@@ -203,7 +203,9 @@ static public class SteeringBehavior {
 		}
 
 		//finally, convert the steering vector from local to world space
-		return vehicle.transform.position + Quaternion.LookRotation(Vector3.forward - vehicle.transform.forward) * steering_force;
+		var force = vehicle.transform.position + Quaternion.LookRotation(Vector3.forward - vehicle.transform.forward) * steering_force;
+		DebugExtension.DebugArrow(vehicle.transform.position, force - vehicle.transform.position, Color.black);
+		return force;
 	}
 
 	static public Vector3 OffsetPursuit(Mobile vehicle, Mobile leader, Vector3 offset) {
@@ -260,6 +262,7 @@ static public class SteeringBehavior {
 
 		//examine each feeler in turn
 		foreach (var feeler in feelers) {
+			DebugExtension.DebugCylinder(vehicle.transform.position, vehicle.transform.position + feeler, 0.1f);
 			//run through each wall checking for any intersection points
 			foreach (var wall in walls) {
 				RaycastHit hit_info;
