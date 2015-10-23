@@ -228,22 +228,25 @@ static public class SteeringBehavior {
 		var dist_to_closest_ip = float.MaxValue;
 
 		//this will hold an index into the vector of walls
-		int closest_wall = -1;
+		Transform closest_wall = null;
 
 		var steering_force = Vector3.zero;
-		var point = Vector3.zero;         //used for storing temporary info
 		var closest_point = Vector3.zero;  //holds the closest intersection point
+		var closest_normal = Vector3.zero;
 
 		//examine each feeler in turn
-		for (int flr = 0; flr < feelers.Count; ++flr) {
+		foreach (var feeler in feelers) {
 			//run through each wall checking for any intersection points
-			for (int w = 0; w < walls.Count; ++w) {
-				if (LineIntersection2D(vehicle.transform.position, feelers[flr], walls[w].From(), walls[w].To(), dist_to_this_ip, point)) {
+			foreach (var wall in walls) {
+				RaycastHit hit_info;
+				if (Physics.Linecast(vehicle.transform.position, feeler + vehicle.transform.position, out hit_info)) {
+					dist_to_this_ip = hit_info.distance;
 					//is this the closest found so far? If so keep a record
 					if (dist_to_this_ip < dist_to_closest_ip) {
 						dist_to_closest_ip = dist_to_this_ip;
-						closest_wall = w;
-						closest_point = point;
+						closest_wall = wall;
+						closest_point = hit_info.point;
+						closest_normal = hit_info.normal;
 					}
 				}
 			}//next wall
@@ -251,14 +254,14 @@ static public class SteeringBehavior {
 
 			//if an intersection point has been detected, calculate a force  
 			//that will direct the agent away
-			if (closest_wall >=0) {
+			if (closest_wall != null) {
 				//calculate by what distance the projected position of the agent
 				//will overshoot the wall
-				var overshoot = m_Feelers[flr] - closest_point;
+				var overshoot = feeler - closest_point;
 
 				//create a force in the direction of the wall normal, with a 
 				//magnitude of the overshoot
-				steering_force = walls[closest_wall].Normal() * overshoot.Length();
+				steering_force = closest_normal * overshoot.magnitude;
 			}
 		}//next feeler
 
@@ -266,7 +269,7 @@ static public class SteeringBehavior {
 	}
 
 	static List<Vector3> CreateFeelers(float wall_feeler_length) {
-		List<Vector3> feelers;
+		List<Vector3> feelers = new List<Vector3>(5);
 		feelers.Add(Quaternion.Euler(  0,  0, 0) * Vector3.forward * wall_feeler_length);
 		feelers.Add(Quaternion.Euler( 45,  0, 0) * Vector3.forward * wall_feeler_length);
 		feelers.Add(Quaternion.Euler(-45,  0, 0) * Vector3.forward * wall_feeler_length);
