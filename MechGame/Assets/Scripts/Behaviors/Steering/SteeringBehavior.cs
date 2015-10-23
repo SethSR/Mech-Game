@@ -220,9 +220,9 @@ static public class SteeringBehavior {
 		return steering_force;
 	}
 
-	static public Vector3 WallAvoidance(Mobile vehicle, List<Transform> walls) {
+	static public Vector3 WallAvoidance(Mobile vehicle, List<Transform> walls, float wall_feeler_length) {
 		//the feelers are contained in a std::vector, m_Feelers
-		List<Vector3> feelers = CreateFeelers();
+		List<Vector3> feelers = CreateFeelers(wall_feeler_length);
 
 		var dist_to_this_ip    = 0.0f;
 		var dist_to_closest_ip = float.MaxValue;
@@ -265,8 +265,15 @@ static public class SteeringBehavior {
 		return steering_force;
 	}
 
-	//TODO(seth): Make this actually create 5 feelers to test wall collisions
-	static List<Vector3> CreateFeelers() { return new List<Vector3>(5); }
+	static List<Vector3> CreateFeelers(float wall_feeler_length) {
+		List<Vector3> feelers;
+		feelers.Add(Quaternion.Euler(  0,  0, 0) * Vector3.forward * wall_feeler_length);
+		feelers.Add(Quaternion.Euler( 45,  0, 0) * Vector3.forward * wall_feeler_length);
+		feelers.Add(Quaternion.Euler(-45,  0, 0) * Vector3.forward * wall_feeler_length);
+		feelers.Add(Quaternion.Euler(  0, 45, 0) * Vector3.forward * wall_feeler_length);
+		feelers.Add(Quaternion.Euler(  0,-45, 0) * Vector3.forward * wall_feeler_length);
+		return feelers;
+	}
 
 	static bool LineIntersection2D() { return false; }
 
