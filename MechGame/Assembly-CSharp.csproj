@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\DebugDrawingExtension\DebugExtension.cs" />
      <Compile Include="Assets\DebugDrawingExtension\Example\Example.cs" />
+     <Compile Include="Assets\ObstacleSpawner.cs" />
      <Compile Include="Assets\Scripts\Behaviors\Steering\SteeringBehavior.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
@@ -125,11 +126,17 @@
      <None Include="Assets\Plugins\Vexe\HISTORY.txt" />
      <None Include="Assets\Plugins\Vexe\LICENSE.txt" />
      <None Include="Assets\Plugins\Vexe\Runtime\FastSave\README.txt" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="BasicSerializer">
  <HintPath>C:/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Plugins/Vexe/Runtime/FastSave/Serializer/BasicSerializer.dll</HintPath>
