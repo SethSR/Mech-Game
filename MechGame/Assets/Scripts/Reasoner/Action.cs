@@ -52,7 +52,7 @@ public class Action : BetterScriptableObject {
 				// Find line of sight
 				//TODO(seth): not sure how I'm going to do this currently
 				var mobile = mech.GetComponent<Mobile>();
-				var force = Seek.force(mobile, target.position);
+				var force = SteeringBehavior.Seek(mobile, target.position);
 				// Debug.Log("Force: " + force);
 				mobile.update(force);
 
