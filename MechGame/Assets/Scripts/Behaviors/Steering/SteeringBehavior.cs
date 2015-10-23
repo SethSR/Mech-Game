@@ -326,10 +326,10 @@ static public class SteeringBehavior {
 	static List<Vector3> CreateFeelers(float wall_feeler_length) {
 		List<Vector3> feelers = new List<Vector3>(5);
 		feelers.Add(Quaternion.Euler(  0,  0, 0) * Vector3.forward * wall_feeler_length);
-		feelers.Add(Quaternion.Euler( 45,  0, 0) * Vector3.forward * wall_feeler_length);
-		feelers.Add(Quaternion.Euler(-45,  0, 0) * Vector3.forward * wall_feeler_length);
-		feelers.Add(Quaternion.Euler(  0, 45, 0) * Vector3.forward * wall_feeler_length);
-		feelers.Add(Quaternion.Euler(  0,-45, 0) * Vector3.forward * wall_feeler_length);
+		feelers.Add(Quaternion.Euler( 45,  0, 0) * Vector3.forward * wall_feeler_length * 0.5f);
+		feelers.Add(Quaternion.Euler(-45,  0, 0) * Vector3.forward * wall_feeler_length * 0.5f);
+		feelers.Add(Quaternion.Euler(  0, 45, 0) * Vector3.forward * wall_feeler_length * 0.5f);
+		feelers.Add(Quaternion.Euler(  0,-45, 0) * Vector3.forward * wall_feeler_length * 0.5f);
 		return feelers;
 	}
 }
