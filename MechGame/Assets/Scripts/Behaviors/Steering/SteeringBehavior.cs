@@ -47,7 +47,6 @@ static public class SteeringBehavior {
 			.Select(m => m.transform.position)
 			.Aggregate((a,b) => a + b);
 		center_of_mass /= neighbors.Count;
-		//TODO(seth): check if the normalization is necessary
 		return Seek(vehicle, center_of_mass).normalized;
 	}
 
@@ -108,6 +107,7 @@ static public class SteeringBehavior {
 		if (dist_to_closest == float.MaxValue) {
 			return Evade(vehicle, hunter);
 		} else {
+			DebugExtension.DebugArrow(vehicle.transform.position, best_hiding_spot - vehicle.transform.position, Color.green);
 			return Arrive(vehicle, best_hiding_spot, Deceleration.fast);
 		}
 	}
@@ -121,9 +121,11 @@ static public class SteeringBehavior {
 		var pos_a = agent_a.transform.position + agent_a.velocity * time_to_reach_mid_point;
 		var pos_b = agent_b.transform.position + agent_b.velocity * time_to_reach_mid_point;
 		mid_point = (pos_a + pos_b) / 2;
+		DebugExtension.DebugArrow(vehicle.transform.position, mid_point - vehicle.transform.position, Color.green);
 		return Arrive(vehicle, mid_point, Deceleration.fast);
 	}
 
+	//TODO(seth): Fix this!! It's doing something weird
 	static public Vector3 ObstacleAvoidance(Mobile vehicle, ICollection<Transform> obstacles, float min_detection_box_length) {
 		if (vehicle == null || obstacles.Count == 0) {
 			return Vector3.zero;
