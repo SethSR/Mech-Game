@@ -10,46 +10,51 @@ public enum Deceleration {
 }
 
 static public class SteeringBehavior {
-	static public Vector3 Alignment(Mobile vehicle, List<Mobile> neighbors) {
+	static public Vector3 Alignment(Mobile vehicle, ICollection<Mobile> neighbors) {
+		if (vehicle == null || neighbors.Count == 0) {
+			return Vector3.zero;
+		}
 		var average_heading = neighbors
 			.Select(m => m.transform.forward)
 			.Aggregate((a,b) => a + b);
-		if (neighbors.Count > 0) {
-			average_heading /= neighbors.Count;
-			average_heading -= vehicle.transform.forward;
-		}
+		average_heading /= neighbors.Count;
+		average_heading -= vehicle.transform.forward;
 		return average_heading;
 	}
 
 	static public Vector3 Arrive(Mobile vehicle, Vector3 target, Deceleration deceleration = Deceleration.normal) {
+		if (vehicle == null) {
+			return Vector3.zero;
+		}
 		var to_target = target - vehicle.transform.position;
 		var dist = to_target.magnitude;
 
 		if (dist > 0) {
-			const float decel_tweaker = 0.3f;
+			const float decel_tweaker = 1.2f;
 			var speed = dist / ((float)deceleration * decel_tweaker);
 			speed = Mathf.Min(speed, vehicle.maxSpeed);
 			var desired_velocity = to_target * speed / dist;
 			return desired_velocity - vehicle.velocity;
-		} else {
-			return Vector3.zero;
 		}
+		return Vector3.zero;
 	}
 
-	static public Vector3 Cohesion(Mobile vehicle, List<Mobile> neighbors) {
+	static public Vector3 Cohesion(Mobile vehicle, ICollection<Mobile> neighbors) {
+		if (vehicle == null || neighbors.Count == 0) {
+			return Vector3.zero;
+		}
 		var center_of_mass = neighbors
 			.Select(m => m.transform.position)
 			.Aggregate((a,b) => a + b);
-		if (neighbors.Count > 0) {
-			center_of_mass /= neighbors.Count;
-			//TODO(seth): check if the normalization is necessary
-			return Seek(vehicle, center_of_mass).normalized;
-		} else {
-			return Vector3.zero;
-		}
+		center_of_mass /= neighbors.Count;
+		//TODO(seth): check if the normalization is necessary
+		return Seek(vehicle, center_of_mass).normalized;
 	}
 
 	static public Vector3 Evade(Mobile vehicle, Mobile pursuer, float threat_range = 100) {
+		if (vehicle == null || pursuer == null) {
+			return Vector3.zero;
+		}
 		var to_pursuer = pursuer.transform.position - vehicle.transform.position;
 		if (to_pursuer.sqrMagnitude > threat_range * threat_range) {
 			return Vector3.zero;
@@ -59,11 +64,17 @@ static public class SteeringBehavior {
 	}
 
 	static public Vector3 Flee(Mobile vehicle, Vector3 target) {
+		if (vehicle == null) {
+			return Vector3.zero;
+		}
 		var desired_velocity = (vehicle.transform.position - target).normalized * vehicle.maxSpeed;
 		return desired_velocity - vehicle.velocity;
 	}
 
 	static public Vector3 FollowPath(Mobile vehicle, Path path, float waypointSeekDist) {
+		if (vehicle == null || path == null) {
+			return Vector3.zero;
+		}
 		if ((path.CurrentWaypoint - vehicle.transform.position).sqrMagnitude < waypointSeekDist * waypointSeekDist) {
 			path.SetNextWaypoint();
 		}
@@ -74,7 +85,10 @@ static public class SteeringBehavior {
 		}
 	}
 
-	static public Vector3 Hide(Mobile vehicle, Mobile hunter, List<Transform> obstacles) {
+	static public Vector3 Hide(Mobile vehicle, Mobile hunter, ICollection<Transform> obstacles) {
+		if (vehicle == null || hunter == null) {
+			return Vector3.zero;
+		}
 		var dist_to_closest = float.MaxValue;
 		var best_hiding_spot = Vector3.zero;
 
@@ -82,8 +96,9 @@ static public class SteeringBehavior {
 			var hiding_spot = GetHidingPosition(cur_ob.position,
 			                                    cur_ob.GetComponent<SphereCollider>().radius,
 			                                    hunter.transform.position);
+			DebugExtension.DebugPoint(hiding_spot);
 
-			var dist = (hiding_spot - vehicle.transform.position).sqrMagnitude;
+			var dist = (hiding_spot - vehicle.transform.position).magnitude;
 			if (dist < dist_to_closest) {
 				dist_to_closest  = dist;
 				best_hiding_spot = hiding_spot;
@@ -97,18 +112,10 @@ static public class SteeringBehavior {
 		}
 	}
 
-	static Vector3 GetHidingPosition(Vector3 pos_ob,
-	                                 float   radius_ob,
-	                                 Vector3 pos_hunter) {
-		const float distance_from_boundary = 30f;
-		var dist_away = radius_ob + distance_from_boundary;
-
-		var to_ob = (pos_ob - pos_hunter).normalized;
-
-		return (to_ob * dist_away) + pos_ob;
-	}
-
 	static public Vector3 Interpose(Mobile vehicle, Mobile agent_a, Mobile agent_b) {
+		if (vehicle == null || agent_a == null || agent_b == null) {
+			return Vector3.zero;
+		}
 		var mid_point = (agent_a.transform.position + agent_b.transform.position) / 2;
 		var time_to_reach_mid_point = (vehicle.transform.position - mid_point).magnitude / vehicle.maxSpeed;
 		var pos_a = agent_a.transform.position + agent_a.velocity * time_to_reach_mid_point;
@@ -117,7 +124,10 @@ static public class SteeringBehavior {
 		return Arrive(vehicle, mid_point, Deceleration.fast);
 	}
 
-	static public Vector3 ObstacleAvoidance(Mobile vehicle, List<Transform> obstacles, float min_detection_box_length) {
+	static public Vector3 ObstacleAvoidance(Mobile vehicle, ICollection<Transform> obstacles, float min_detection_box_length) {
+		if (vehicle == null || obstacles.Count == 0) {
+			return Vector3.zero;
+		}
 		//the detection box length is proportional to the agent's velocity
 		var detect_box_length = min_detection_box_length + (vehicle.velocity.magnitude / vehicle.maxSpeed) * min_detection_box_length;
 
@@ -175,7 +185,7 @@ static public class SteeringBehavior {
 		//force away from it
 		var steering_force = Vector3.zero;
 
-		if (closest_intersecting_obstacle) {
+		if (closest_intersecting_obstacle != null) {
 			//the closer the agent is to an object, the stronger the 
 			//steering force should be
 			var multiplier = 1.0f + (detect_box_length - local_pos_of_closest_obstacle.x) / detect_box_length;
@@ -191,10 +201,13 @@ static public class SteeringBehavior {
 		}
 
 		//finally, convert the steering vector from local to world space
-		return Quaternion.LookRotation(Vector3.forward - vehicle.transform.forward) * steering_force;
+		return vehicle.transform.position + Quaternion.LookRotation(Vector3.forward - vehicle.transform.forward) * steering_force;
 	}
 
 	static public Vector3 OffsetPursuit(Mobile vehicle, Mobile leader, Vector3 offset) {
+		if (vehicle == null || leader == null) {
+			return Vector3.zero;
+		}
 		var world_offset_pos = leader.transform.position + Quaternion.LookRotation(leader.transform.forward) * offset;
 		var to_offset = world_offset_pos - vehicle.transform.position;
 		var look_ahead_time = to_offset.magnitude / (vehicle.maxSpeed + leader.velocity.magnitude);
@@ -202,6 +215,9 @@ static public class SteeringBehavior {
 	}
 
 	static public Vector3 Pursuit(Mobile vehicle, Mobile evader) {
+		if (vehicle == null || evader == null) {
+			return Vector3.zero;
+		}
 		var to_evader = evader.transform.position - vehicle.transform.position;
 		var relative_heading = Vector3.Dot(vehicle.transform.forward, evader.transform.forward);
 		if (Vector3.Dot(to_evader, vehicle.transform.forward) > 0 && relative_heading < -0.95f) {
@@ -212,7 +228,10 @@ static public class SteeringBehavior {
 		}
 	}
 
-	static public Vector3 Separation(Mobile vehicle, List<Mobile> neighbors) {
+	static public Vector3 Separation(Mobile vehicle, ICollection<Mobile> neighbors) {
+		if (vehicle == null || neighbors.Count == 0) {
+			return Vector3.zero;
+		}
 		var steering_force = neighbors
 			.Select(m => vehicle.transform.position - m.transform.position)
 			.Select(v => v.normalized / v.magnitude)
@@ -220,7 +239,10 @@ static public class SteeringBehavior {
 		return steering_force;
 	}
 
-	static public Vector3 WallAvoidance(Mobile vehicle, List<Transform> walls, float wall_feeler_length) {
+	static public Vector3 WallAvoidance(Mobile vehicle, ICollection<Transform> walls, float wall_feeler_length) {
+		if (vehicle == null || walls.Count == 0) {
+			return Vector3.zero;
+		}
 		//the feelers are contained in a std::vector, m_Feelers
 		List<Vector3> feelers = CreateFeelers(wall_feeler_length);
 
@@ -268,19 +290,10 @@ static public class SteeringBehavior {
 		return steering_force;
 	}
 
-	static List<Vector3> CreateFeelers(float wall_feeler_length) {
-		List<Vector3> feelers = new List<Vector3>(5);
-		feelers.Add(Quaternion.Euler(  0,  0, 0) * Vector3.forward * wall_feeler_length);
-		feelers.Add(Quaternion.Euler( 45,  0, 0) * Vector3.forward * wall_feeler_length);
-		feelers.Add(Quaternion.Euler(-45,  0, 0) * Vector3.forward * wall_feeler_length);
-		feelers.Add(Quaternion.Euler(  0, 45, 0) * Vector3.forward * wall_feeler_length);
-		feelers.Add(Quaternion.Euler(  0,-45, 0) * Vector3.forward * wall_feeler_length);
-		return feelers;
-	}
-
-	static bool LineIntersection2D() { return false; }
-
 	static public Vector3 Wander(Mobile vehicle, float jitter, float radius, float distance, ref Vector3 wander_target) {
+		if (vehicle == null) {
+			return Vector3.zero;
+		}
 		var jitter_this_time_slice = jitter * Time.deltaTime;
 		wander_target += new Vector3((Random.value * 2 - 1) * jitter_this_time_slice,
 		                             (Random.value * 2 - 1) * jitter_this_time_slice,
@@ -291,7 +304,30 @@ static public class SteeringBehavior {
 	}
 
 	static public Vector3 Seek(Mobile vehicle, Vector3 target) {
+		if (vehicle == null) {
+			return Vector3.zero;
+		}
 		var desired_velocity = (target - vehicle.transform.position).normalized * vehicle.maxSpeed;
 		return desired_velocity - vehicle.velocity;
+	}
+
+
+	static Vector3 GetHidingPosition(Vector3 pos_ob, float radius_ob, Vector3 pos_hunter) {
+		const float distance_from_boundary = 3f;
+		var dist_away = radius_ob + distance_from_boundary;
+
+		var to_ob = (pos_ob - pos_hunter).normalized;
+
+		return (to_ob * dist_away) + pos_ob;
+	}
+
+	static List<Vector3> CreateFeelers(float wall_feeler_length) {
+		List<Vector3> feelers = new List<Vector3>(5);
+		feelers.Add(Quaternion.Euler(  0,  0, 0) * Vector3.forward * wall_feeler_length);
+		feelers.Add(Quaternion.Euler( 45,  0, 0) * Vector3.forward * wall_feeler_length);
+		feelers.Add(Quaternion.Euler(-45,  0, 0) * Vector3.forward * wall_feeler_length);
+		feelers.Add(Quaternion.Euler(  0, 45, 0) * Vector3.forward * wall_feeler_length);
+		feelers.Add(Quaternion.Euler(  0,-45, 0) * Vector3.forward * wall_feeler_length);
+		return feelers;
 	}
 }
