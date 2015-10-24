@@ -14,6 +14,10 @@ public class Path : BetterBehaviour {
 		get { return isLooped ? false : (current == numberOfWaypoints); }
 	}
 
+	public bool IsEmpty {
+		get { return waypoints.Count == 0; }
+	}
+
 	public void SetNextWaypoint() {
 		++current;
 		if (current > numberOfWaypoints) {
