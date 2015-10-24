@@ -71,7 +71,7 @@ static public class SteeringBehavior {
 	}
 
 	static public Vector3 FollowPath(Mobile vehicle, Path path, float waypointSeekDist) {
-		if (vehicle == null || path == null) {
+		if (vehicle == null || path == null || path.IsEmpty) {
 			return Vector3.zero;
 		}
 		if ((path.CurrentWaypoint - vehicle.transform.position).sqrMagnitude < waypointSeekDist * waypointSeekDist) {
@@ -125,7 +125,7 @@ static public class SteeringBehavior {
 		return Arrive(vehicle, mid_point, Deceleration.fast);
 	}
 
-	//TODO(seth): Fix this!! It's doing something weird
+	//FIXME(seth): Fix this!! It's doing something weird
 	static public Vector3 ObstacleAvoidance(Mobile vehicle, ICollection<Transform> obstacles, float min_detection_box_length) {
 		if (vehicle == null || obstacles.Count == 0) {
 			return Vector3.zero;
@@ -243,6 +243,7 @@ static public class SteeringBehavior {
 		return steering_force;
 	}
 
+	//FIXME(seth): Not sure if this works currently
 	static public Vector3 WallAvoidance(Mobile vehicle, ICollection<Transform> walls, float wall_feeler_length) {
 		if (vehicle == null || walls.Count == 0) {
 			return Vector3.zero;
@@ -262,11 +263,13 @@ static public class SteeringBehavior {
 
 		//examine each feeler in turn
 		foreach (var feeler in feelers) {
-			DebugExtension.DebugCylinder(vehicle.transform.position, vehicle.transform.position + feeler, 0.1f);
+			var rot_feeler = Quaternion.LookRotation(vehicle.transform.forward) * feeler;
+			DebugExtension.DebugArrow(vehicle.transform.position, rot_feeler);
 			//run through each wall checking for any intersection points
 			foreach (var wall in walls) {
 				RaycastHit hit_info;
-				if (Physics.Linecast(vehicle.transform.position, feeler + vehicle.transform.position, out hit_info)) {
+				if (Physics.Linecast(vehicle.transform.position, rot_feeler + vehicle.transform.position, out hit_info)) {
+					DebugExtension.DebugPoint(hit_info.point, Color.red);
 					dist_to_this_ip = hit_info.distance;
 					//is this the closest found so far? If so keep a record
 					if (dist_to_this_ip < dist_to_closest_ip) {
@@ -284,7 +287,7 @@ static public class SteeringBehavior {
 			if (closest_wall != null) {
 				//calculate by what distance the projected position of the agent
 				//will overshoot the wall
-				var overshoot = feeler - closest_point;
+				var overshoot = rot_feeler - closest_point;
 
 				//create a force in the direction of the wall normal, with a 
 				//magnitude of the overshoot
