@@ -7,6 +7,7 @@ using System.Linq;
 public class Mobile : BetterBehaviour {
 	[HideInInspector] public Vector3 velocity = Vector3.forward;
 
+	[iMin(1)] public int numberOfSmoothingValues = 20;
 	public float maxSpeed = 5;
 	public float maxForce = 2;
 
@@ -62,6 +63,11 @@ public class Mobile : BetterBehaviour {
 	HashSet<Transform> obstacles      = new HashSet<Transform>(); // obstacle avoidance
 	HashSet<Transform> walls          = new HashSet<Transform>(); // wall avoidance
 	Vector3            wanderTarget   = Vector3.forward;          // wander
+	VecSmoother        smoothRotation;
+
+	void Start() {
+		smoothRotation = new VecSmoother(numberOfSmoothingValues);
+	}
 
 	void OnTriggerEnter(Collider other) {
 		switch (other.tag) {
@@ -133,7 +139,7 @@ public class Mobile : BetterBehaviour {
 			update(CalculateForces);
 		}
 		transform.position += velocity * Time.deltaTime;
-		transform.rotation  = Quaternion.LookRotation(velocity != Vector3.zero ? velocity : transform.forward);
+		transform.rotation  = Quaternion.LookRotation(smoothRotation.update(velocity != Vector3.zero ? velocity : transform.forward));
 		DebugExtension.DebugArrow(transform.position, velocity);
 	}
 }
