@@ -10,6 +10,8 @@ public enum Deceleration {
 }
 
 static public class SteeringBehavior {
+	const bool debugging = false;
+
 	static public Vector3 Alignment(Mobile vehicle, ICollection<Mobile> neighbors) {
 		if (vehicle == null || neighbors.Count == 0) {
 			return Vector3.zero;
@@ -19,7 +21,7 @@ static public class SteeringBehavior {
 			.Aggregate((a,b) => a + b);
 		average_heading /= neighbors.Count;
 		average_heading -= vehicle.Heading;
-		DebugExtension.DebugArrow(vehicle.Position, average_heading, Color.green);
+		if (debugging) { DebugExtension.DebugArrow(vehicle.Position, average_heading, Color.green); }
 		return average_heading;
 	}
 
@@ -38,7 +40,7 @@ static public class SteeringBehavior {
 			var desired_velocity = to_target * speed / dist;
 			steering_force = desired_velocity - vehicle.Velocity;
 		}
-		DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green);
+		if (debugging) { DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green); }
 		return steering_force;
 	}
 
@@ -51,7 +53,7 @@ static public class SteeringBehavior {
 			.Aggregate((a,b) => a + b);
 		center_of_mass /= neighbors.Count;
 		var steering_force = Seek(vehicle, center_of_mass).normalized;
-		DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green);
+		if (debugging) { DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green); }
 		return steering_force;
 	}
 
@@ -65,8 +67,8 @@ static public class SteeringBehavior {
 		}
 		var look_ahead_time = to_pursuer.magnitude / (vehicle.maxSpeed + pursuer.Speed);
 		var steering_force = Flee(vehicle, pursuer.Position + pursuer.Velocity * look_ahead_time);
-		DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green);
-		DebugExtension.DebugWireSphere(vehicle.Position, Color.magenta, threat_range);
+		if (debugging) { DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green); }
+		if (debugging) { DebugExtension.DebugWireSphere(vehicle.Position, Color.magenta, threat_range); }
 		return steering_force;
 	}
 
@@ -76,7 +78,7 @@ static public class SteeringBehavior {
 		}
 		var desired_velocity = (vehicle.Position - target).normalized * vehicle.maxSpeed;
 		var steering_force = desired_velocity - vehicle.Velocity;
-		DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green);
+		if (debugging) { DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green); }
 		return steering_force;
 	}
 
@@ -93,8 +95,8 @@ static public class SteeringBehavior {
 		} else {
 			steering_force = Arrive(vehicle, path.CurrentWaypoint);
 		}
-		DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green);
-		DebugExtension.DebugWireSphere(vehicle.Position, Color.red, waypointSeekDist);
+		if (debugging) { DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green); }
+		if (debugging) { DebugExtension.DebugWireSphere(vehicle.Position, Color.red, waypointSeekDist); }
 		return steering_force;
 	}
 
@@ -109,7 +111,7 @@ static public class SteeringBehavior {
 			var hiding_spot = GetHidingPosition(cur_ob.position,
 			                                    cur_ob.GetComponent<SphereCollider>().radius,
 			                                    hunter.Position);
-			DebugExtension.DebugPoint(hiding_spot, Color.black);
+			if (debugging) { DebugExtension.DebugPoint(hiding_spot, Color.black); }
 
 			var dist = (hiding_spot - vehicle.Position).magnitude;
 			if (dist < dist_to_closest) {
@@ -123,7 +125,7 @@ static public class SteeringBehavior {
 		} else {
 			steering_force = Arrive(vehicle, best_hiding_spot, Deceleration.fast);
 		}
-		DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green);
+		if (debugging) { DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green); }
 		return steering_force;
 	}
 
@@ -136,9 +138,9 @@ static public class SteeringBehavior {
 		var pos_a = agent_a.Position + agent_a.Velocity * time_to_reach_mid_point;
 		var pos_b = agent_b.Position + agent_b.Velocity * time_to_reach_mid_point;
 		mid_point = (pos_a + pos_b) / 2;
-		DebugExtension.DebugPoint(mid_point, Color.green);
+		if (debugging) { DebugExtension.DebugPoint(mid_point, Color.green); }
 		var steering_force = Arrive(vehicle, mid_point, Deceleration.fast);
-		DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green);
+		if (debugging) { DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green); }
 		return steering_force;
 	}
 
@@ -150,7 +152,7 @@ static public class SteeringBehavior {
 
 		var half_min_detect_box_length = min_detection_box_length * 0.5f;
 		var detect_box_length = half_min_detect_box_length + (vehicle.Speed / vehicle.maxSpeed) * half_min_detect_box_length;
-		DebugExtension.DebugCapsule(vehicle.Position + vehicle.Heading * -sc.radius, vehicle.Position + vehicle.Heading * (detect_box_length + sc.radius), Color.magenta, sc.radius);
+		if (debugging) { DebugExtension.DebugCapsule(vehicle.Position + vehicle.Heading * -sc.radius, vehicle.Position + vehicle.Heading * (detect_box_length + sc.radius), Color.magenta, sc.radius); }
 
 		var steering_force = Vector3.zero;
 		RaycastHit hit_info;
@@ -158,7 +160,7 @@ static public class SteeringBehavior {
 			var distance   = hit_info.distance;
 			var dist_ratio = sc.radius / distance;
 			steering_force = hit_info.normal * vehicle.maxSpeed * dist_ratio;
-			DebugExtension.DebugArrow(hit_info.point, steering_force, Color.green);
+			if (debugging) { DebugExtension.DebugArrow(hit_info.point, steering_force, Color.green); }
 		}
 		return steering_force;
 	}
@@ -171,7 +173,7 @@ static public class SteeringBehavior {
 		var to_offset = world_offset_pos - vehicle.Position;
 		var look_ahead_time = to_offset.magnitude / (vehicle.maxSpeed + leader.Speed);
 		var steering_force = Arrive(vehicle, world_offset_pos + leader.Velocity * look_ahead_time, Deceleration.fast);
-		DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green);
+		if (debugging) { DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green); }
 		return steering_force;
 	}
 
@@ -189,7 +191,7 @@ static public class SteeringBehavior {
 			var look_ahead_time = to_evader.magnitude / (vehicle.maxSpeed + evader.Speed);
 			steering_force = Seek(vehicle, evader.Position + evader.Velocity * look_ahead_time);
 		}
-		DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green);
+		if (debugging) { DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green); }
 		return steering_force;
 	}
 
@@ -201,7 +203,7 @@ static public class SteeringBehavior {
 			.Select(m => vehicle.Position - m.Position)
 			.Select(v => v.normalized / v.magnitude)
 			.Aggregate((a,b) => a + b);
-		DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green);
+		if (debugging) { DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green); }
 		return steering_force;
 	}
 
@@ -215,10 +217,10 @@ static public class SteeringBehavior {
 		float         closest_distance = float.MaxValue;
 		foreach (var feeler in feelers) {
 			var rot_feeler = vehicle.transform.TransformVector(feeler);
-			DebugExtension.DebugArrow(vehicle.Position, rot_feeler, Color.magenta);
+			if (debugging) { DebugExtension.DebugArrow(vehicle.Position, rot_feeler, Color.magenta); }
 			RaycastHit hit_info;
 			if (Physics.Linecast(vehicle.Position, rot_feeler + vehicle.Position, out hit_info)) {
-				DebugExtension.DebugPoint(hit_info.point, Color.red);
+				if (debugging) { DebugExtension.DebugPoint(hit_info.point, Color.red); }
 				if (hit_info.distance < closest_distance) {
 					closest_distance = hit_info.distance;
 					closest_point    = hit_info.point;
@@ -226,7 +228,7 @@ static public class SteeringBehavior {
 				}
 			}
 		}
-		DebugExtension.DebugArrow(closest_point, steering_force, Color.green);
+		if (debugging) { DebugExtension.DebugArrow(closest_point, steering_force, Color.green); }
 		return steering_force;
 	}
 
@@ -241,7 +243,7 @@ static public class SteeringBehavior {
 		wander_target.Normalize();
 		wander_target *= radius;
 		var steering_force = wander_target + vehicle.Heading * distance;
-		DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green);
+		if (debugging) { DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green); }
 		return steering_force;
 	}
 
@@ -251,7 +253,7 @@ static public class SteeringBehavior {
 		}
 		var desired_velocity = (target - vehicle.Position).normalized * vehicle.maxSpeed;
 		var steering_force = desired_velocity - vehicle.Velocity;
-		DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green);
+		if (debugging) { DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green); }
 		return steering_force;
 	}
 
