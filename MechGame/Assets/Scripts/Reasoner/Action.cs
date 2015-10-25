@@ -45,7 +45,7 @@ public class Action : BetterScriptableObject {
 		switch (type) {
 			case ActionTypes.Idle: {
 				var mobile = mech.GetComponent<Mobile>();
-				mobile.update(-mobile.velocity);
+				mobile.update(-mobile.Velocity);
 			} break;
 
 			case ActionTypes.Attack: {
