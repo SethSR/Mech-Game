@@ -66,7 +66,7 @@ static public class SteeringBehavior {
 		var look_ahead_time = to_pursuer.magnitude / (vehicle.maxSpeed + pursuer.Speed);
 		var steering_force = Flee(vehicle, pursuer.Position + pursuer.Velocity * look_ahead_time);
 		DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green);
-		DebugExtension.DebugWireSphere(vehicle.Position, Color.red, threat_range);
+		DebugExtension.DebugWireSphere(vehicle.Position, Color.magenta, threat_range);
 		return steering_force;
 	}
 
@@ -142,96 +142,32 @@ static public class SteeringBehavior {
 		return steering_force;
 	}
 
-	//FIXME(seth): Fix this!! It's doing something weird
 	static public Vector3 ObstacleAvoidance(Mobile vehicle, ICollection<Transform> obstacles, float min_detection_box_length) {
 		if (vehicle == null || obstacles.Count == 0) {
 			return Vector3.zero;
 		}
-		//the detection box length is proportional to the agent's Velocity
-		var detect_box_length = min_detection_box_length + (vehicle.Speed / vehicle.maxSpeed) * min_detection_box_length;
-		DebugExtension.DebugCylinder(vehicle.Position, vehicle.Position + vehicle.Heading * detect_box_length, Color.red, vehicle.GetComponent<SphereCollider>().radius);
+		var sc = vehicle.GetComponent<SphereCollider>();
 
-		//this will keep track of the closest intersecting obstacle (CIB)
-		Transform closest_intersecting_obstacle = null;
-	 
-		//this will be used to track the distance to the CIB
-		float dist_to_closest_ip = float.MaxValue;
+		var half_min_detect_box_length = min_detection_box_length * 0.5f;
+		var detect_box_length = half_min_detect_box_length + (vehicle.Speed / vehicle.maxSpeed) * half_min_detect_box_length;
+		DebugExtension.DebugCapsule(vehicle.Position + vehicle.Heading * -sc.radius, vehicle.Position + vehicle.Heading * (detect_box_length + sc.radius), Color.magenta, sc.radius);
 
-		//this will record the transformed local coordinates of the CIB
-		var local_pos_of_closest_obstacle = Vector3.zero;
-
-		foreach (var cur_ob in obstacles) {
-			//calculate this obstacle's position in local space
-			var local_pos = Quaternion.FromToRotation(vehicle.Heading, Vector3.forward) * (cur_ob.position - vehicle.Position);
-
-			//if the local position has a negative x value then it must lay
-			//behind the agent. (in which case it can be ignored)
-			if (local_pos.x >= 0) {
-				//if the distance from the x axis to the object's position is less
-				//than its radius + half the width of the detection box then there
-				//is a potential intersection.
-				var expanded_radius = cur_ob.GetComponent<SphereCollider>().radius + vehicle.GetComponent<SphereCollider>().radius;
-
-				if (Mathf.Abs(local_pos.y) < expanded_radius) {
-					//now to do a line/circle intersection test. The center of the 
-					//circle is represented by (cx, cy). The intersection points are 
-					//given by the formula x = cX +/-sqrt(r^2-cy^2) for y=0. 
-					//We only need to look at the smallest positive value of x because
-					//that will be the closest point of intersection.
-					var cx = local_pos.x;
-					var cy = local_pos.y;
-
-					//we only need to calculate the sqrt part of the above equation once
-					var sqrt_part = Mathf.Sqrt(expanded_radius * expanded_radius - cy * cy);
-
-					var ip = cx - sqrt_part;
-
-					if (ip <= 0.0) {
-						ip = cx + sqrt_part;
-					}
-
-					//test to see if this is the closest so far. If it is keep a
-					//record of the obstacle and its local coordinates
-					if (ip < dist_to_closest_ip) {
-						dist_to_closest_ip = ip;
-						closest_intersecting_obstacle = cur_ob;
-						local_pos_of_closest_obstacle = local_pos;
-					}
-				}
-			}
-		}
-
-		//if we have found an intersecting obstacle, calculate a steering 
-		//force away from it
 		var steering_force = Vector3.zero;
-
-		if (closest_intersecting_obstacle != null) {
-			//the closer the agent is to an object, the stronger the 
-			//steering force should be
-			var multiplier = 1.0f + (detect_box_length - local_pos_of_closest_obstacle.x) / detect_box_length;
-
-			//calculate the lateral force
-			steering_force.y = (closest_intersecting_obstacle.GetComponent<SphereCollider>().radius - local_pos_of_closest_obstacle.y)  * multiplier;
-
-			//apply a braking force proportional to the obstacles distance from
-			//the vehicle. 
-			const float braking_weight = 0.2f;
-
-			steering_force.x = (closest_intersecting_obstacle.GetComponent<SphereCollider>().radius - local_pos_of_closest_obstacle.x) * braking_weight;
+		RaycastHit hit_info;
+		if (Physics.SphereCast(vehicle.Position, sc.radius, vehicle.Heading, out hit_info, detect_box_length)) {
+			var distance   = hit_info.distance;
+			var dist_ratio = sc.radius / distance;
+			steering_force = hit_info.normal * vehicle.maxSpeed * dist_ratio;
+			DebugExtension.DebugArrow(hit_info.point, steering_force, Color.green);
 		}
-
-		//finally, convert the steering vector from local to world space
-		var force = vehicle.Position + Quaternion.LookRotation(Vector3.forward - vehicle.Heading) * steering_force;
-		DebugExtension.DebugArrow(vehicle.Position, force - vehicle.Position, Color.green);
-		// return force;
-		return Vector3.zero;
+		return steering_force;
 	}
 
 	static public Vector3 OffsetPursuit(Mobile vehicle, Mobile leader, Vector3 offset) {
 		if (vehicle == null || leader == null) {
 			return Vector3.zero;
 		}
-		var world_offset_pos = leader.Position + Quaternion.LookRotation(leader.Heading) * offset;
+		var world_offset_pos = leader.transform.TransformPoint(offset);
 		var to_offset = world_offset_pos - vehicle.Position;
 		var look_ahead_time = to_offset.magnitude / (vehicle.maxSpeed + leader.Speed);
 		var steering_force = Arrive(vehicle, world_offset_pos + leader.Velocity * look_ahead_time, Deceleration.fast);
@@ -279,7 +215,7 @@ static public class SteeringBehavior {
 		float         closest_distance = float.MaxValue;
 		foreach (var feeler in feelers) {
 			var rot_feeler = vehicle.transform.TransformVector(feeler);
-			DebugExtension.DebugArrow(vehicle.Position, rot_feeler, Color.gray);
+			DebugExtension.DebugArrow(vehicle.Position, rot_feeler, Color.magenta);
 			RaycastHit hit_info;
 			if (Physics.Linecast(vehicle.Position, rot_feeler + vehicle.Position, out hit_info)) {
 				DebugExtension.DebugPoint(hit_info.point, Color.red);
