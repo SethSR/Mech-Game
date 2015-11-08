@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"inv",
+				"invertedY"
+			],
+			[
+				"TransformDirec",
+				"TransformDirection	direction"
+			],
+			[
+				"Sphe",
+				"SphereCollider"
+			],
+			[
 				"num",
 				"numberOfWaypoints-1"
 			],
@@ -460,34 +472,10 @@
 	"buffers":
 	[
 		{
-			"file": "Assets/Scripts/Behaviors/Steering/SteeringBehavior.cs",
+			"file": "Assets/Scripts/Mech.cs",
 			"settings":
 			{
-				"buffer_size": 13298,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/DebugDrawingExtension/DebugExtension.cs",
-			"settings":
-			{
-				"buffer_size": 47044,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "Assets/ObstacleSpawner.cs",
-			"settings":
-			{
-				"buffer_size": 698,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Assets/Scripts/Mobile.cs",
-			"settings":
-			{
-				"buffer_size": 6335,
+				"buffer_size": 3367,
 				"line_ending": "Windows"
 			}
 		},
@@ -495,15 +483,47 @@
 			"file": "Assets/Scripts/Reasoner/Action.cs",
 			"settings":
 			{
-				"buffer_size": 4121,
+				"buffer_size": 4352,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/SteeringBehaviors.cpp",
+			"file": "Assets/Scripts/ScriptableObjectUtility.cs",
 			"settings":
 			{
-				"buffer_size": 54065,
+				"buffer_size": 902,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Editor/ActionAsset.cs",
+			"settings":
+			{
+				"buffer_size": 191,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/ResourceSpawner.cs",
+			"settings":
+			{
+				"buffer_size": 834,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/MechSpawner.cs",
+			"settings":
+			{
+				"buffer_size": 723,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/Reasoner/Reasoner.cs",
+			"settings":
+			{
+				"buffer_size": 1379,
 				"line_ending": "Windows"
 			}
 		}
@@ -844,7 +864,7 @@
 				"Package Control: Discover Packages"
 			]
 		],
-		"width": 608.0
+		"width": 545.0
 	},
 	"console":
 	{
@@ -875,6 +895,28 @@
 	],
 	"file_history":
 	[
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/SteeringBehavior.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/FollowPath.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/ActionList.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/ActionList.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Reasoner.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/TestStuff/ObstacleSpawner.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Movement.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Action.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/GamePadInput/GamePad.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/ResourceSpawner.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Resource.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Resource.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/DebugDrawingExtension/DebugExtension.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Mech.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Mobile.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/ArenaTestController.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/TestStuff/ObstacleGenTest.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/GameController.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/CameraFollow.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/InputTest.cs",
+		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/SteeringBehaviors.cpp",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/ObstacleSpawner.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Smoother.cs",
 		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/Vehicle.cpp",
 		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Common/misc/Smoother.h",
@@ -888,10 +930,6 @@
 		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/EntityFunctionTemplates.h",
 		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/SteeringBehaviors.h",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Path.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/DebugDrawingExtension/DebugExtension.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Mech.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Action.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Reasoner.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assembly-CSharp.csproj",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assembly-CSharp-firstpass.csproj",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assembly-CSharp-Editor.csproj",
@@ -900,7 +938,6 @@
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assembly-CSharp-Editor-firstpass.csproj",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/InfiniteAxisUtilitySystem.cpp",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/ScriptTest.cs",
-		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/SteeringBehaviors.cpp",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/WallAvoidance.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Wander.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Separation.cs",
@@ -917,11 +954,9 @@
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Alignment.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Seek.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Consideration.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Mobile.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Actions/Action.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Plugins/Vexe/Runtime/Serialization/Serializers/SerializerBackend.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Weapon.cs",
-		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/SteeringBehavior.cs",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/MechGame.sublime-project",
 		"/C/Users/srens/Downloads/demo_15_october_2015/Demo 14 October 2015/modules/Compiler.jai",
 		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CTeamSize.cs",
@@ -987,22 +1022,7 @@
 		"/C/Projects/IS/Scratch/Nilyin_SpaceMatchCode.joe",
 		"/C/Projects/IS/Scratch/Nilyin_BattlezoneCode.joe",
 		"/C/Projects/IS/MathLessons/ExpandedFormCode.joe",
-		"/C/Projects/IS/Tools/Code/Button.joe",
-		"/C/Projects/IS/MathLessons/ExpandedFormCode_Manual.joe",
-		"/C/Projects/IS/MathLessons/Prototypes/RegroupAdditionDemoCode.joe",
-		"/C/Projects/IS/MathLessons/Prototypes/RegroupAdditionDemo.aut",
-		"/C/Projects/IS/Scratch/Prototypes/RegroupAdditionDemo.joe",
-		"/C/Projects/IS/joe/GSF.joe",
-		"/C/Projects/IS/joe/ObjectArrayList.joe",
-		"/C/Projects/Scratch/Prototypes/Question Racer/Assets/Scripts/EnemyAI.cs",
-		"/C/Projects/Scratch/Prototypes/Question Racer/Assets/Scripts/TuningController.cs",
-		"/C/Projects/Scratch/Prototypes/Question Racer/Assets/Scripts/PlayerInfo.cs",
-		"/C/Projects/Scratch/Prototypes/Question Racer/Assets/Scripts/ExpandedFormController.cs",
-		"/C/Projects/Scratch/Prototypes/Question Racer/Assets/PlayerInfo.cs",
-		"/C/Projects/Scratch/Prototypes/Question Racer/Assets/Scripts/ControllerRacer.cs",
-		"/C/Projects/Scratch/Prototypes/Question Racer/Assets/CameraScript.cs",
-		"/C/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll",
-		"/C/Projects/IS/Scratch/DFScratch.joe"
+		"/C/Projects/IS/Tools/Code/Button.joe"
 	],
 	"find":
 	{
@@ -1022,6 +1042,54 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"Capture",
+			"GetExtension",
+			"target",
+			"ad",
+			"i",
+			"rotation",
+			"braking",
+			"left_stick",
+			"maxSpeed",
+			"maxRotSpeed",
+			"=>",
+			"decelValue * braking",
+			"rotation",
+			"0.99f",
+			"rot_vel",
+			"rotation",
+			"boostSpeed",
+			"				Mobile mobile = mech.GetComponent<Mobile>();",
+			"Filter",
+			"static public Vector3",
+			"DEVELOPMENT_BUILD",
+			"DEBUG",
+			"Conditional",
+			"public static void",
+			"if (debugging) { ",
+			"DebugExtension",
+			"Color.red",
+			"detect_box_length",
+			"half_min_detection_box_length",
+			"min_detection_box_length",
+			"vehicle.GetComponent<SphereCollider>()",
+			"hit",
+			"baryCenter",
+			"interpolatedNormal",
+			"duration",
+			"DebugWireSphere",
+			"DebugSphere",
+			"velocity",
+			"transform.position",
+			"transform.forward",
+			"velocity.magnitude",
+			"velocity",
+			"return",
+			"Color.black",
+			"DebugExtension.DebugArrow(vehicle.transform.position, steering_force, Color.black);",
+			"SphereCollider",
+			"closest_wall",
+			"enable",
 			"QSmoother",
 			"VecSmoother",
 			"Vector3",
@@ -1101,55 +1169,7 @@
 			"ClosestIntersectingObstacle",
 			"dist_to_closest",
 			"DistToClosestIP",
-			"SqrtPart",
-			"cY",
-			"cX",
-			"ExpandedRadius",
-			"LocalPos",
-			"curOb",
-			"LocalPosOfClosestObstacle",
-			"m_dDBoxLength",
-			"m_pVehicle",
-			"mech",
-			"destroy",
-			"shield",
-			"Action",
-			"shield",
-			"Action",
-			"shield",
-			"return",
-			"Hide",
-			"actionDeciders",
-			"los",
-			"utility",
-			"chosen",
-			"mech",
-			"maxDistance",
-			"case",
-			"decision",
-			"break",
-			"case",
-			"retreat",
-			"ActionDecider",
-			"Reasoner",
-			"dist_to_closest_intersection_point",
-			"action",
-			"behavior",
-			"threat_range",
-			"position",
-			"transform",
-			"GetComponent<Mobile>()",
-			"transform",
-			"transformToScale",
-			"rotator",
-			"Score",
-			"void",
-			"index",
-			"setUnitCount",
-			"new_area",
-			"area",
-			"copyTemplate",
-			"templates"
+			"SqrtPart"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1226,110 +1246,24 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "Assets/Scripts/Behaviors/Steering/SteeringBehavior.cs",
+					"file": "Assets/Scripts/Mech.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13298,
+						"buffer_size": 3367,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9628,
-								9628
-							]
-						],
-						"settings":
-						{
-							"history_list_is_closing": true,
-							"syntax": "Packages/C#/C#.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2642.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "Assets/DebugDrawingExtension/DebugExtension.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 47044,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								908,
-								1012
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 182.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "Assets/ObstacleSpawner.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 698,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								265,
-								265
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C#/C#.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Assets/Scripts/Mobile.cs",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 6335,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								290,
-								290
+								586,
+								586
 							]
 						],
 						"settings":
@@ -1345,20 +1279,111 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 1,
 					"file": "Assets/Scripts/Reasoner/Action.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4121,
+						"buffer_size": 4352,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1331,
-								1331
+								602,
+								602
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 110.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Assets/Scripts/ScriptableObjectUtility.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 902,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								471,
+								471
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Assets/Editor/ActionAsset.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 191,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								138,
+								138
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "Assets/Scripts/ResourceSpawner.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 834,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1370,34 +1395,61 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/SteeringBehaviors.cpp",
+					"file": "Assets/Scripts/MechSpawner.cs",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 54065,
+						"buffer_size": 723,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								31627,
-								31627
+								25,
+								25
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/C#/C#.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 11149.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "Assets/Scripts/Reasoner/Reasoner.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1379,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								399,
+								399
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 46.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -1423,11 +1475,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -1479,15 +1538,55 @@
 		"selected_items":
 		[
 			[
+				"reasoner",
+				"Scripts\\Reasoner\\Reasoner.cs"
+			],
+			[
+				"mech",
+				"Scripts\\Mech.cs"
+			],
+			[
+				"resources",
+				"Scripts\\ResourceSpawner.cs"
+			],
+			[
+				"resource",
+				"Scripts\\Resource.cs"
+			],
+			[
+				"movem",
+				"Scripts\\Movement.cs"
+			],
+			[
+				"debu",
+				"Debug Extensions\\DebugExtension.cs"
+			],
+			[
+				"ob",
+				"Scripts\\TestStuff\\ObstacleSpawner.cs"
+			],
+			[
+				"game",
+				"Scripts\\GameController.cs"
+			],
+			[
+				"deb",
+				"Debug Extensions\\DebugExtension.cs"
+			],
+			[
+				"de",
+				"Debug Extensions\\DebugExtension.cs"
+			],
+			[
+				"debue",
+				"Debug Extensions\\DebugExtension.cs"
+			],
+			[
 				"path",
 				"Scripts\\Path.cs"
 			],
 			[
 				"deg",
-				"Debug Extensions\\DebugExtension.cs"
-			],
-			[
-				"debu",
 				"Debug Extensions\\DebugExtension.cs"
 			],
 			[
@@ -1509,10 +1608,6 @@
 			[
 				"co",
 				"Scripts\\Behaviors\\Steering\\Cohesion.cs"
-			],
-			[
-				"ob",
-				"Scripts\\Behaviors\\Steering\\ObstacleAvoidance.cs"
 			],
 			[
 				"wall",
@@ -1541,10 +1636,6 @@
 			[
 				"cons",
 				"Scripts\\Reasoner\\Consideration.cs"
-			],
-			[
-				"mech",
-				"Scripts\\Mech.cs"
 			],
 			[
 				"re",
@@ -1608,10 +1699,6 @@
 			],
 			[
 				"dec",
-				"Scripts\\Reasoner\\Decisions\\Decision.cs"
-			],
-			[
-				"de",
 				"Scripts\\Reasoner\\Decisions\\Decision.cs"
 			],
 			[

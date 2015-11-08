@@ -45,11 +45,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Editor\ActionAsset.cs" />
      <Compile Include="Assets\Editor\ColorPointDrawer.cs" />
      <Compile Include="Assets\Editor\EditorList.cs" />
      <Compile Include="Assets\Editor\EditorListOption.cs" />
      <Compile Include="Assets\Editor\ListTesterInspector.cs" />
      <Compile Include="Assets\Editor\PropertyHolderEditor.cs" />
+     <Compile Include="Assets\Editor\ScriptableObjectUtility.cs" />
      <Compile Include="Assets\VFW Examples\Editor\DrawersInEditorWindowExample.cs" />
      <Compile Include="Assets\VFW Examples\Editor\RegisterCustomDrawerExample.cs" />
      <None Include="Assets\DebugDrawingExtension\readme.txt" />
