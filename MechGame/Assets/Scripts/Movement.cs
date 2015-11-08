@@ -10,28 +10,44 @@ public class Movement : BetterBehaviour {
 	public float horzThrust  = 100; // Kg * m/s^2
 	public float vertThrust  = 100; // Kg * m/s^2
 	public float backThrust  = 100; // Kg * m/s^2
-	public float maxLinSpeed =  20; // Kg * m/s
+	public float maxSpeed    =  20; // Kg * m/s
 
 	public float angThrust   = 10; // deg/s^2
 
-	public void setPitch(float p) { pitch = p * angThrust * -transform.right; }
-	public void setYaw  (float y) { yaw   = y * angThrust *  transform.up; }
-	public void setRoll (float r) { roll  = r * angThrust * -transform.forward; }
-
-	public void setXForce(float x) { horz = x * horzThrust * transform.right; }
-	public void setYForce(float y) { vert = y * vertThrust * transform.up; }
-	public void setZForce(float z) { main = z * (z > 0 ? mainThrust : backThrust) * transform.forward; }
-
-	public void setTorque(Vector3 angles) {
-		setPitch(angles.x);
-		setYaw  (angles.y);
-		setRoll (angles.z);
+	public Vector3 heading {
+		get { return transform.forward; }
 	}
 
-	public void setForce(Vector3 forces) {
-		setXForce(forces.x);
-		setYForce(forces.y);
-		setZForce(forces.z);
+	public Vector3 velocity {
+		get { return rb.velocity; }
+	}
+
+	public Vector3 position {
+		get { return transform.position; }
+	}
+
+	public float speed {
+		get { return Velocity.magnitude; }
+	}
+
+	public void SetPitch(float p) { pitch = p * angThrust * -transform.right; }
+	public void SetYaw  (float y) { yaw   = y * angThrust *  transform.up; }
+	public void SetRoll (float r) { roll  = r * angThrust * -transform.forward; }
+
+	public void SetXForce(float x) { horz = x * horzThrust * transform.right; }
+	public void SetYForce(float y) { vert = y * vertThrust * transform.up; }
+	public void SetZForce(float z) { main = z * (z > 0 ? mainThrust : backThrust) * transform.forward; }
+
+	public void SetTorque(Vector3 angles) {
+		SetPitch(angles.x);
+		SetYaw  (angles.y);
+		SetRoll (angles.z);
+	}
+
+	public void SetForce(Vector3 forces) {
+		SetXForce(forces.x);
+		SetYForce(forces.y);
+		SetZForce(forces.z);
 	}
 
 	Vector3 pitch = Vector3.zero;
@@ -45,6 +61,7 @@ public class Movement : BetterBehaviour {
 	void FixedUpdate() {
 		var rb = GetComponent<Rigidbody>();
 		rb.AddTorque(pitch + yaw + roll);
+		//NOTE(seth): maxAngularSpeed is defaulted in Rigidbody to "7"
 		rb.AddForce(horz + vert + main);
 		rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxLinSpeed);
 	}
