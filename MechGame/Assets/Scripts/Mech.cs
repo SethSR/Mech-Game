@@ -5,9 +5,9 @@ using System.Linq;
 
 [RequireComponent(typeof(Mobile))]
 public class Mech : BetterBehaviour {
-	[HideInInspector] public List<Mech> enemyMechs;
-	[HideInInspector] public float      currentHealth;
-	[HideInInspector] public int        currentTeamSize;
+	[HideInInspector] public Transform target;
+	[HideInInspector] public float     currentHealth;
+	[HideInInspector] public int       currentTeamSize;
 
 	          public bool  playerControlled = false;
 	          public int   team             =  -1;
@@ -37,24 +37,19 @@ public class Mech : BetterBehaviour {
 
 	void Start() {
 		currentHealth = totalHealth;
-		var colliders = GetComponents<SphereCollider>();
-		foreach (var collider in colliders) {
-			if (collider.isTrigger) {
-				collider.radius = sensorRange;
-			}
-		}
 		mainWep = Instantiate<Weapon>(mainWep); mainWep.owner = this;
 		sideWep = Instantiate<Weapon>(sideWep); sideWep.owner = this;
 		backWep = Instantiate<Weapon>(backWep); backWep.owner = this;
 	}
 
-	void Update() {
-		enemyMechs.RemoveAll(enemy => enemy == null);
+	Color sensorRangeColor = new Color(0, 1, 0, 0.75f);
 
+	void Update() {
+		DebugExtension.DebugWireSphere(transform.position, sensorRangeColor, sensorRange);
 		if (playerControlled) {
 			// do stuff
 		} else {
-			// do other stuff
+			GetComponent<Reasoner>().DecideOnAction();
 		}
 
 		if (currentHealth < 0) {
@@ -67,34 +62,5 @@ public class Mech : BetterBehaviour {
 		if (mainWep != null) { Destroy(mainWep.gameObject); }
 		if (sideWep != null) { Destroy(sideWep.gameObject); }
 		if (backWep != null) { Destroy(backWep.gameObject); }
-	}
-
-	void OnTriggerEnter(Collider other) {
-		switch (other.tag) {
-			case "Resource":
-				// IResource res = other.gameObject.GetComponent<IResource>();
-				// interactables.Add(res);
-				break;
-			case "Mech":
-				var enemy = other.gameObject.GetComponent<Mech>();
-				if (enemy.team != team) {
-					enemyMechs.Add(enemy);
-				}
-				break;
-		}
-	}
-
-	void OnTriggerExit(Collider other) {
-		switch (other.tag) {
-			case "Resource":
-				// interactables.Remove(other.gameObject.GetComponent<IResource>());
-				break;
-			case "Mech":
-				var enemy = other.gameObject.GetComponent<Mech>();
-				if (enemy.team != team) {
-					enemyMechs.Remove(enemy);
-				}
-				break;
-		}
 	}
 }
