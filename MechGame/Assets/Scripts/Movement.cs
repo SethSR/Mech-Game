@@ -23,7 +23,7 @@ public class Movement : BetterBehaviour {
 	}
 
 	public Vector3 position {
-		get { return transform.position; }
+		get { return rb.position; }
 	}
 
 	public float speed {
@@ -50,6 +50,14 @@ public class Movement : BetterBehaviour {
 		SetZForce(forces.z);
 	}
 
+	public void SetMaxSpeed(float max) {
+		maxSpeed = max;
+	}
+
+	public void SetMaxAngSpeed(float max) {
+		rb.maxAngularVelocity = max;
+	}
+
 	Vector3 pitch = Vector3.zero;
 	Vector3 yaw   = Vector3.zero;
 	Vector3 roll  = Vector3.zero;
@@ -70,7 +78,7 @@ public class Movement : BetterBehaviour {
 		rb.AddTorque(pitch + yaw + roll);
 		//NOTE(seth): maxAngularSpeed is defaulted in Rigidbody to "7"
 		rb.AddForce(horz + vert + main);
-		rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxLinSpeed);
+		rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
 		DebugExtension.DebugArrow(position, velocity, headingColor);
 	}
 }
