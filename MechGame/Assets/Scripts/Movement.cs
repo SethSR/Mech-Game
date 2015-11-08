@@ -60,8 +60,13 @@ public class Movement : BetterBehaviour {
 
 	Color headingColor = new Color(0,0,0.75f,0.75f);
 
+	Rigidbody rb = null;
+
+	void Awake() {
+		rb = GetComponent<Rigidbody>();
+	}
+
 	void FixedUpdate() {
-		var rb = GetComponent<Rigidbody>();
 		rb.AddTorque(pitch + yaw + roll);
 		//NOTE(seth): maxAngularSpeed is defaulted in Rigidbody to "7"
 		rb.AddForce(horz + vert + main);
