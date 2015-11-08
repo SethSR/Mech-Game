@@ -58,11 +58,14 @@ public class Movement : BetterBehaviour {
 	Vector3 vert = Vector3.zero;
 	Vector3 main = Vector3.zero;
 
+	Color headingColor = new Color(0,0,0.75f,0.75f);
+
 	void FixedUpdate() {
 		var rb = GetComponent<Rigidbody>();
 		rb.AddTorque(pitch + yaw + roll);
 		//NOTE(seth): maxAngularSpeed is defaulted in Rigidbody to "7"
 		rb.AddForce(horz + vert + main);
 		rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxLinSpeed);
+		DebugExtension.DebugArrow(position, velocity, headingColor);
 	}
 }
