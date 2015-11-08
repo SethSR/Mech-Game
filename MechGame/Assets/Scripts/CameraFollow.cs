@@ -8,6 +8,9 @@ public class CameraFollow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		transform.position = target.position + offset;
-		transform.rotation = Quaternion.LookRotation(target.position - transform.position);
+		var to_target = (target.position - transform.position);
+		if (to_target != Vector3.zero) {
+			transform.rotation = Quaternion.LookRotation(to_target);
+		}
 	}
 }
