@@ -81,7 +81,7 @@ namespace SteeringBehavior {
 			return steering_force;
 		}
 
-		static public Vector3 FollowPath(this Mobile vehicle, Path path, float waypointSeekDist) {
+		static public Vector3 FollowPath(this Mobile vehicle, FollowPath path, float waypointSeekDist) {
 			if (vehicle == null || path == null || path.IsEmpty) {
 				return Vector3.zero;
 			}
@@ -256,8 +256,14 @@ namespace SteeringBehavior {
 			return steering_force;
 		}
 
-		static public Vector3 Boost(this Mobile vehicle) {
-			return Vector3.zero;
+		static public Vector3 Boost(this Mobile vehicle, Vector3 start, Vector3 target) {
+			var boost_dir = target - start;
+			var boost_strength = Vector3.Dot(vehicle.Position, boost_dir * 0.5f);
+
+			var steering_force  = (target - vehicle.Position) * vehicle.boostSpeed;
+			    steering_force *= boost_strength < 0 ? 1 : -1;
+			DebugExtension.DebugArrow(vehicle.Position, steering_force, Color.green);
+			return steering_force;
 		}
 
 
