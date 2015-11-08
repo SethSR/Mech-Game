@@ -14,12 +14,6 @@ public class Movement : BetterBehaviour {
 
 	public float angThrust   = 10; // deg/s^2
 
-	Rigidbody rb;
-
-	void Start() {
-		rb = GetComponent<Rigidbody>();
-	}
-
 	public void setPitch(float p) { pitch = p * angThrust * -transform.right; }
 	public void setYaw  (float y) { yaw   = y * angThrust *  transform.up; }
 	public void setRoll (float r) { roll  = r * angThrust * -transform.forward; }
@@ -49,6 +43,7 @@ public class Movement : BetterBehaviour {
 	Vector3 main = Vector3.zero;
 
 	void FixedUpdate() {
+		var rb = GetComponent<Rigidbody>();
 		rb.AddTorque(pitch + yaw + roll);
 		rb.AddForce(horz + vert + main);
 		rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxLinSpeed);
