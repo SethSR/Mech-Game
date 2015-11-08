@@ -6,38 +6,36 @@ using System.Linq;
 [RequireComponent(typeof(Mech))]
 public class Reasoner : BetterBehaviour {
 	public List<ActionTypes> actionTypes;
+	public List<ActionTypes> movementTypes;
+
+	public void DecideOnMovement() { Decide(moves, ref currentMovement); }
+	public void DecideOnAction  () { Decide(actions, ref currentAction); }
 
 	List<Action> actions;
-	Action currentAction;
+	List<Action> moves;
+	Action       currentAction;
+	Action       currentMovement;
+	Mech         mech;
 
 	void Start() {
-		var mech = GetComponent<Mech>();
-		actions = actionTypes.Select(at => {
-			Action a = Action.createType(at);
-			a.mech = mech;
-			return a;
-		}).ToList();
+		mech = GetComponent<Mech>();
+		actions = actionTypes.Select  (at => Action.createType(at)).ToList();
+		moves   = movementTypes.Select(mt => Action.createType(mt)).ToList();
 	}
 
-	void Update() {
+	void Decide(List<Action> decisions, ref Action current) {
 		var best_utility = -1f;
-		foreach (var ad in actions) {
-			var utility = ad.Utility;
-			utility      *= ad == currentAction ? ad.commitmentBonus : 1;
-			currentAction = best_utility < utility ? ad : currentAction;
-			best_utility  = best_utility < utility ? utility : best_utility;
+		foreach (var dd in decisions) {
+			var utility = dd.utility(mech);
+			utility     *= dd == current ? dd.commitmentBonus : 1;
+			current      = best_utility < utility ? dd : current;
+			best_utility = best_utility < utility ? utility : best_utility;
 		}
-		if (currentAction != null) {
-			currentAction.enact();
+		if (current != null) {
+			current.enact(mech);
 		} else {
-			Debug.Log(name + " | currentAction not set!");
+			Debug.Log(name + " | action not set!");
 		}
-		// Debug.Log(name + " | Action: " + currentAction.type + ", Utility: " + best_utility);
-	}
-
-	void OnDestroy() {
-		// actions.ForEach(action => {
-		// 	if (action != null) { Destroy(action.gameObject); }
-		// });
+		// Debug.Log(name + " | Action: " + current.type + ", Utility: " + best_utility);
 	}
 }
