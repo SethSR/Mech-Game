@@ -27,7 +27,7 @@ public class Movement : BetterBehaviour {
 	}
 
 	public float speed {
-		get { return Velocity.magnitude; }
+		get { return rb.velocity.magnitude; }
 	}
 
 	public void SetPitch(float p) { pitch = p * angThrust * -transform.right; }
