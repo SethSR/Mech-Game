@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class Path : BetterBehaviour {
+public class FollowPath : BetterBehaviour {
 	public bool  isLooped;
 	public int   numberOfWaypoints;
 
