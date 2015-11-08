@@ -2,34 +2,32 @@ using Vexe.Runtime.Types;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using SteeringBehavior;
 
 public enum ActionTypes {
 	Attack,
-	Capture,
+	Collect,
 	Charge,
 	Defend,
 	Destroy,
 	Dodge,
 	EMP,
+	Evade,
 	Flee,
 	Hide,
 	Idle,
 	Move,
-	Shield,
+	Shield
 }
 
+[System.Serializable]
 public class Action : BetterScriptableObject {
-	static Dictionary<ActionTypes,Action> actionMap = new Dictionary<ActionTypes,Action>();
-
 	static public Action createType(ActionTypes at) {
 		if (!actionMap.ContainsKey(at)) {
 			actionMap[at] = Resources.Load<Action>("Actions/" + at.ToString());
 		}
-		return Instantiate<Action>(actionMap[at]);
+		return actionMap[at];
 	}
-
-	[HideInInspector] public Transform target;
-	[HideInInspector] public Mech      mech;
 
 	public ActionTypes type;
 
@@ -38,34 +36,50 @@ public class Action : BetterScriptableObject {
 	[VisibleWhen("!isIdle")] public List<Consideration> considerations;
 	[VisibleWhen( "isIdle")] public float               maxIdleValue    = 0.5f;
 
-	bool isIdle() { return type == ActionTypes.Idle; }
+	public void enact(Mech mech) {
+		var mobile = mech.GetComponent<Mobile>();
+		mobile.ignoreLimits = false;
 
-
-	public void enact() {
 		switch (type) {
 			case ActionTypes.Idle: {
-				var mobile = mech.GetComponent<Mobile>();
 				mobile.update(-mobile.Velocity);
 			} break;
 
 			case ActionTypes.Attack: {
-				// Find line of sight
-				//TODO(seth): not sure how I'm going to do this currently
-				var mobile = mech.GetComponent<Mobile>();
-				var force = SteeringBehavior.Seek(mobile, target.position);
-				// Debug.Log("Force: " + force);
-				mobile.update(force);
-
-				// Attack target
-				mech.fireWeaponAt(target.GetComponent<Mech>());
+				if (mech.target == null) {
+					return;
+				}
+				mech.fireWeaponAt(mech.target.GetComponent<Mech>());
 			} break;
 
 			case ActionTypes.Hide: {
-				// do actions
+				if (mech.target == null) {
+					return;
+				}
+				Mobile enemy = mech.target.GetComponent<Mobile>();
+				List<Transform> obstacles = new List<Transform>();
+				foreach (Transform obs in ec.obstacles) {
+					if ((obs.position - mech.transform.position).sqrMagnitude < mech.sensorRange * mech.sensorRange){
+						obstacles.Add(obs);
+					}
+				}
+				mobile.update(mobile.Hide(enemy, obstacles));
+			} break;
+
+			case ActionTypes.Evade: {
+				if (mech.target == null) {
+					return;
+				}
+				Mobile enemy  = mech.target.GetComponent<Mobile>();
+				mobile.update(mobile.Evade(enemy, mech.sensorRange));
 			} break;
 
 			case ActionTypes.Flee: {
-				// do actions
+				if (mech.target == null) {
+					return;
+				}
+				Mobile enemy  = mech.target.GetComponent<Mobile>();
+				mobile.update(mobile.Flee(enemy.Position));
 			} break;
 
 			case ActionTypes.Shield: {
@@ -81,10 +95,9 @@ public class Action : BetterScriptableObject {
 			} break;
 
 			case ActionTypes.Dodge: {
-				// do actions
 			} break;
 
-			case ActionTypes.Capture: {
+			case ActionTypes.Collect: {
 				// do actions
 			} break;
 
@@ -106,90 +119,109 @@ public class Action : BetterScriptableObject {
 		}
 	}
 
-	public float Utility {
-		get {
-			switch (type) {
-				case ActionTypes.Idle: {
-					return maxIdleValue;
-				}
+	public float utility(Mech mech) {
+		if (mech == null) {
+			Debug.Log("null mech");
+			return 0f;
+		}
+		switch (type) {
+			case ActionTypes.Idle: {
+				return maxIdleValue;
+			}
 
-				case ActionTypes.Attack: {
-					float best_utility = 0;
-					foreach (Mech enemy in mech.enemyMechs) {
+			case ActionTypes.Attack: {
+				float best_utility = 0;
+				foreach (Mech enemy in ec.mechs) {
+					if ((enemy.transform.position - mech.transform.position).sqrMagnitude < mech.sensorRange * mech .sensorRange) {
 						var utility = compensatedScore(considerations.Select(cons => {
 							var con_utility = cons.utility(mech, enemy.transform);
 							// Debug.Log(enemy.name + " | " + cons.type + ": " + con_utility);
 							return con_utility;
 						}));
-						target       = (utility > best_utility) ? enemy.transform : target;
+						mech.target  = (utility > best_utility) ? enemy.transform : mech.target;
 						best_utility = (utility > best_utility) ? utility : best_utility;
 					}
-					// Debug.Log(mech.name + " | " + type + ": " + best_utility);
-					return best_utility;
 				}
+				// Debug.Log(mech.name + " | " + type + ": " + best_utility);
+				return best_utility;
+			}
 
-				case ActionTypes.Hide: {
-					var best_utility = 0;
-					return best_utility;
-				}
+			case ActionTypes.Hide: {
+				var best_utility = 0;
+				return best_utility;
+			}
 
-				case ActionTypes.Flee: {
-					var best_utility = 0;
-					return best_utility;
-				}
+			case ActionTypes.Flee: {
+				var best_utility = 0;
+				return best_utility;
+			}
 
-				case ActionTypes.Shield: {
-					var best_utility = 0;
-					return best_utility;
-				}
+			case ActionTypes.Shield: {
+				var best_utility = 0;
+				return best_utility;
+			}
 
-				case ActionTypes.EMP: {
-					var best_utility = 0;
-					return best_utility;
-				}
+			case ActionTypes.EMP: {
+				var best_utility = 0;
+				return best_utility;
+			}
 
-				case ActionTypes.Charge: {
-					var best_utility = 0;
-					return best_utility;
-				}
+			case ActionTypes.Charge: {
+				var best_utility = 0;
+				return best_utility;
+			}
 
-				case ActionTypes.Dodge: {
-					var best_utility = 0;
-					return best_utility;
-				}
+			case ActionTypes.Dodge: {
+				var best_utility = 0;
+				return best_utility;
+			}
 
-				case ActionTypes.Capture: {
-					var best_utility = 0;
-					return best_utility;
-				}
+			case ActionTypes.Collect: {
+				var best_utility = 0;
+				return best_utility;
+			}
 
-				case ActionTypes.Defend: {
-					var best_utility = 0;
-					return best_utility;
-				}
+			case ActionTypes.Defend: {
+				var best_utility = 0;
+				return best_utility;
+			}
 
-				case ActionTypes.Destroy: {
-					var best_utility = 0;
-					return best_utility;
-				}
+			case ActionTypes.Destroy: {
+				var best_utility = 0;
+				return best_utility;
+			}
 
-				case ActionTypes.Move: {
-					var best_utility = 0;
-					return best_utility;
-				}
+			case ActionTypes.Move: {
+				var best_utility = 0;
+				return best_utility;
+			}
 
-				default: {
-					var best_utility = 0;
-					return best_utility;
-				}
+			default: {
+				var best_utility = 0;
+				return best_utility;
 			}
 		}
 	}
+
+	static EntityContainer ec = null;
+
+	static Dictionary<ActionTypes,Action> actionMap = new Dictionary<ActionTypes,Action>();
 
 	static float compensatedScore(IEnumerable<float> scores) {
 		var score       = scores.Aggregate((a,b) => a * b);
 		var modFactor   = 1 - (1 / scores.Count());
 		var makeUpValue = (1 - score) * modFactor;
 		return score + (makeUpValue * score);
+	}
+
+	bool isIdle() { return type == ActionTypes.Idle; }
+
+	void Awake() {
+		if (ec == null) {
+			var go = GameObject.FindWithTag("EntityContainer");
+			if (go != null) {
+				ec = go.GetComponent<EntityContainer>();
+			}
+		}
 	}
 }
