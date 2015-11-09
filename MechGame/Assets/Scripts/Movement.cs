@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Movement : BetterBehaviour {
 	public float angThrust       =  10; // deg/s^2
-	public float angDrag         =   0.5f;
 
 	public float mainThrust      = 100; // Kg * m/s^2
 	public float horzThrust      = 100; // Kg * m/s^2
@@ -17,7 +16,6 @@ public class Movement : BetterBehaviour {
 	public float vertBoostThrust = 500;
 	public float backBoostThrust = 500;
 	public float maxBoostSpeed   =  40;
-	public float linDrag         =   0.5f;
 
 	public Vector3 heading {
 		get { return transform.forward; }
@@ -91,62 +89,28 @@ public class Movement : BetterBehaviour {
 
 	bool boostOn = false;
 
-	Color headingColor = new Color(0.25f,0.25f,1,0.75f);
+	Color headingColor = new Color(0.25f,0.25f,1,1);
 
-	Rigidbody rb = null;
+	Rigidbody rb;
 
 	void Awake() {
 		rb = GetComponent<Rigidbody>();
-		rb.angularDrag = 0;
-		rb.drag = 0;
 	}
 
 	void FixedUpdate() {
 		var pitch_torque = pitch * angThrust;
 		var yaw_torque   = yaw   * angThrust;
 		var roll_torque  = roll  * angThrust;
-
-		var torque = new Vector3(pitch_torque, yaw_torque, roll_torque);
-
-		if (torque.sqrMagnitude > 0) {
-			rb.AddRelativeTorque(torque);
-		} else {
-			var frc_val         = Mathf.Min(rb.angularVelocity.magnitude, angDrag);
-			var sign            = rb.angularVelocity.normalized;
-			var frc_in_cur_dir  = frc_val * sign;
-			rb.angularVelocity -= frc_in_cur_dir;
-		}
+		rb.AddRelativeTorque(pitch_torque, yaw_torque, roll_torque);
 
 		var horz_force = horz * (horzThrust + (boostOn ? horzBoostThrust : 0));
 		var vert_force = vert * (vertThrust + (boostOn ? vertBoostThrust : 0));
-		var m_force = (main > 0)
+		var main_force = main * ((main > 0)
 			? (mainThrust + (boostOn ? mainBoostThrust : 0))
-			: (backThrust + (boostOn ? backBoostThrust : 0));
-		var main_force = main * m_force;
+			: (backThrust + (boostOn ? backBoostThrust : 0)));
+		rb.AddRelativeForce(horz_force, vert_force, main_force);
+		rb.velocity = Vector3.ClampMagnitude(velocity, (boostOn ? maxBoostSpeed : maxSpeed));
 
-		var force = new Vector3(horz_force, vert_force, main_force);
-
-		//TODO(seth): implement Sonic-esque acceleration
-		var pressing_a_direction = force.sqrMagnitude > 0;
-		if (pressing_a_direction) {
-			if (speed < maxSpeed) {
-				rb.AddRelativeForce(force);
-			} else {
-				// alignment is in the range [0..1]
-				var alignment = 0.5f + Vector3.Dot(force.normalized, velocity.normalized) * 0.5f;
-				rb.AddRelativeForce(force * (1 - alignment));
-			}
-		} else {
-			// get scaled drag value
-			// if speed is less than drag, lower speed to zero
-			var frc_val = Mathf.Min(speed, linDrag);
-			// get the direction of the velocity
-			var sign = velocity.normalized;
-			// the friction against the current direction
-			var frc_in_cur_dir = frc_val * sign;
-			// apply the friction to the current velocity
-			rb.velocity -= frc_in_cur_dir;
-		}
 		DebugExtension.DebugArrow(position, velocity, headingColor);
 	}
 }
