@@ -37,49 +37,20 @@ public class Action : BetterScriptableObject {
 	[VisibleWhen( "isIdle")] public float               maxIdleValue    = 0.5f;
 
 	public void enact(Mech mech) {
-		var mobile = mech.GetComponent<Mobile>();
-		mobile.ignoreLimits = false;
-
 		switch (type) {
 			case ActionTypes.Idle: {
-				mobile.update(-mobile.Velocity);
 			} break;
 
 			case ActionTypes.Attack: {
-				if (mech.target == null) {
-					return;
-				}
-				mech.fireWeaponAt(mech.target.GetComponent<Mech>());
 			} break;
 
 			case ActionTypes.Hide: {
-				if (mech.target == null) {
-					return;
-				}
-				Mobile enemy = mech.target.GetComponent<Mobile>();
-				List<Transform> obstacles = new List<Transform>();
-				foreach (Transform obs in ec.obstacles) {
-					if ((obs.position - mech.transform.position).sqrMagnitude < mech.sensorRange * mech.sensorRange){
-						obstacles.Add(obs);
-					}
-				}
-				mobile.update(mobile.Hide(enemy, obstacles));
 			} break;
 
 			case ActionTypes.Evade: {
-				if (mech.target == null) {
-					return;
-				}
-				Mobile enemy  = mech.target.GetComponent<Mobile>();
-				mobile.update(mobile.Evade(enemy, mech.sensorRange));
 			} break;
 
 			case ActionTypes.Flee: {
-				if (mech.target == null) {
-					return;
-				}
-				Mobile enemy  = mech.target.GetComponent<Mobile>();
-				mobile.update(mobile.Flee(enemy.Position));
 			} break;
 
 			case ActionTypes.Shield: {
@@ -120,10 +91,6 @@ public class Action : BetterScriptableObject {
 	}
 
 	public float utility(Mech mech) {
-		if (mech == null) {
-			Debug.Log("null mech");
-			return 0f;
-		}
 		switch (type) {
 			case ActionTypes.Idle: {
 				return maxIdleValue;
@@ -131,17 +98,17 @@ public class Action : BetterScriptableObject {
 
 			case ActionTypes.Attack: {
 				float best_utility = 0;
-				foreach (Mech enemy in ec.mechs) {
-					if ((enemy.transform.position - mech.transform.position).sqrMagnitude < mech.sensorRange * mech .sensorRange) {
-						var utility = compensatedScore(considerations.Select(cons => {
-							var con_utility = cons.utility(mech, enemy.transform);
-							// Debug.Log(enemy.name + " | " + cons.type + ": " + con_utility);
-							return con_utility;
-						}));
-						mech.target  = (utility > best_utility) ? enemy.transform : mech.target;
-						best_utility = (utility > best_utility) ? utility : best_utility;
-					}
-				}
+				// foreach (Mech enemy in ec.mechs) {
+				// 	if ((enemy.transform.position - mech.transform.position).sqrMagnitude < mech.sensorRange * mech .sensorRange) {
+				// 		var utility = compensatedScore(considerations.Select(cons => {
+				// 			var con_utility = cons.utility(mech, enemy.transform);
+				// 			// Debug.Log(enemy.name + " | " + cons.type + ": " + con_utility);
+				// 			return con_utility;
+				// 		}));
+				// 		mech.target  = (utility > best_utility) ? enemy.transform : mech.target;
+				// 		best_utility = (utility > best_utility) ? utility : best_utility;
+				// 	}
+				// }
 				// Debug.Log(mech.name + " | " + type + ": " + best_utility);
 				return best_utility;
 			}

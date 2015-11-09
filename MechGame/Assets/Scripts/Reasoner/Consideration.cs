@@ -81,15 +81,15 @@ public class Consideration {
 			} break;
 
 			case ConsiderationTypes.WeaponCooldown: {
-				var wep = mech.CurrentWeapon;
-				var cooldown_over = wep.fireTime < 0;
-				//  inverse &&  cooldown_over -> 0
-				//  inverse && !cooldown_over -> 1
-				// !inverse &&  cooldown_over -> 1
-				// !inverse && !cooldown_over -> 0
-				result = inverse
-					? (cooldown_over ? 0 : 1)
-					: (cooldown_over ? 1 : 0);
+				// var wep = mech.CurrentWeapon;
+				// var cooldown_over = wep.fireTime < 0;
+				// //  inverse &&  cooldown_over -> 0
+				// //  inverse && !cooldown_over -> 1
+				// // !inverse &&  cooldown_over -> 1
+				// // !inverse && !cooldown_over -> 0
+				// result = inverse
+				// 	? (cooldown_over ? 0 : 1)
+				// 	: (cooldown_over ? 1 : 0);
 			} break;
 
 			default: {
