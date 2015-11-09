@@ -4,15 +4,20 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Movement : BetterBehaviour {
-	//NOTE(seth): Remember to set the linear and angular drag in the rigidbody!!!
-	// Around 5 seems pretty good for the default values below.
-	public float mainThrust  = 100; // Kg * m/s^2
-	public float horzThrust  = 100; // Kg * m/s^2
-	public float vertThrust  = 100; // Kg * m/s^2
-	public float backThrust  = 100; // Kg * m/s^2
-	public float maxSpeed    =  20; // Kg * m/s
+	public float angThrust       =  10; // deg/s^2
+	public float angDrag         =   0.5f;
 
-	public float angThrust   = 10; // deg/s^2
+	public float mainThrust      = 100; // Kg * m/s^2
+	public float horzThrust      = 100; // Kg * m/s^2
+	public float vertThrust      = 100; // Kg * m/s^2
+	public float backThrust      = 100; // Kg * m/s^2
+	public float maxSpeed        =  20; // Kg * m/s
+	public float mainBoostThrust = 500;
+	public float horzBoostThrust = 500;
+	public float vertBoostThrust = 500;
+	public float backBoostThrust = 500;
+	public float maxBoostSpeed   =  40;
+	public float linDrag         =   0.5f;
 
 	public Vector3 heading {
 		get { return transform.forward; }
@@ -30,14 +35,28 @@ public class Movement : BetterBehaviour {
 		get { return rb.velocity.magnitude; }
 	}
 
-	public void SetPitch(float p) { pitch = p * angThrust * -transform.right; }
-	public void SetYaw  (float y) { yaw   = y * angThrust *  transform.up; }
-	public void SetRoll (float r) { roll  = r * angThrust * -transform.forward; }
+	//NOTE(seth): All SetValue(float) methods expect a value in [0..1]
+	public void SetPitch(float p) { pitch = p; }
+	public void SetYaw  (float y) { yaw   = y; }
+	public void SetRoll (float r) { roll  = r; }
 
-	public void SetXForce(float x) { horz = x * horzThrust * transform.right; }
-	public void SetYForce(float y) { vert = y * vertThrust * transform.up; }
-	public void SetZForce(float z) { main = z * (z > 0 ? mainThrust : backThrust) * transform.forward; }
+	public void SetXForce(float x) { horz = x; }
+	public void SetYForce(float y) { vert = y; }
+	public void SetZForce(float z) { main = z; }
 
+	public void SetTorque(float p, float y, float r) {
+		SetPitch(p);
+		SetYaw  (y);
+		SetRoll (r);
+	}
+
+	public void SetForce(float x, float y, float z) {
+		SetXForce(x);
+		SetYForce(y);
+		SetZForce(z);
+	}
+
+	//NOTE(seth): All SetValue(Vector3) methods expect a normalized vector
 	public void SetTorque(Vector3 angles) {
 		SetPitch(angles.x);
 		SetYaw  (angles.y);
@@ -58,27 +77,76 @@ public class Movement : BetterBehaviour {
 		rb.maxAngularVelocity = max;
 	}
 
-	Vector3 pitch = Vector3.zero;
-	Vector3 yaw   = Vector3.zero;
-	Vector3 roll  = Vector3.zero;
+	public void SetBoost(bool enable) {
+		boostOn = enable;
+	}
 
-	Vector3 horz = Vector3.zero;
-	Vector3 vert = Vector3.zero;
-	Vector3 main = Vector3.zero;
+	float pitch = 0f;
+	float yaw   = 0f;
+	float roll  = 0f;
 
-	Color headingColor = new Color(0,0,0.75f,0.75f);
+	float horz = 0f;
+	float vert = 0f;
+	float main = 0f;
+
+	bool boostOn = false;
+
+	Color headingColor = new Color(0.25f,0.25f,1,0.75f);
 
 	Rigidbody rb = null;
 
 	void Awake() {
 		rb = GetComponent<Rigidbody>();
+		rb.angularDrag = 0;
+		rb.drag = 0;
 	}
 
 	void FixedUpdate() {
-		rb.AddTorque(pitch + yaw + roll);
-		//NOTE(seth): maxAngularSpeed is defaulted in Rigidbody to "7"
-		rb.AddForce(horz + vert + main);
-		rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+		var pitch_torque = pitch * angThrust;
+		var yaw_torque   = yaw   * angThrust;
+		var roll_torque  = roll  * angThrust;
+
+		var torque = new Vector3(pitch_torque, yaw_torque, roll_torque);
+
+		if (torque.sqrMagnitude > 0) {
+			rb.AddRelativeTorque(torque);
+		} else {
+			var frc_val         = Mathf.Min(rb.angularVelocity.magnitude, angDrag);
+			var sign            = rb.angularVelocity.normalized;
+			var frc_in_cur_dir  = frc_val * sign;
+			rb.angularVelocity -= frc_in_cur_dir;
+		}
+
+		var horz_force = horz * (horzThrust + (boostOn ? horzBoostThrust : 0));
+		var vert_force = vert * (vertThrust + (boostOn ? vertBoostThrust : 0));
+		var m_force = (main > 0)
+			? (mainThrust + (boostOn ? mainBoostThrust : 0))
+			: (backThrust + (boostOn ? backBoostThrust : 0));
+		var main_force = main * m_force;
+
+		var force = new Vector3(horz_force, vert_force, main_force);
+
+		//TODO(seth): implement Sonic-esque acceleration
+		var pressing_a_direction = force.sqrMagnitude > 0;
+		if (pressing_a_direction) {
+			if (speed < maxSpeed) {
+				rb.AddRelativeForce(force);
+			} else {
+				// alignment is in the range [0..1]
+				var alignment = 0.5f + Vector3.Dot(force.normalized, velocity.normalized) * 0.5f;
+				rb.AddRelativeForce(force * (1 - alignment));
+			}
+		} else {
+			// get scaled drag value
+			// if speed is less than drag, lower speed to zero
+			var frc_val = Mathf.Min(speed, linDrag);
+			// get the direction of the velocity
+			var sign = velocity.normalized;
+			// the friction against the current direction
+			var frc_in_cur_dir = frc_val * sign;
+			// apply the friction to the current velocity
+			rb.velocity -= frc_in_cur_dir;
+		}
 		DebugExtension.DebugArrow(position, velocity, headingColor);
 	}
 }
