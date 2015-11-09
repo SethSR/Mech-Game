@@ -54,11 +54,12 @@ public class PlayerInput : MonoBehaviour {
 
 	void Update() {
 		var movement = GetComponent<Movement>();
-		movement.setPitch(invertedY ? -RightAxis(playerIndex).y : RightAxis(playerIndex).y);
-		movement.setYaw  (invertedX ? -RightAxis(playerIndex).x : RightAxis(playerIndex).x);
-		movement.setRoll (RightTrigger(playerIndex) - LeftTrigger(playerIndex));
-		movement.setXForce(LeftAxis(playerIndex).x);
-		movement.setYForce(RightStickBtn(playerIndex) ? LeftAxis(playerIndex).y : 0);
-		movement.setZForce(RightStickBtn(playerIndex) ? 0 : LeftAxis(playerIndex).y);
+		movement.SetTorque(invertedY ? RightAxis(playerIndex).y : -RightAxis(playerIndex).y,
+		                   invertedX ? -RightAxis(playerIndex).x : RightAxis(playerIndex).x,
+		                   LeftTrigger(playerIndex) - RightTrigger(playerIndex));
+		movement.SetForce(LeftAxis(playerIndex).x,
+		                  RightStickBtn(playerIndex) ? LeftAxis(playerIndex).y : 0,
+		                  RightStickBtn(playerIndex) ? 0 : LeftAxis(playerIndex).y);
+		movement.SetBoost(LeftStickBtn(playerIndex));
 	}
 }
