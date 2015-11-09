@@ -61,5 +61,22 @@ public class PlayerInput : MonoBehaviour {
 		                  RightStickBtn(playerIndex) ? LeftAxis(playerIndex).y : 0,
 		                  RightStickBtn(playerIndex) ? 0 : LeftAxis(playerIndex).y);
 		movement.SetBoost(LeftStickBtn(playerIndex));
+
+		var mech = GetComponent<Mech>();
+		// if (DpadAxis(playerIndex).y > 0) { mech.SetMode(MechMode.Combat); }
+		// if (DpadAxis(playerIndex).x < 0) { mech.SetMode(MechMode.Salvage); }
+		// if (DpadAxis(playerIndex).x > 0) { mech.SetMode(MechMode.Unknown); }
+		// if (DpadAxis(playerIndex).y < 0) { mech.SetMode(MechMode.LowPower); }
+
+		if (LeftShoulderBtn(playerIndex)) { mech.ActivateLeftArm(); }
+		if (RightShoulderBtn(playerIndex)) { mech.ActivateRightArm(); }
+
+		// mech.ActivateAbility1(CrossBtn(playerIndex));
+		// mech.ActivateAbility2(CircleBtn(playerIndex));
+		// mech.ActivateAbility3(SquareBtn(playerIndex));
+		// mech.ActivateAbility4(TriangleBtn(playerIndex));
+
+		// PauseMenu.Activate(StartBtn(playerIndex));
+		// OverviewMenu.Activate(SelectBtn(playerIndex));
 	}
 }
