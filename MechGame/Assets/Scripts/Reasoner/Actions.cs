@@ -21,10 +21,10 @@ public enum ActionTypes {
 }
 
 [System.Serializable]
-public class Action : BetterScriptableObject {
-	static public Action createType(ActionTypes at) {
+public class Actions : BetterScriptableObject {
+	static public Actions createType(ActionTypes at) {
 		if (!actionMap.ContainsKey(at)) {
-			actionMap[at] = Resources.Load<Action>("Actions/" + at.ToString());
+			actionMap[at] = Resources.Load<Actions>("Actions/" + at.ToString());
 		}
 		return actionMap[at];
 	}
@@ -172,7 +172,7 @@ public class Action : BetterScriptableObject {
 
 	static EntityContainer ec = null;
 
-	static Dictionary<ActionTypes,Action> actionMap = new Dictionary<ActionTypes,Action>();
+	static Dictionary<ActionTypes,Actions> actionMap = new Dictionary<ActionTypes,Actions>();
 
 	static float compensatedScore(IEnumerable<float> scores) {
 		var score       = scores.Aggregate((a,b) => a * b);

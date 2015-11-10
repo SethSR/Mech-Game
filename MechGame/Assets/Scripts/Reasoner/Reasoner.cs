@@ -11,19 +11,19 @@ public class Reasoner : BetterBehaviour {
 	public void DecideOnMovement() { Decide(moves, ref currentMovement); }
 	public void DecideOnAction  () { Decide(actions, ref currentAction); }
 
-	List<Action> actions;
-	List<Action> moves;
-	Action       currentAction;
-	Action       currentMovement;
-	Mech         mech;
+	List<Actions> actions;
+	List<Actions> moves;
+	Actions       currentAction;
+	Actions       currentMovement;
+	Mech          mech;
 
 	void Start() {
 		mech = GetComponent<Mech>();
-		actions = actionTypes.Select  (at => Action.createType(at)).ToList();
-		moves   = movementTypes.Select(mt => Action.createType(mt)).ToList();
+		actions = actionTypes.Select  (at => Actions.createType(at)).ToList();
+		moves   = movementTypes.Select(mt => Actions.createType(mt)).ToList();
 	}
 
-	void Decide(List<Action> decisions, ref Action current) {
+	void Decide(List<Actions> decisions, ref Actions current) {
 		var best_utility = -1f;
 		foreach (var dd in decisions) {
 			var utility = dd.utility(mech);
