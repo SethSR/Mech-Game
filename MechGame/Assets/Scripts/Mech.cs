@@ -30,7 +30,7 @@ public class Mech : BetterBehaviour {
 	Color sensorRangeColor = new Color(0, 1, 0, 0.75f);
 
 	void Update() {
-		DebugExtension.DebugWireSphere(transform.position, sensorRangeColor, sensorRange);
+		// DebugExtension.DebugWireSphere(transform.position, sensorRangeColor, sensorRange);
 		if (currentHealth < 0) {
 			// has died
 			Destroy(gameObject);
