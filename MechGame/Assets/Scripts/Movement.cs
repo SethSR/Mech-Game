@@ -1,5 +1,4 @@
-﻿using GamepadInput;
-using Vexe.Runtime.Types;
+﻿using Vexe.Runtime.Types;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
