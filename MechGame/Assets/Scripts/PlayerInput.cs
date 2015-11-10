@@ -1,28 +1,29 @@
-﻿using GamepadInput;
+﻿using InControl;
 using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(Movement))]
 public class PlayerInput : MonoBehaviour {
-	static public float   LeftTrigger     (GamePad.Index playerIndex) { return GamePad.GetTrigger(GamePad.Trigger.LeftTrigger , playerIndex); }
-	static public float   RightTrigger    (GamePad.Index playerIndex) { return GamePad.GetTrigger(GamePad.Trigger.RightTrigger, playerIndex); }
-	static public Vector2 LeftAxis        (GamePad.Index playerIndex) { return GamePad.GetAxis   (GamePad.Axis.LeftStick      , playerIndex); }
-	static public Vector2 RightAxis       (GamePad.Index playerIndex) { return GamePad.GetAxis   (GamePad.Axis.RightStick     , playerIndex); }
-	static public Vector2 DpadAxis        (GamePad.Index playerIndex) { return GamePad.GetAxis   (GamePad.Axis.Dpad           , playerIndex); }
-	static public bool    LeftShoulderBtn (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.LeftShoulder , playerIndex); }
-	static public bool    RightShoulderBtn(GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.RightShoulder, playerIndex); }
-	static public bool    LeftStickBtn    (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.LeftStick    , playerIndex); }
-	static public bool    RightStickBtn   (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.RightStick   , playerIndex); }
-	static public bool    CrossBtn        (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.A            , playerIndex); }
-	static public bool    CircleBtn       (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.B            , playerIndex); }
-	static public bool    SquareBtn       (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.X            , playerIndex); }
-	static public bool    TriangleBtn     (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.Y            , playerIndex); }
-	static public bool    StartBtn        (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.Start        , playerIndex); }
-	static public bool    SelectBtn       (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.Back         , playerIndex); }
+	public Transform throttle; //TODO(seth): This is temporary for Rule of Cool!
+	public Transform control;  //TODO(seth): This is temporary for Rule of Cool!
+	// static public float   LeftTrigger     (GamePad.Index playerIndex) { return GamePad.GetTrigger(GamePad.Trigger.LeftTrigger , playerIndex); }
+	// static public float   RightTrigger    (GamePad.Index playerIndex) { return GamePad.GetTrigger(GamePad.Trigger.RightTrigger, playerIndex); }
+	// static public Vector2 LeftAxis        (GamePad.Index playerIndex) { return GamePad.GetAxis   (GamePad.Axis.LeftStick      , playerIndex); }
+	// static public Vector2 RightAxis       (GamePad.Index playerIndex) { return GamePad.GetAxis   (GamePad.Axis.RightStick     , playerIndex); }
+	// static public Vector2 DpadAxis        (GamePad.Index playerIndex) { return GamePad.GetAxis   (GamePad.Axis.Dpad           , playerIndex); }
+	// static public bool    LeftShoulderBtn (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.LeftShoulder , playerIndex); }
+	// static public bool    RightShoulderBtn(GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.RightShoulder, playerIndex); }
+	// static public bool    LeftStickBtn    (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.LeftStick    , playerIndex); }
+	// static public bool    RightStickBtn   (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.RightStick   , playerIndex); }
+	// static public bool    CrossBtn        (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.A            , playerIndex); }
+	// static public bool    CircleBtn       (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.B            , playerIndex); }
+	// static public bool    SquareBtn       (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.X            , playerIndex); }
+	// static public bool    TriangleBtn     (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.Y            , playerIndex); }
+	// static public bool    StartBtn        (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.Start        , playerIndex); }
+	// static public bool    SelectBtn       (GamePad.Index playerIndex) { return GamePad.GetButton (GamePad.Button.Back         , playerIndex); }
 
-	public GamePad.Index playerIndex;
-	public bool          invertedX = false;
-	public bool          invertedY = false;
+	public bool invertedX = false;
+	public bool invertedY = false;
 
 	// INPUT -> ACTIONS
 	// Left  Shoulder  -> Left Arm/Weapon
@@ -53,14 +54,27 @@ public class PlayerInput : MonoBehaviour {
 	// Select -> Some-kind-of-galaxy/mech/overview Menu
 
 	void Update() {
+		var device = InputManager.ActiveDevice;
+
+		// Throttle        : -0.15 - 0.02
+		// Control Stick X : -15 - 15
+		// Control Stick Y : -15 - 15
+		// Control Stick Z : -15 - 15
+
 		var movement = GetComponent<Movement>();
-		movement.SetTorque(invertedY ? RightAxis(playerIndex).y : -RightAxis(playerIndex).y,
-		                   invertedX ? -RightAxis(playerIndex).x : RightAxis(playerIndex).x,
-		                   LeftTrigger(playerIndex) - RightTrigger(playerIndex));
-		movement.SetForce(LeftAxis(playerIndex).x,
-		                  RightStickBtn(playerIndex) ? LeftAxis(playerIndex).y : 0,
-		                  RightStickBtn(playerIndex) ? 0 : LeftAxis(playerIndex).y);
-		movement.SetBoost(LeftStickBtn(playerIndex));
+		if (movement) {
+			// throttle.position = Mathf.Lerp(-0.15f, 0.02f, device.LeftStickY.Value * 0.5f + 0.5f);
+			// control.rotation = Quaternion.Euler(-Mathf.Lerp(-15, 15, device.RightStickY.Value * 0.5f + 0.5f),
+			//                                     Mathf.Lerp(-15, 15, device.RightStickX.Value * 0.5f + 0.5f),
+			//                                     Mathf.Lerp(-15, 15, (device.LeftTrigger - device.RightTrigger) * 0.5f + 0.5f));
+			movement.SetTorque(invertedY ? device.RightStickY.Value : -device.RightStickY.Value,
+			                   invertedX ? -device.RightStickX.Value : device.RightStickX.Value,
+			                   device.LeftTrigger - device.RightTrigger);
+			movement.SetForce(device.LeftStickX.Value,
+			                  device.RightStickButton ? device.LeftStickY.Value : 0,
+			                  device.RightStickButton ? 0 : device.LeftStickY.Value);
+			movement.SetBoost(device.LeftStickButton);
+		}
 
 		var mech = GetComponent<Mech>();
 		// if (DpadAxis(playerIndex).y > 0) { mech.SetMode(MechMode.Combat); }
@@ -68,8 +82,8 @@ public class PlayerInput : MonoBehaviour {
 		// if (DpadAxis(playerIndex).x > 0) { mech.SetMode(MechMode.Unknown); }
 		// if (DpadAxis(playerIndex).y < 0) { mech.SetMode(MechMode.LowPower); }
 
-		if (LeftShoulderBtn(playerIndex)) { mech.ActivateLeftArm(); }
-		if (RightShoulderBtn(playerIndex)) { mech.ActivateRightArm(); }
+		if (device.LeftBumper) { mech.ActivateLeftArm(); }
+		if (device.RightBumper) { mech.ActivateRightArm(); }
 
 		// mech.ActivateAbility1(CrossBtn(playerIndex));
 		// mech.ActivateAbility2(CircleBtn(playerIndex));
