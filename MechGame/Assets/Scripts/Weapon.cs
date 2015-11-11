@@ -1,26 +1,46 @@
 using Vexe.Runtime.Types;
 using UnityEngine;
 
+public enum WeaponType {
+	Solid,
+	Laser,
+	Missile,
+}
+
 public class Weapon : BetterBehaviour {
 	[HideInInspector] public Mech  owner;
-	[HideInInspector] public float fireTime;
+	[HideInInspector] public float fireTime = 0;
 
-	public float cooldown;
-	public float minRange;
-	public float maxRange;
-	public float damage;
+	public WeaponType type;
+	public Transform  spawn;
+	public Ammunition ammo;
+	public float      cooldown;
 
-	public float fire() {
-		fireTime = cooldown;
-		return damage;
+	public float MinRange {
+		get { return minRange * ammo.rangeMod; }
 	}
 
-	void Start() {
-		fireTime = cooldown;
+	public float MaxRange {
+		get { return maxRange * ammo.rangeMod; }
 	}
+
+	public float Damage {
+		get { return ammo.damage; }
+	}
+
+	public void Fire() {
+		if (fireTime <= 0) {
+			fireTime = cooldown;
+			var round = (Ammunition)Instantiate(ammo, spawn.position, Quaternion.identity);
+			round.Velocity = transform.forward * ammo.fireSpeed;
+		}
+	}
+
+	float minRange;
+	float maxRange;
 
 	void Update() {
-		DebugExtension.DebugCircle(owner.transform.position, fireTime / cooldown);
+		DebugExtension.DebugCircle(owner.transform.position, Color.red, fireTime / cooldown);
 		if (fireTime > 0) {
 			fireTime -= Time.deltaTime;
 		}
