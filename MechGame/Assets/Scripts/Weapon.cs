@@ -8,7 +8,6 @@ public enum WeaponType {
 }
 
 public class Weapon : BetterBehaviour {
-	[HideInInspector] public Mech  owner;
 	[HideInInspector] public float fireTime = 0;
 
 	public WeaponType type;
@@ -18,10 +17,12 @@ public class Weapon : BetterBehaviour {
 
 	public float MinRange {
 		get { return minRange * ammo.rangeMod; }
+		set { minRange = value; }
 	}
 
 	public float MaxRange {
 		get { return maxRange * ammo.rangeMod; }
+		set { maxRange = value; }
 	}
 
 	public float Damage {
@@ -31,7 +32,7 @@ public class Weapon : BetterBehaviour {
 	public void Fire() {
 		if (fireTime <= 0) {
 			fireTime = cooldown;
-			var round = (Ammunition)Instantiate(ammo, spawn.position, Quaternion.identity);
+			var round = (Ammunition)Instantiate(ammo, spawn.position, ammo.transform.rotation * transform.rotation);
 			round.Velocity = transform.forward * ammo.fireSpeed;
 		}
 	}
@@ -40,7 +41,7 @@ public class Weapon : BetterBehaviour {
 	float maxRange;
 
 	void Update() {
-		DebugExtension.DebugCircle(owner.transform.position, Color.red, fireTime / cooldown);
+		DebugExtension.DebugCircle(spawn.transform.position, Color.red, fireTime / cooldown);
 		if (fireTime > 0) {
 			fireTime -= Time.deltaTime;
 		}
