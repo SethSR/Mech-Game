@@ -63,10 +63,13 @@ public class PlayerInput : MonoBehaviour {
 
 		var movement = GetComponent<Movement>();
 		if (movement) {
-			// throttle.position = Mathf.Lerp(-0.15f, 0.02f, device.LeftStickY.Value * 0.5f + 0.5f);
-			// control.rotation = Quaternion.Euler(-Mathf.Lerp(-15, 15, device.RightStickY.Value * 0.5f + 0.5f),
-			//                                     Mathf.Lerp(-15, 15, device.RightStickX.Value * 0.5f + 0.5f),
-			//                                     Mathf.Lerp(-15, 15, (device.LeftTrigger - device.RightTrigger) * 0.5f + 0.5f));
+			throttle.position = transform.position + transform.rotation * new Vector3(0.268f,
+			                                0.8f-0.1244f,
+			                                0.6f-0.0889f + Mathf.Lerp(-0.15f, 0.02f, device.LeftStickY.Value * 0.5f + 0.5f));
+			throttle.rotation = transform.rotation;
+			control.rotation = transform.rotation * Quaternion.Euler(-Mathf.Lerp(-15, 15, device.RightStickY.Value * 0.5f + 0.5f),
+			                                                         Mathf.Lerp(-15, 15, device.RightStickX.Value * 0.5f + 0.5f),
+			                                                         Mathf.Lerp(-15, 15, (device.LeftTrigger - device.RightTrigger) * 0.5f + 0.5f));
 			movement.SetTorque(invertedY ? device.RightStickY.Value : -device.RightStickY.Value,
 			                   invertedX ? -device.RightStickX.Value : device.RightStickX.Value,
 			                   device.LeftTrigger - device.RightTrigger);
@@ -76,19 +79,27 @@ public class PlayerInput : MonoBehaviour {
 			movement.SetBoost(device.LeftStickButton);
 		}
 
+		//TODO(seth): These will go away eventually!
+		var right_weapon = GetComponent<Weapon>();
+		if (right_weapon && device.RightBumper) {
+			right_weapon.Fire();
+		}
+
 		var mech = GetComponent<Mech>();
-		// if (DpadAxis(playerIndex).y > 0) { mech.SetMode(MechMode.Combat); }
-		// if (DpadAxis(playerIndex).x < 0) { mech.SetMode(MechMode.Salvage); }
-		// if (DpadAxis(playerIndex).x > 0) { mech.SetMode(MechMode.Unknown); }
-		// if (DpadAxis(playerIndex).y < 0) { mech.SetMode(MechMode.LowPower); }
+		if (mech) {
+			// if (DpadAxis(playerIndex).y > 0) { mech.SetMode(MechMode.Combat); }
+			// if (DpadAxis(playerIndex).x < 0) { mech.SetMode(MechMode.Salvage); }
+			// if (DpadAxis(playerIndex).x > 0) { mech.SetMode(MechMode.Unknown); }
+			// if (DpadAxis(playerIndex).y < 0) { mech.SetMode(MechMode.LowPower); }
 
-		if (device.LeftBumper) { mech.ActivateLeftArm(); }
-		if (device.RightBumper) { mech.ActivateRightArm(); }
+			if (device.LeftBumper) { mech.ActivateLeftArm(); }
+			if (device.RightBumper) { mech.ActivateRightArm(); }
 
-		// mech.ActivateAbility1(CrossBtn(playerIndex));
-		// mech.ActivateAbility2(CircleBtn(playerIndex));
-		// mech.ActivateAbility3(SquareBtn(playerIndex));
-		// mech.ActivateAbility4(TriangleBtn(playerIndex));
+			// mech.ActivateAbility1(CrossBtn(playerIndex));
+			// mech.ActivateAbility2(CircleBtn(playerIndex));
+			// mech.ActivateAbility3(SquareBtn(playerIndex));
+			// mech.ActivateAbility4(TriangleBtn(playerIndex));
+		}
 
 		// PauseMenu.Activate(StartBtn(playerIndex));
 		// OverviewMenu.Activate(SelectBtn(playerIndex));
