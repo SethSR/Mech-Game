@@ -246,8 +246,10 @@
      <Compile Include="Assets\InControl\Source\iCade\ICadeNative.cs" />
      <Compile Include="Assets\InControl\Source\iCade\ICadeState.cs" />
      <Compile Include="Assets\InControl\Test\TestInputManager.cs" />
+     <Compile Include="Assets\Scripts\Ammunition.cs" />
      <Compile Include="Assets\Scripts\Behaviors\Steering\SteeringBehavior.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\CameraShake.cs" />
      <Compile Include="Assets\Scripts\EntityContainer.cs" />
      <Compile Include="Assets\Scripts\FollowPath.cs" />
      <Compile Include="Assets\Scripts\Interactables\IResource.cs" />
