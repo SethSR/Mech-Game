@@ -6,7 +6,7 @@
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
 	<RootNamespace></RootNamespace>
-	<ProjectGuid>{D839629D-0F1F-A7FE-BD74-A42ECA7694DB}</ProjectGuid>
+	<ProjectGuid>{5D747256-F661-8F14-7E5D-BC26DBEE571D}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
@@ -19,7 +19,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_5_2_2;UNITY_5_2;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_REFLECTION_BUFFERS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;UNITY_METRO;UNITY_METRO_API;UNITY_WINRT;ENABLE_WINRT_PINVOKE;ENABLE_TEXTUREID_MAP;ENABLE_LAZY_METHOD_CACHING;ENABLE_MOVIES;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_EVENT_QUEUE;ENABLE_NETWORK;UNITY_WSA;ENABLE_PROFILER;UNITY_WSA_10_0;UNITY_WINRT_10_0;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_5_2_3;UNITY_5_2;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_2D_PHYSICS;ENABLE_4_6_FEATURES;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_REFLECTION_BUFFERS;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -38,10 +38,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:\Program Files\Unity\Editor\Data\PlaybackEngines\metrosupport/Tools/UnityEngine.dll</HintPath>
+	  <HintPath>E:/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>E:/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -75,32 +75,6 @@
      <Compile Include="Assets\Plugins\Vexe\Runtime\FastSave\Serializers\ReflectiveComponentSerializer.cs" />
      <Compile Include="Assets\Plugins\Vexe\Runtime\FastSave\Storage\AssetStorage.cs" />
      <Compile Include="Assets\Plugins\Vexe\Runtime\FastSave\Storage\PrefabStorage.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\AnimatorExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\ComponentExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\DelegateExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\FastReflection.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\Flags.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\GameObjectExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\GenericEnumerableExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\LayerMaskExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\MemberInfoExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\MethodInfoExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\OtherExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\PropertyInfoExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\RendererExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\RigidbodyExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\StringExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\SystemObjectExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\TransformExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\TypeExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\UnityObjectExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Extensions\VectorExtensions.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Helpers\Assert.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Helpers\EventsHelper.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Helpers\GOHelper.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Helpers\GizHelper.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Helpers\ReflectionHelper.cs" />
-     <Compile Include="Assets\Plugins\Vexe\Runtime\Library\Helpers\RuntimeHelper.cs" />
      <Compile Include="Assets\Plugins\Vexe\Runtime\Serialization\SerializationAttributes.cs" />
      <Compile Include="Assets\Plugins\Vexe\Runtime\Serialization\SerializationData.cs" />
      <Compile Include="Assets\Plugins\Vexe\Runtime\Serialization\SerializationLogic.cs" />
@@ -213,26 +187,44 @@
      <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Others\SerializableDictionary.cs" />
      <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Others\SerializableType.cs" />
      <Compile Include="Assets\Plugins\Vexe\Runtime\Types\Others\Tuple.cs" />
-     <None Include="Assets\DebugDrawingExtension\readme.txt" />
-     <None Include="Assets\Plugins\Editor\Vexe\LICENSE.txt" />
-     <None Include="Assets\Plugins\Vexe\HISTORY.txt" />
-     <None Include="Assets\InControl\Readme\README.txt" />
      <None Include="Assets\Plugins\Vexe\LICENSE.txt" />
      <None Include="Assets\Plugins\Vexe\Runtime\FastSave\README.txt" />
+     <None Include="Assets\InControl\Readme\README.txt" />
+     <None Include="Assets\Plugins\Vexe\HISTORY.txt" />
+     <None Include="Assets\Plugins\Editor\Vexe\LICENSE.txt" />
+     <None Include="Assets\DebugDrawingExtension\readme.txt" />
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>e:/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>e:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>e:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>e:/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="BasicSerializer">
- <HintPath>C:/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Plugins/Vexe/Runtime/FastSave/Serializer/BasicSerializer.dll</HintPath>
+ <HintPath>E:/Documents/GitHub/Mech-Game/Assets/Plugins/Vexe/Runtime/FastSave/Serializer/BasicSerializer.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>E:/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>E:/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>E:/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>E:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
- <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
+ <HintPath>E:/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ <HintPath>E:/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
