@@ -1,0 +1,20 @@
+{
+	"folders":
+	[
+		{
+			"name": "Scripts",
+			"path": "Assets\\Scripts",
+			"file_include_patterns": [ "*.cs" ],
+		},
+		{
+			"name": "Editor",
+			"path": "Assets\\Editor",
+			"file_include_patterns": [ "*.cs" ],
+		},
+		{
+			"name": "Debug Extensions",
+			"path": "Assets\\DebugDrawingExtension",
+			"file_include_patterns": [ "*.cs" ],
+		},
+	]
+}

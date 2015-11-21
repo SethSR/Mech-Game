@@ -58,7 +58,6 @@ build/
 *_p.c
 *.ilk
 *.meta
-*.obj
 *.pch
 *.pdb
 *.pgc
@@ -221,3 +220,6 @@ pip-log.txt
 
 Library
 Temp
+Assets/Scripts/InfiniteAxisUtilitySystem.cpp
+*.csproj
+*.sln

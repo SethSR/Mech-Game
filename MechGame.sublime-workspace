@@ -1,0 +1,2442 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"LeftSh",
+				"LeftShoulderBtn"
+			],
+			[
+				"Cross",
+				"CrossBtn"
+			],
+			[
+				"Dp",
+				"DpadAxis"
+			],
+			[
+				"inv",
+				"invertedY"
+			],
+			[
+				"TransformDirec",
+				"TransformDirection	direction"
+			],
+			[
+				"Sphe",
+				"SphereCollider"
+			],
+			[
+				"num",
+				"numberOfWaypoints-1"
+			],
+			[
+				"Vecotr",
+				"Vector3	x, y, z"
+			],
+			[
+				"On",
+				"OnTriggerEnter	other"
+			],
+			[
+				"DSE",
+				"DecisionScoreEvaluatorDef"
+			],
+			[
+				"n",
+				"neighbor"
+			],
+			[
+				"Edit",
+				"EditorGUI"
+			],
+			[
+				"miniB",
+				"miniButtonWidth"
+			],
+			[
+				"k",
+				"kAnimateFn_QuadEaseInEqn"
+			],
+			[
+				"ind",
+				"indexToScreenPosition"
+			],
+			[
+				"crea",
+				"createAndPlaceTenBlock"
+			],
+			[
+				"posit",
+				"positionTenBlock"
+			],
+			[
+				"createAnd",
+				"createAndPlaceOneBlock"
+			],
+			[
+				"highlightAnswerP",
+				"highlightAnswerPlaceContainers"
+			],
+			[
+				"Disabled",
+				"DISABLED"
+			],
+			[
+				"V",
+				"VALUE_CONTAINER_LIMIT"
+			],
+			[
+				"clear",
+				"clearPlaceValues"
+			],
+			[
+				"Hundr",
+				"Hundreds"
+			],
+			[
+				"th",
+				"tmTheme"
+			],
+			[
+				"An",
+				"Antagonist"
+			],
+			[
+				"alt",
+				"hasAltLayout"
+			],
+			[
+				"setP",
+				"setPlaceContainerColor"
+			],
+			[
+				"E",
+				"ExpandedFormCode"
+			],
+			[
+				"q",
+				"question_total"
+			],
+			[
+				"getP",
+				"getPlaceValueContainer"
+			],
+			[
+				"getA",
+				"getActiveChild"
+			],
+			[
+				"getV",
+				"getVisualRect"
+			],
+			[
+				"fa",
+				"answeredFamilies"
+			],
+			[
+				"corr",
+				"correctAnswer"
+			],
+			[
+				"getVis",
+				"getVisualRect"
+			],
+			[
+				"collec",
+				"collectValuesAlt"
+			],
+			[
+				"PVC",
+				"PlaceValueContainers"
+			],
+			[
+				"pl",
+				"placeValues"
+			],
+			[
+				"ANSWER",
+				"AnswerContainer"
+			],
+			[
+				"subcurrent",
+				"subcurrent_switch"
+			],
+			[
+				"Bu",
+				"BufferedReader"
+			],
+			[
+				"REEP",
+				"RE_ENTRY_PACKAGE"
+			],
+			[
+				"SLICK",
+				"SLICK_SPRAY"
+			],
+			[
+				"find",
+				"findIdentifier"
+			],
+			[
+				"parseWeaponD",
+				"parseWeaponDefinition"
+			],
+			[
+				"Me",
+				"Mediumweight"
+			],
+			[
+				"Sili",
+				"silent_running"
+			],
+			[
+				"Quick_",
+				"quick_change_mount"
+			],
+			[
+				"ANTI",
+				"ANTI_THEFT_CODE_LOCK"
+			],
+			[
+				"sys",
+				"system_holder"
+			],
+			[
+				"parsePro",
+				"parseProjectileProperties"
+			],
+			[
+				"parseMis",
+				"parseMissileProperties"
+			],
+			[
+				"G",
+				"GraphicOrganizer2"
+			],
+			[
+				"parseSystem",
+				"parseSystemProperty"
+			],
+			[
+				"parseREFLEC",
+				"parseReflectorProperties"
+			],
+			[
+				"parseMiss",
+				"parseMissileProperty"
+			],
+			[
+				"Grap",
+				"GraphicOrganizer"
+			],
+			[
+				"god",
+				"graph_org_demo"
+			],
+			[
+				"num_",
+				"num_options_total"
+			],
+			[
+				"has",
+				"has_checkpoint"
+			],
+			[
+				"parseapp",
+				"parseArmorPiercingProperty"
+			],
+			[
+				"ME",
+				"MEDIUM"
+			],
+			[
+				"eme",
+				"emelee_property"
+			],
+			[
+				"REGEX",
+				"REGEX_FLAGS"
+			],
+			[
+				"REG",
+				"REGEX_FIRST_CHAR_NON_TERMINATOR"
+			],
+			[
+				"BRACK",
+				"BRACKET_CLOSE"
+			],
+			[
+				"un",
+				"unmatched_if_statement"
+			],
+			[
+				"source",
+				"source_element"
+			],
+			[
+				"sourc",
+				"source_element"
+			],
+			[
+				"case",
+				"case_clause"
+			],
+			[
+				"spea",
+				"speaker_name"
+			],
+			[
+				"D",
+				"DecimalDigit"
+			],
+			[
+				"I",
+				"Inc_R3"
+			],
+			[
+				"setHoldCoun",
+				"SetLetterHoldCount"
+			],
+			[
+				"backr",
+				"background"
+			],
+			[
+				"p",
+				"p	Tag"
+			],
+			[
+				"mr",
+				"margin-top"
+			],
+			[
+				"f",
+				"font-size"
+			],
+			[
+				"F",
+				"font-family"
+			],
+			[
+				"b",
+				"border"
+			],
+			[
+				"st",
+				"style	Tag"
+			],
+			[
+				"Conta",
+				"container"
+			],
+			[
+				"getPro",
+				"getPropertyAsFloat"
+			],
+			[
+				"Wr",
+				"WritingRules_SpeakerManager"
+			],
+			[
+				"isM",
+				"is_mouse_down"
+			],
+			[
+				"m_wand",
+				"m_wanderDistance"
+			],
+			[
+				"m_wa",
+				"m_wanderRadius"
+			],
+			[
+				"targ",
+				"target_pos"
+			],
+			[
+				"m",
+				"m_target"
+			],
+			[
+				"timeli",
+				"timeline_index"
+			],
+			[
+				"comPar",
+				"comParamDecls"
+			],
+			[
+				"comParam",
+				"comParamDecl"
+			],
+			[
+				"Own",
+				"OwnedPointer"
+			],
+			[
+				"comStt",
+				"comStatement"
+			],
+			[
+				"Clo",
+				"CloseBrace"
+			],
+			[
+				"iNum",
+				"iNumCorrect"
+			],
+			[
+				"getMou",
+				"getMouseX"
+			],
+			[
+				"mou",
+				"mousex"
+			],
+			[
+				"act",
+				"actorPtr"
+			],
+			[
+				"get",
+				"getEnclosingGroup"
+			],
+			[
+				"cust",
+				"custom_cursor_active"
+			],
+			[
+				"getEncl",
+				"getEnclosingSwitch"
+			],
+			[
+				"inst",
+				"installTool"
+			],
+			[
+				"par",
+				"param2"
+			],
+			[
+				"getEnclo",
+				"getEnclosingActor"
+			],
+			[
+				"getE",
+				"getEnclosingActor"
+			],
+			[
+				"hilgiht",
+				"highlightNextWord"
+			],
+			[
+				"butt",
+				"button_flag"
+			],
+			[
+				"populatw",
+				"populateWithTextQ"
+			],
+			[
+				"m_ar",
+				"m_arBlankPos"
+			],
+			[
+				"getS",
+				"getSkillLevel"
+			],
+			[
+				"getAc",
+				"getActivityBaseNode"
+			],
+			[
+				"Multedit",
+				"MultiLineEdit"
+			],
+			[
+				"inact",
+				"inactive_time"
+			],
+			[
+				"debu",
+				"debug_window"
+			],
+			[
+				"Derelict",
+				"DerelictSFML2Window"
+			],
+			[
+				"event",
+				"eventPtr"
+			],
+			[
+				"xr",
+				"xraySound"
+			],
+			[
+				"tim",
+				"timelineOff"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Assets/Scripts/Weapon.cs",
+			"settings":
+			{
+				"buffer_size": 992,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Assets/Scripts/CameraShake.cs",
+			"settings":
+			{
+				"buffer_size": 385,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/PlayerInput.cs",
+			"settings":
+			{
+				"buffer_size": 5664,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/InControl/Source/Control/InputControlBase.cs",
+			"settings":
+			{
+				"buffer_size": 5979,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Assets/Scripts/Reasoner/Consideration.cs",
+			"settings":
+			{
+				"buffer_size": 3060,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/Java/JavaC.sublime-build",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Java/Ant.sublime-build",
+					""
+				],
+				[
+					"Packages/Java/JavaC.sublime-build",
+					""
+				]
+			],
+			[
+				"Packages/Java/JavaC.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 194.0,
+		"last_filter": "q",
+		"selected_items":
+		[
+			[
+				"q",
+				"Git: Quick Commit"
+			],
+			[
+				"gita",
+				"Git: Add Current File"
+			],
+			[
+				"gadd",
+				"Git: Add Current File"
+			],
+			[
+				"unix",
+				"Line Ending: Unix"
+			],
+			[
+				"line",
+				"Line Ending: Unix"
+			],
+			[
+				"uni",
+				"Line Ending: Unix"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pre",
+				"Preferences: Settings - Default"
+			],
+			[
+				"gitad",
+				"Git: Add Current File"
+			],
+			[
+				"gitq",
+				"Git: Quick Commit"
+			],
+			[
+				"git a",
+				"Git: Add Current File"
+			],
+			[
+				"git mo",
+				"Git: Open Modified Files"
+			],
+			[
+				"projed",
+				"Project: Edit Project"
+			],
+			[
+				"gad",
+				"Git: Add Current File"
+			],
+			[
+				"projpre",
+				"Project: Edit Project"
+			],
+			[
+				"svnc",
+				"TortoiseSVN: Commit"
+			],
+			[
+				"commit",
+				"TortoiseSVN: Commit"
+			],
+			[
+				"java",
+				"Set Syntax: Java"
+			],
+			[
+				"revert",
+				"TortoiseSVN: Revert"
+			],
+			[
+				"svnl",
+				"TortoiseSVN: Log"
+			],
+			[
+				"svnr",
+				"TortoiseSVN: Revert"
+			],
+			[
+				"scala",
+				"Set Syntax: Scala"
+			],
+			[
+				"svnu",
+				"TortoiseSVN: Update"
+			],
+			[
+				"preferencesettings user",
+				"Preferences: Settings - User"
+			],
+			[
+				"package control ",
+				"Preferences: Package Control Settings – User"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"sshtml",
+				"Set Syntax: HTML"
+			],
+			[
+				"xml",
+				"Set Syntax: XML"
+			],
+			[
+				"preferedef",
+				"Preferences: Settings - Default"
+			],
+			[
+				"ssbnf",
+				"Set Syntax: GoccBNF"
+			],
+			[
+				"add repo",
+				"Package Control: Add Repository"
+			],
+			[
+				"upgrade",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"linter",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"save as",
+				"Project: Save As"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"menu",
+				"View: Toggle Menu"
+			],
+			[
+				"ssj",
+				"Set Syntax: Java"
+			],
+			[
+				"ssht",
+				"Set Syntax: HTML"
+			],
+			[
+				"ssxml",
+				"Set Syntax: XML"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"removep",
+				"Package Control: Remove Package"
+			],
+			[
+				"hg",
+				"SublimeHg: Open Menu"
+			],
+			[
+				"svn",
+				"TortoiseSVN: Revert"
+			],
+			[
+				"sjj",
+				"Set Syntax: Java Server Page (JSP)"
+			],
+			[
+				"ssja",
+				"Set Syntax: Java"
+			],
+			[
+				"ssjava",
+				"Set Syntax: Java"
+			],
+			[
+				"ssm",
+				"Set Syntax: MTZ"
+			],
+			[
+				"ssc+",
+				"Set Syntax: C++"
+			],
+			[
+				"ssc",
+				"Set Syntax: C"
+			],
+			[
+				"ssmtz",
+				"Set Syntax: MTZ"
+			],
+			[
+				"ssb",
+				"Set Syntax: GoccBNF"
+			],
+			[
+				"make w",
+				"SublimeLinter: Make Warnings Passive"
+			],
+			[
+				"choose g",
+				"SublimeLinter: Choose Gutter Theme"
+			],
+			[
+				"choose l",
+				"SublimeLinter: Choose Lint Mode"
+			],
+			[
+				"enable",
+				"SublimeLinter: Enable Linter"
+			],
+			[
+				"disable",
+				"SublimeLinter: Disable Linter"
+			],
+			[
+				"linter ",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"ssbn",
+				"Set Syntax: GoccBNF"
+			],
+			[
+				"ssjs",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"color",
+				"Colorsublime: Browse Themes"
+			],
+			[
+				"ssf",
+				"Set Syntax: Flow"
+			],
+			[
+				"ssssr",
+				"Set Syntax: Sublime Snippet (Raw)"
+			],
+			[
+				"new yam",
+				"z:AAAPackageDev: New YAML Syntax Definition"
+			],
+			[
+				"pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"haskel",
+				"SublimeHaskell: Build"
+			],
+			[
+				"ssh",
+				"Set Syntax: HTML"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"sss",
+				"Set Syntax: Scala"
+			],
+			[
+				"pacinst",
+				"Package Control: Install Package"
+			],
+			[
+				"spt",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"sssc",
+				"Set Syntax: Scala"
+			],
+			[
+				"ssc#",
+				"Set Syntax: C#"
+			],
+			[
+				"sspl",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"sspa",
+				"Set Syntax: Pascal"
+			],
+			[
+				"ssjv",
+				"Set Syntax: Java"
+			],
+			[
+				"sstex",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"theme",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"ssjva",
+				"Set Syntax: Java"
+			],
+			[
+				"pack",
+				"Package Control: Discover Packages"
+			]
+		],
+		"width": 544.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"where scalac",
+			"where javac",
+			"view.settings().get(\"syntax\")",
+			"import urllib.request,os; pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering"
+	],
+	"file_history":
+	[
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/CameraShake.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Ammunition.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Mech.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/InControl/Source/Device/InputDevice.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Movement.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/InControl/Source/InputManager.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/InControl/Source/Control/OneAxisInputControl.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Action.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Editor/ActionAsset.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Actions.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Reasoner.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/InControl/Examples/InterfaceMovement/ButtonManager.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/InControl/Examples/Basic/BasicExample.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/InControl/Source/Control/InputControl.cs",
+		"/C/Program Files/Unity/Editor/Data/Resources/ScriptTemplates/81-C# Script-NewBehaviourScript.cs.txt",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Mobile.cs",
+		"/C/Users/srens/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/srens/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/QM_CharController.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/GamePadInput/GamePad.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/SteeringBehavior.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/EntityContainer.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/MechSpawner.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/ResourceSpawner.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/TestStuff/ArenaTestController.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/ScriptableObjectUtility.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/FollowPath.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/ActionList.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/ActionList.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/TestStuff/ObstacleSpawner.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/ResourceSpawner.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Resource.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Resource.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/DebugDrawingExtension/DebugExtension.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/ArenaTestController.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/TestStuff/ObstacleGenTest.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/GameController.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/CameraFollow.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/InputTest.cs",
+		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/SteeringBehaviors.cpp",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/ObstacleSpawner.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Smoother.cs",
+		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/Vehicle.cpp",
+		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Common/misc/Smoother.h",
+		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Common/2D/geometry.h",
+		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/Vehicle.h",
+		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/Obstacle.h",
+		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/MovingEntity.h",
+		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/GameWorld.h",
+		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/BaseGameEntity.h",
+		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/resource.h",
+		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/EntityFunctionTemplates.h",
+		"/C/Users/srens/Downloads/Buckland_PGAIBE_Source_VC6-VS2010/VS2010/Buckland_Chapter3-Steering Behaviors/SteeringBehaviors.h",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Path.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assembly-CSharp.csproj",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assembly-CSharp-firstpass.csproj",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assembly-CSharp-Editor.csproj",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/MechGame.sln",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/ProjectSettings/ProjectVersion.txt",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assembly-CSharp-Editor-firstpass.csproj",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/InfiniteAxisUtilitySystem.cpp",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/ScriptTest.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/WallAvoidance.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Wander.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Separation.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Pursuit.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/OffsetPursuit.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/ObstacleAvoidance.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Interpose.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Hide.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/FollowPath.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Flee.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Evade.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Cohesion.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Arrive.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Alignment.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Steering/Seek.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Consideration.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Actions/Action.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Plugins/Vexe/Runtime/Serialization/Serializers/SerializerBackend.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Weapon.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/MechGame.sublime-project",
+		"/C/Users/srens/Downloads/demo_15_october_2015/Demo 14 October 2015/modules/Compiler.jai",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CTeamSize.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CHealth.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CDistance.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CMultiplier.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CTime.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/Consideration.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Decisions/Decision.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/ActionDecider.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Decisions/DAttackDefault.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Decisions/Collect.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Decision.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/UtilityAI.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CEnemyHealth.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CEnemyTeamSize.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/Considerations/CConstant.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Wander.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Plugins/Vexe/Runtime/FastSave/Storage/AssetStorage.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Editor/ReasonerEditor.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Editor/EditorList.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Editor/ConsiderationDrawer.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Editor/CDistanceDrawer.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Editor/ActionDeciderEditor.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Reasoner/CDistance.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/TestStuff/ColorPoint.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Editor/ColorPointDrawer.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Editor/PropertyHolderEditor.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/TestStuff/PropertyHolder.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Editor/ListTesterInspector.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/ActionDecider.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Editor/EditorListOption.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/TestStuff/ListTester.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Editor/EditorList",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/ColorPointTester.cs",
+		"/C/Users/srens/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/ColorPoint.cs",
+		"/C/Users/srenshaw/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Seek.cs",
+		"/C/Users/srenshaw/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/SteeringBehavior.cs",
+		"/C/Users/srenshaw/Documents/GitHub/Mech-Game/MechGame/Assets/Editor/ActionDeciderEditor.cs",
+		"/C/Users/srenshaw/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/ActionDecider.cs",
+		"/C/Users/srenshaw/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Behaviors/Wander.cs",
+		"/C/Users/srenshaw/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/Mobile.cs",
+		"/C/Users/srenshaw/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/ColorPoint.cs",
+		"/C/Users/srenshaw/Documents/GitHub/Mech-Game/MechGame/Assets/Scripts/UtilityAI.cs",
+		"/C/Users/srenshaw/Documents/GitHub/Mech-Game/MechGame/MechGame.sublime-project",
+		"/C/Projects/IS/Scratch/RegroupAdditionCurriculumCode.joe",
+		"/C/Projects/IS/Scratch/RegroupAdditionDemoCode.joe"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 94.0,
+		"where_history":
+		[
+			"C:\\Projects\\IS, *.joe",
+			"C:\\Projects\\IS"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"static",
+			"Use",
+			"line",
+			"rigidbody",
+			"alignment",
+			"maxSpeed",
+			"if (pressing_a_direction) {\n			if (!going_same_direction) {\n				decelerate(vel.x); // decelerate\n			} else if (!going_max_speed) {\n				accelerate(vel.x); // accelerate\n			}\n		}",
+			"		} else if (pressing_a_direction) {\n			if (!going_same_direction) {\n				decelerate(vel.x); // decelerate\n			} else if (!going_max_speed) {\n				accelerate(vel.x); // accelerate\n			}\n",
+			"x_speed",
+			"horz",
+			"Vector3",
+			"set",
+			"maxAngSpeed",
+			"playerIndex",
+			"invertedY",
+			"invertedX",
+			"this",
+			"public",
+			"RightTrigger",
+			"public",
+			"var",
+			"mech",
+			"magnitude",
+			"Find",
+			"Capture",
+			"GetExtension",
+			"target",
+			"ad",
+			"i",
+			"rotation",
+			"braking",
+			"left_stick",
+			"maxSpeed",
+			"maxRotSpeed",
+			"=>",
+			"decelValue * braking",
+			"rotation",
+			"0.99f",
+			"rot_vel",
+			"rotation",
+			"boostSpeed",
+			"				Mobile mobile = mech.GetComponent<Mobile>();",
+			"Filter",
+			"static public Vector3",
+			"DEVELOPMENT_BUILD",
+			"DEBUG",
+			"Conditional",
+			"public static void",
+			"if (debugging) { ",
+			"DebugExtension",
+			"Color.red",
+			"detect_box_length",
+			"half_min_detection_box_length",
+			"min_detection_box_length",
+			"vehicle.GetComponent<SphereCollider>()",
+			"hit",
+			"baryCenter",
+			"interpolatedNormal",
+			"duration",
+			"DebugWireSphere",
+			"DebugSphere",
+			"velocity",
+			"transform.position",
+			"transform.forward",
+			"velocity.magnitude",
+			"velocity",
+			"return",
+			"Color.black",
+			"DebugExtension.DebugArrow(vehicle.transform.position, steering_force, Color.black);",
+			"SphereCollider",
+			"closest_wall",
+			"enable",
+			"QSmoother",
+			"VecSmoother",
+			"Vector3",
+			"smoothVelocity",
+			"T",
+			"rot_feeler",
+			"feeler",
+			"CreateFeelers",
+			"DebugExtension",
+			"[",
+			"IEnumerable",
+			"Values",
+			"Dictionary",
+			"List",
+			"obstacles",
+			"nearbyVehicles",
+			"if",
+			"wall",
+			"Add",
+			"List",
+			"Mobile",
+			"Count > 0",
+			"!=",
+			"&&",
+			"0.3",
+			"false",
+			"pursuit",
+			"offset",
+			"obstacle",
+			"interpose",
+			"hide",
+			"follow",
+			"evade",
+			"flee",
+			"arrive",
+			"wallFeelerLength",
+			"evader",
+			"offset",
+			"leader",
+			"minDetectionBoxLength",
+			"hunter",
+			"waypointSeekDist",
+			"path",
+			"target",
+			"deceleration",
+			"pursuer",
+			"threatRange",
+			"Transform",
+			"IsTesting",
+			"isTesting",
+			"enableTesting",
+			"List<Transform> obstacles",
+			"hunter",
+			"waypointSeekDist",
+			"Mobile pursuer",
+			"Vector3 target"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"<td>String",
+			"\"",
+			"",
+			"int speech_index = \\1",
+			"</td><td>int index = \\1",
+			"\\(\\1\\)",
+			"",
+			"<strong style=\"color: rgb(255, 0, 0)\">Seth</strong>",
+			"<strong style=\"color: rgb(128, 0, 128)\">Ryan</strong>",
+			"<strong style=\"color: rgb(128, 0, 128)\">\\1</strong>",
+			"<td><strong>\\1</strong>",
+			"</td>",
+			"<td>",
+			"<th>",
+			"<td>",
+			"<td>\\1</td>",
+			"\\1",
+			"<p>\\1</p>",
+			"<p>",
+			"\\1",
+			"",
+			"\\1",
+			"",
+			"Asset Bag:",
+			"<td\\1>\\2</td>",
+			"<th\\1>\\2</th>",
+			"<p>\\1</p>",
+			"",
+			"<span style=\"color:#ff0000\">\\1</span><",
+			"<span style=\"color:#ff0000\">\\1</span>",
+			" <span style=\"background-color:#ffaa00\">PartPartWhole</span>",
+			" <span style=\"background-color:#8888ff\">Cardinality</span>",
+			"</tr>",
+			"<td>",
+			"\\(\\1\\)</td>\\n      <td>Values: \\2",
+			"\\(\\1\\)</td>\\n<td>Values: \\2</td>",
+			"\\(\\1\\)</td>\\n<td>\\2 \\3</td>",
+			"<td>\\1</td>",
+			"\\1</td>",
+			"<td>\\1</td>",
+			"<tr>\\n      <td>",
+			"<tr>\\n\\t\\t\\t<td>",
+			"<tr>\\n<td>",
+			"<tr>\\\\n<td>",
+			"",
+			"<td></td>",
+			"",
+			"<td> </td>",
+			"\\(\\1\\)",
+			" ",
+			"<\\1></\\1>",
+			"",
+			"<\\1>",
+			"",
+			"<p>",
+			"/1",
+			"",
+			"\\3\\(\\6\\)",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Assets/Scripts/Weapon.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 992,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								695,
+								695
+							]
+						],
+						"settings":
+						{
+							"encoding_helper_encoding": "UTF-8",
+							"encoding_thread_running": true,
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 26.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Assets/Scripts/CameraShake.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 385,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								376,
+								376
+							]
+						],
+						"settings":
+						{
+							"encoding_helper_encoding": "UTF-8",
+							"encoding_thread_running": true,
+							"syntax": "Packages/C#/C#.tmLanguage"
+						},
+						"translation.x": 340.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "Assets/Scripts/PlayerInput.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5664,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4710,
+								4710
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/User/Color Highlighter/themes/fox.dark (SL).tmTheme",
+							"encoding_helper_encoding": "UTF-8",
+							"encoding_thread_running": true,
+							"history_list_is_closing": true,
+							"syntax": "Packages/C#/C#.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 562.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Assets/InControl/Source/Control/InputControlBase.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5979,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2585,
+								2585
+							]
+						],
+						"settings":
+						{
+							"encoding_helper_encoding": "UTF-8",
+							"encoding_thread_running": true,
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2046.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Assets/Scripts/Reasoner/Consideration.cs",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3060,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2448,
+								2448
+							]
+						],
+						"settings":
+						{
+							"encoding_helper_encoding": "UTF-8",
+							"encoding_thread_running": true,
+							"history_list_is_closing": true,
+							"syntax": "Packages/C#/C#.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 604.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 38.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 134.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 118.0
+	},
+	"output.haskell_sublime_load":
+	{
+		"height": 104.0
+	},
+	"output.package_dev":
+	{
+		"height": 104.0
+	},
+	"output.sbt":
+	{
+		"height": 144.0
+	},
+	"output.sbt_error":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "MechGame.sublime-project",
+	"replace":
+	{
+		"height": 72.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"action",
+				"Scripts\\Reasoner\\Action.cs"
+			],
+			[
+				"mov",
+				"Scripts\\Movement.cs"
+			],
+			[
+				"movem",
+				"Scripts\\Movement.cs"
+			],
+			[
+				"reasoner",
+				"Scripts\\Reasoner\\Reasoner.cs"
+			],
+			[
+				"mech",
+				"Scripts\\Mech.cs"
+			],
+			[
+				"resources",
+				"Scripts\\ResourceSpawner.cs"
+			],
+			[
+				"resource",
+				"Scripts\\Resource.cs"
+			],
+			[
+				"debu",
+				"Debug Extensions\\DebugExtension.cs"
+			],
+			[
+				"ob",
+				"Scripts\\TestStuff\\ObstacleSpawner.cs"
+			],
+			[
+				"game",
+				"Scripts\\GameController.cs"
+			],
+			[
+				"deb",
+				"Debug Extensions\\DebugExtension.cs"
+			],
+			[
+				"de",
+				"Debug Extensions\\DebugExtension.cs"
+			],
+			[
+				"debue",
+				"Debug Extensions\\DebugExtension.cs"
+			],
+			[
+				"path",
+				"Scripts\\Path.cs"
+			],
+			[
+				"deg",
+				"Debug Extensions\\DebugExtension.cs"
+			],
+			[
+				"debug",
+				"Debug Extensions\\DebugExtension.cs"
+			],
+			[
+				"ali",
+				"Scripts\\Behaviors\\Steering\\Alignment.cs"
+			],
+			[
+				"",
+				"Scripts\\Behaviors\\Steering\\Wander.cs"
+			],
+			[
+				"co",
+				"Scripts\\Behaviors\\Steering\\Cohesion.cs"
+			],
+			[
+				"wall",
+				"Scripts\\Behaviors\\Steering\\WallAvoidance.cs"
+			],
+			[
+				"arr",
+				"Scripts\\Behaviors\\Steering\\Arrive.cs"
+			],
+			[
+				"flee",
+				"Scripts\\Behaviors\\Steering\\Flee.cs"
+			],
+			[
+				"hide",
+				"Scripts\\Behaviors\\Steering\\Hide.cs"
+			],
+			[
+				"se",
+				"Scripts\\Behaviors\\Steering\\Seek.cs"
+			],
+			[
+				"steer",
+				"Scripts\\Behaviors\\Steering\\SteeringBehavior.cs"
+			],
+			[
+				"cons",
+				"Scripts\\Reasoner\\Consideration.cs"
+			],
+			[
+				"re",
+				"Scripts\\Reasoner\\Reasoner.cs"
+			],
+			[
+				"act",
+				"Scripts\\Reasoner\\Consideration.cs"
+			],
+			[
+				"ac",
+				"Scripts\\Reasoner\\Action.cs"
+			],
+			[
+				"rea",
+				"Scripts\\Reasoner\\Reasoner.cs"
+			],
+			[
+				"stee",
+				"Scripts\\Behaviors\\Steering\\SteeringBehavior.cs"
+			],
+			[
+				"wea",
+				"Scripts\\Weapon.cs"
+			],
+			[
+				"actio",
+				"Scripts\\Reasoner\\Actions\\Action.cs"
+			],
+			[
+				"debuge",
+				"Debug Extensions\\DebugExtension.cs"
+			],
+			[
+				"mob",
+				"Scripts\\Mobile.cs"
+			],
+			[
+				"seek",
+				"Scripts\\Behaviors\\Steering\\Seek.cs"
+			],
+			[
+				"mobil",
+				"Scripts\\Mobile.cs"
+			],
+			[
+				"c",
+				"Scripts\\Reasoner\\Considerations\\CTeamSize.cs"
+			],
+			[
+				"cm",
+				"Scripts\\Reasoner\\Considerations\\CMultiplier.cs"
+			],
+			[
+				"ch",
+				"Scripts\\Reasoner\\Considerations\\CHealth.cs"
+			],
+			[
+				"con",
+				"Scripts\\Reasoner\\Considerations\\Consideration.cs"
+			],
+			[
+				"dec",
+				"Scripts\\Reasoner\\Decisions\\Decision.cs"
+			],
+			[
+				"obst",
+				"Scripts\\Behaviors\\Steering\\ObstacleAvoidance.cs"
+			],
+			[
+				"pur",
+				"Scripts\\Behaviors\\Steering\\Pursuit.cs"
+			],
+			[
+				"cohe",
+				"Scripts\\Behaviors\\Steering\\Cohesion.cs"
+			],
+			[
+				"coh",
+				"Scripts\\Behaviors\\Steering\\Cohesion.cs"
+			],
+			[
+				"see",
+				"Scripts\\Behaviors\\Steering\\Seek.cs"
+			],
+			[
+				"offes",
+				"Scripts\\Behaviors\\Steering\\OffsetPursuit.cs"
+			],
+			[
+				"wander",
+				"Scripts\\Behaviors\\Wander.cs"
+			],
+			[
+				"colorp",
+				"TestStuff\\ColorPoint.cs"
+			],
+			[
+				"mo",
+				"Mobile.cs"
+			],
+			[
+				"color",
+				"TestStuff\\ColorPoint.cs"
+			],
+			[
+				"uti",
+				"UtilityAI.cs"
+			],
+			[
+				"cdist",
+				"C:\\Users\\srenshaw\\Documents\\GitHub\\Mech-Game\\MechGame\\Assets\\Scripts\\Reasoner\\CDistance.cs"
+			],
+			[
+				"10",
+				"Math Lessons\\Code\\PlaceValue_GR02_T01_L03_GP_Code.joe"
+			],
+			[
+				"scene",
+				"Joe\\Scene.joe"
+			],
+			[
+				"button",
+				"Tools\\Code\\Button.joe"
+			],
+			[
+				"expand",
+				"Math Lessons\\ExpandedFormCode.joe"
+			],
+			[
+				"butt",
+				"Tools\\Code\\Button.joe"
+			],
+			[
+				"reg",
+				"Math Lessons\\Prototypes\\RegroupAdditionDemoCode.joe"
+			],
+			[
+				"regr",
+				"Math Lessons\\Prototypes\\RegroupAdditionDemoCode.joe"
+			],
+			[
+				"object",
+				"Joe\\ObjectArrayList.joe"
+			],
+			[
+				"lang",
+				"Joe\\lang.joe"
+			],
+			[
+				"alg",
+				"Joe\\Algorithm.joe"
+			],
+			[
+				"expande",
+				"Math Lessons\\ExpandedFormCode_Manual.joe"
+			],
+			[
+				"exp",
+				"Math Lessons\\ExpandedFormCode.joe"
+			],
+			[
+				"supe",
+				"Joe\\Supervisor.joe"
+			],
+			[
+				"gsf",
+				"Joe\\GSF.joe"
+			],
+			[
+				"expa",
+				"Math Lessons\\ExpandedFormCode.joe"
+			],
+			[
+				"fractioncompa",
+				"Math Lessons\\Code\\FractionComparisonCode.joe"
+			],
+			[
+				"fractioncomparison",
+				"Math Lessons\\Code\\FractionComparisonCode.joe"
+			],
+			[
+				"ex",
+				"Math Lessons\\ExpandedFormCode.joe"
+			],
+			[
+				"maths",
+				"Math Lessons\\Code\\MathShell.joe"
+			],
+			[
+				"expanded",
+				"Math Lessons\\ExpandedFormCode.joe"
+			],
+			[
+				"fractioncrossinggame",
+				"Math Lessons\\Code\\FractionCrossingGameCode.joe"
+			],
+			[
+				"mathshell",
+				"Math Lessons\\Code\\MathShell.joe"
+			],
+			[
+				"fractioncrosi",
+				"Math Lessons\\Code\\FractionCrossingStage.joe"
+			],
+			[
+				"fractioncrossingg",
+				"Math Lessons\\Code\\FractionCrossingGameCode.joe"
+			],
+			[
+				"fractioncrossinggc",
+				"Math Lessons\\Code\\FractionCrossingGameCode.joe"
+			],
+			[
+				"fractioncrossing",
+				"Math Lessons\\Code\\FractionCrossingStage.joe"
+			],
+			[
+				"knb",
+				"Joe\\KnowledgeBase.joe"
+			],
+			[
+				"math",
+				"Math Lessons\\Code\\MathShell.joe"
+			],
+			[
+				"expe",
+				"Math Lessons\\ExpandedFormCode.joe"
+			],
+			[
+				"place",
+				"Math Lessons\\PlaceValue_Shell.joe"
+			],
+			[
+				"slot",
+				"Math Lessons\\Code\\SlotsCode_GP.joe"
+			],
+			[
+				"su",
+				"Joe\\Supervisor.joe"
+			],
+			[
+				"shell",
+				"Math Lessons\\Code\\MathShell.joe"
+			],
+			[
+				"mathlessons",
+				"MathLessons\\PV_Forms_PVMat_jc.joe"
+			],
+			[
+				"essaybuilder",
+				"WritingRules\\EssayBuilder.joe"
+			],
+			[
+				"wr_",
+				"WritingRules\\WR_SpeakerManager.joe"
+			],
+			[
+				"control",
+				"joe\\ControlBar.joe"
+			],
+			[
+				"wr_spea",
+				"WritingRules\\WR_SpeakerManager.joe"
+			],
+			[
+				"wrsp",
+				"WritingRules\\WR_SpeakerManager.joe"
+			],
+			[
+				"essay",
+				"WritingRules\\EssayBuilder.joe"
+			],
+			[
+				"speakerm",
+				"WritingRules\\WR_SpeakerManager.joe"
+			],
+			[
+				"gra",
+				"WritingRules\\GraphicOrganizer2.joe"
+			],
+			[
+				"controlb",
+				"joe\\ControlBar.joe"
+			],
+			[
+				"objectarr",
+				"joe\\ObjectArrayList.joe"
+			],
+			[
+				"ssj",
+				"SoundRecognition\\SREx_J_Vis.aab"
+			],
+			[
+				"questiol",
+				"joe\\QuestionLog.joe"
+			],
+			[
+				".joe",
+				"joe\\BusToolbar.joe"
+			],
+			[
+				"swat",
+				"BigBooks\\SWATBook.joe"
+			],
+			[
+				"wordplay.joe",
+				"WordPlay\\BookInventoryHelper.joe"
+			],
+			[
+				"word.joe",
+				"Props\\WordPointer.joe"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "hh",
+		"selected_items":
+		[
+			[
+				"hh",
+				"C:\\Users\\srens\\Desktop\\HandmadeHero\\HH.sublime-project"
+			],
+			[
+				"ro",
+				"C:\\Users\\srens\\Dropbox\\Roleplaying\\roleplaying.sublime-project"
+			],
+			[
+				"math",
+				"C:\\Projects\\IS\\Sublime Projects\\MathLessons.sublime-project"
+			],
+			[
+				"virt",
+				"C:\\VirtualClassroom\\virtual_classroom.sublime-project"
+			],
+			[
+				"q",
+				"C:\\Projects\\Scratch\\Prototypes\\Question Racer\\Question_Racer.sublime-project"
+			],
+			[
+				"tank",
+				"C:\\Users\\srenshaw\\Desktop\\Tanks\\Tanks.sublime-project"
+			],
+			[
+				"rol",
+				"C:\\Users\\srenshaw\\Dropbox\\Roleplaying\\roleplaying.sublime-project"
+			],
+			[
+				"writ",
+				"C:\\Projects\\IS\\Sublime Projects\\WritingRules.sublime-project"
+			],
+			[
+				"",
+				"C:\\Users\\srenshaw\\Documents\\GitHub\\Alternity-Action-Check\\AAC.sublime-project"
+			],
+			[
+				"aac",
+				"C:\\Users\\srenshaw\\Documents\\GitHub\\Alternity-Action-Check\\AAC.sublime-project"
+			],
+			[
+				"hous",
+				"C:\\Users\\srenshaw\\Documents\\GitHub\\House-Gen\\House-Gen.sublime-project"
+			],
+			[
+				"mek",
+				"C:\\Users\\srenshaw\\Documents\\GitHub\\MekTool\\MekTool.sublime-project"
+			],
+			[
+				"mekto",
+				"C:\\Users\\srenshaw\\Documents\\GitHub\\MekTool\\MekTool.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 46.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"stee",
+				"SteeringBehavior"
+			],
+			[
+				"animatel",
+				"animateLocation"
+			],
+			[
+				"setVariabl",
+				"setVariable"
+			],
+			[
+				"childi",
+				"getActiveChildIndex"
+			],
+			[
+				"insertChild",
+				"insertChild"
+			],
+			[
+				"issealed",
+				"isSealed"
+			],
+			[
+				"getNth",
+				"getNthChild"
+			],
+			[
+				"setProperty",
+				"setProperty"
+			],
+			[
+				"setLocation",
+				"setLocation"
+			],
+			[
+				"Node",
+				"Node"
+			],
+			[
+				"button",
+				"Button"
+			],
+			[
+				"Lesson",
+				"Lesson_Base"
+			],
+			[
+				"aborti",
+				"AbortInactivity"
+			],
+			[
+				"audio",
+				"AudioTrack"
+			],
+			[
+				"onmous",
+				"convertFromMouseToCanvasCoordinates"
+			],
+			[
+				"BUtton",
+				"ButtonBehavior"
+			],
+			[
+				"Scene",
+				"Scene"
+			],
+			[
+				"onup",
+				"OnUpdateTraversal"
+			],
+			[
+				"shell",
+				"ShellBase"
+			],
+			[
+				"FontDesc",
+				"FontDesc"
+			],
+			[
+				"VisualText",
+				"VisualText"
+			],
+			[
+				"Button",
+				"Button"
+			],
+			[
+				"lessonB",
+				"Lesson_Base"
+			],
+			[
+				"Lesson_Base",
+				"Lesson_Base"
+			],
+			[
+				"Switch",
+				"Switch"
+			],
+			[
+				"MathS",
+				"Math_Shell"
+			],
+			[
+				"CompareSlot",
+				"CompareSlotsGP"
+			],
+			[
+				"Control",
+				"ControlBar"
+			],
+			[
+				"shellbase",
+				"ShellBase"
+			],
+			[
+				"expande",
+				"ExpandedFormCode"
+			],
+			[
+				"scene",
+				"Scene"
+			],
+			[
+				"IApp",
+				"IApp"
+			],
+			[
+				"OnEnter",
+				"OnEnter"
+			],
+			[
+				"guided",
+				"GuidedRounding_Shell"
+			],
+			[
+				"ShellBase",
+				"ShellBase"
+			],
+			[
+				"DataGrid",
+				"DataGrid"
+			],
+			[
+				"native",
+				"NativeResource"
+			],
+			[
+				"flo",
+				"flo"
+			],
+			[
+				"FractionComp",
+				"FractionComparison_Widget"
+			],
+			[
+				"Sys",
+				"Sys"
+			],
+			[
+				"KBCom",
+				"KBComparisonHistory"
+			],
+			[
+				"FractionCrossing",
+				"FractionCrossingStage"
+			],
+			[
+				"AudioManager",
+				"AudioManager"
+			],
+			[
+				"KBSkill",
+				"KBSkillHistory"
+			],
+			[
+				"QuestionLog",
+				"QuestionLog"
+			],
+			[
+				"logentry",
+				"LogEntry"
+			],
+			[
+				"geometry",
+				"Geometry"
+			],
+			[
+				"userstatus",
+				"UserStatus"
+			],
+			[
+				"MLEH",
+				"MLEHelper"
+			],
+			[
+				"newlessonnode",
+				"NewLessonNode"
+			],
+			[
+				"point2d",
+				"Point2d"
+			],
+			[
+				"Print",
+				"Print"
+			],
+			[
+				"scroller",
+				"Scroller"
+			],
+			[
+				"super",
+				"Supervisor"
+			],
+			[
+				"userInt",
+				"UserInterface"
+			],
+			[
+				"window",
+				"Window"
+			],
+			[
+				"expandedc",
+				"ExpandedFormCode"
+			],
+			[
+				"factoryn",
+				"FactoryNumeric"
+			],
+			[
+				"fade",
+				"FadeEffect"
+			],
+			[
+				"Joint",
+				"Joint"
+			],
+			[
+				"lesson_Con",
+				"Lesson_Controller"
+			],
+			[
+				"listbox",
+				"ListBox"
+			],
+			[
+				"debugl",
+				"DebugLocal"
+			],
+			[
+				"connection",
+				"Connection"
+			],
+			[
+				"commandmon",
+				"CommandMonitor"
+			],
+			[
+				"chipsand",
+				"ChipsAndBits"
+			],
+			[
+				"buttonbe",
+				"ButtonBehavior"
+			],
+			[
+				"BTLoader",
+				"BTLoader"
+			],
+			[
+				"audiotr",
+				"AudioTrack"
+			],
+			[
+				"actortr",
+				"ActorTransition"
+			],
+			[
+				"BusTo",
+				"BusToolbar"
+			],
+			[
+				"CBLoader",
+				"CBLoader"
+			],
+			[
+				"Contr",
+				"ControlBar"
+			],
+			[
+				"questionLog",
+				"QuestionLog"
+			],
+			[
+				"control",
+				"ControlBar"
+			],
+			[
+				"color",
+				"Color"
+			],
+			[
+				"CommandMonitor",
+				"CommandMonitor"
+			],
+			[
+				"playInactivity",
+				"playInactivity"
+			],
+			[
+				"TSelection",
+				"TSelection"
+			],
+			[
+				"Rect",
+				"Rect"
+			],
+			[
+				"mlehe",
+				"MLEHelper"
+			],
+			[
+				"G",
+				"GSF"
+			],
+			[
+				"Lesson_Stack",
+				"Lesson_Stack"
+			],
+			[
+				"CommandMon",
+				"CommandMonitor"
+			],
+			[
+				"NewLessonN",
+				"NewLessonNode"
+			],
+			[
+				"DebugLocal",
+				"DebugLocal"
+			],
+			[
+				"LessonC",
+				"Lesson_Controller"
+			],
+			[
+				"FadeEff",
+				"FadeEffect"
+			],
+			[
+				"UserInter",
+				"UserInterface"
+			],
+			[
+				"UAEvent",
+				"UAEvent"
+			],
+			[
+				"BTExitBlock",
+				"BTExitBlock"
+			],
+			[
+				"IAdmin",
+				"IAdmin"
+			],
+			[
+				"ASuper",
+				"ASupervisorCallback"
+			],
+			[
+				"RuntimeContext",
+				"RuntimeContext"
+			],
+			[
+				"SuperStart",
+				"SuperStartPoints"
+			],
+			[
+				"ObjectArray",
+				"ObjectArrayList"
+			],
+			[
+				"Data",
+				"Data"
+			],
+			[
+				"Superv",
+				"Supervisor"
+			],
+			[
+				"UserStatus",
+				"UserStatus"
+			],
+			[
+				"LogEntry",
+				"LogEntry"
+			],
+			[
+				"IUserLog",
+				"IUserLogin"
+			],
+			[
+				"Chips",
+				"ChipsAndBits"
+			],
+			[
+				"BusTool",
+				"BusToolbar"
+			],
+			[
+				"controlbar",
+				"ControlBar"
+			],
+			[
+				"variant",
+				"Variant"
+			],
+			[
+				"enableInput",
+				"ShouldEnableInput"
+			],
+			[
+				"getrect",
+				"getRect"
+			]
+		],
+		"width": 400.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 213.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
