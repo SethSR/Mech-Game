@@ -220,4 +220,6 @@ pip-log.txt
 
 Library
 Temp
-MechGame/Assets/Scripts/InfiniteAxisUtilitySystem.cpp
+Assets/Scripts/InfiniteAxisUtilitySystem.cpp
+*.csproj
+*.sln
